@@ -1,0 +1,24 @@
+.container {
+  padding: 5vh 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  font-size: 12px;
+   p:first-letter, a {
+    color: orangered;
+     font-weight: 500;
+  }
+  
+  a {
+    text-decoration: none;
+    padding-left: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  @media(min-width: 768px) {
+    font-size: 16px;
+  }
+}
