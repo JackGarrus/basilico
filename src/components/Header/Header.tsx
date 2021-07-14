@@ -1,4 +1,4 @@
-import { ReactComponent as Leaf } from 'assets/icons/recipe-type/leaf.svg';
+import { ReactComponent as Leaf } from 'icons/recipe-type/leaf.svg';
 import style from './Header.module.scss';
 //import { NavLink } from 'react-router-dom';
 

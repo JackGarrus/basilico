@@ -1,0 +1,38 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px;
+  flex-shrink: 1;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+  p {
+    font-size: 14px;
+    @media(min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  &:hover {
+    transform: scale(1.1);
+    p {
+      font-weight: 400;
+    }
+    & p:first-letter{
+      color: orangered;
+    }
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}

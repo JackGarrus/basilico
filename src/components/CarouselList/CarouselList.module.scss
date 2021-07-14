@@ -1,0 +1,21 @@
+@use 'colors' as c;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container, .type {
+  display: flex;
+  justify-content: center;
+}
+
+
+.type {
+  text-transform: lowercase;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 400;
+  color: c.$orange;
+}
