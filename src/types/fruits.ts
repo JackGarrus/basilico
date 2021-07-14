@@ -13,6 +13,7 @@ export type Fruits =
   | 'raspberry'
   | 'melon'
   | 'blueberry'
+  | 'medlar'
   | 'peach'
   | 'plum'
   | 'grape'

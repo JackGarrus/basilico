@@ -3,6 +3,7 @@ export type Vegetables =
   | 'chard'
   | 'artichoke'
   | 'carrot'
+  | 'chicory'
   | 'cauliflower'
   | 'broccoli'
   | 'cabbage-head'
