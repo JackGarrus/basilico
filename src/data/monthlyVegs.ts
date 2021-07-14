@@ -1,7 +1,6 @@
-/* Ho dovuto inserire un id per oggetto perchè altrimenti il browser mi ordinava
-l''array in ordine alfabetico, sballandomi l'ordine corretto dei mesi
-*/
-export const MONTHS = [
+import { MonthProp } from "types/months";
+
+export const MONTHS: MonthProp[] = [
   {
     id: 0,
     month: 'january',
@@ -136,7 +135,7 @@ export const MONTHS = [
       'pea',
       'leek',
     ],
-    lastTimeVeg: ['broccoli', 'savoy-cabbage', 'fenel'],
+    lastTimeVeg: ['broccoli', 'savoy-cabbage', 'fennel'],
     fruits: [
       'banana',
       'orange',
@@ -273,7 +272,7 @@ export const MONTHS = [
     id: 6,
     month: 'july',
     firstTimeFruit: ['grape'],
-    lastTimeFruit: ['cherry', 'strawbarry'],
+    lastTimeFruit: ['cherry', 'strawberry'],
     firstTimeVeg: [],
     lastTimeVeg: [],
     fruits: [
@@ -316,7 +315,7 @@ export const MONTHS = [
     month: 'august',
     firstTimeFruit: ['pear', 'apple'],
     lastTimeFruit: ['apricot', 'watermelon'],
-    firstTimeVeg: ['fenel', 'pumpkin'],
+    firstTimeVeg: ['fennel', 'pumpkin'],
     lastTimeVeg: [],
     fruits: [
       'banana',
@@ -474,7 +473,7 @@ export const MONTHS = [
     firstTimeFruit: ['avocado', 'orange', 'tangerine', 'grapefruit'],
     lastTimeFruit: ['grape'],
     firstTimeVeg: [],
-    lastTimeVeg: ['garlic', 'bean', 'celery'],
+    lastTimeVeg: ['garlic', 'beans', 'celery'],
     fruits: [
       'banana',
       'pomegranate',

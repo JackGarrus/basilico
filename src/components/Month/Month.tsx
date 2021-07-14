@@ -1,18 +1,10 @@
 import CarouselList from 'components/CarouselList/CarouselList';
 import { Fruits } from 'types/fruits';
 import { Vegetables } from 'types/vegetables';
+import {MonthProp} from 'types/months'
 import style from './Month.module.scss';
-//import CarouselList from 'components/Molecules/CarouselList/CarouselList';
 
-interface MonthProps {
-  id: number;
-  key: number;
-  month: string;
-  fruits: string[];
-  vegetables: string[];
-}
-
-const Month: React.FC<MonthProps> = ({ month, fruits, vegetables }) => {
+const Month: React.FC<MonthProp> = ({ month, fruits, vegetables }) => {
   return (
     <div className={style.container}>
       <header>

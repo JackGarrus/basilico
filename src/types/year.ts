@@ -1,5 +1,5 @@
-import { Month } from 'types/months';
+import { MonthProp } from 'types/months';
 
 export interface Year {
-  months: Month[];
+  months: MonthProp[];
 }

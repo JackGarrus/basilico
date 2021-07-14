@@ -15,13 +15,13 @@ export type Months =
   | 'november'
   | 'december';
 
-export interface Month {
+export interface MonthProp {
   id: number;
-  month: Month;
-  firstTimeFruit: Fruits[];
-  lastTimeFruit: Fruits[];
-  firstTimeVeg: Vegetables[];
-  lastTimeVeg: Vegetables[];
+  month: string;
   fruits: Fruits[];
   vegetables: Vegetables[];
+  firstTimeFruit?: Fruits[];
+  lastTimeFruit?:Fruits[];
+  lastTimeVeg?: Vegetables[];
+  firstTimeVeg?:Vegetables[];
 }

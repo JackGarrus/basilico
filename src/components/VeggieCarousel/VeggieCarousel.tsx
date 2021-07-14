@@ -1,12 +1,10 @@
-import * as React from 'react';
-import { MONTHS } from 'data/data';
+import { MONTHS } from 'data/monthlyVegs';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import 'styles/slickCustomStyle.scss';
 import Month from 'components/Month/Month';
-//import Month from 'components/Molecules/Month/Month';
-
+ 
 const VeggieCarousel: React.FunctionComponent = () => {
   const months = MONTHS;
 
