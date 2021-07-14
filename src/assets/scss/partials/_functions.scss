@@ -1,0 +1,50 @@
+// Copied from https://github.com/Objectway/super-gigi/blob/master/lib/helpers/_functions.scss#L4
+@function remove-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+$rem-base: 16px !default;
+
+@function unit-calc($values, $base-value, $unit) {
+  @if length($values) == 1 {
+    @if $unit != 1px {
+      @return remove-unit($values) / remove-unit($base-value) * $unit;
+    } @else {
+      @return remove-unit($values) * remove-unit($base-value) * $unit;
+    }
+  } @else {
+    // empty array that we will return
+    $unit-values: ();
+
+    @each $value in $values {
+      @if $unit != 1px {
+        $unit-values: append(
+            $unit-values,
+            remove-unit($value) / remove-unit($base-value) * $unit
+        );
+      } @else {
+        $unit-values: append(
+            $unit-values,
+            remove-unit($value) * remove-unit($base-value) * $unit
+        );
+      }
+    }
+
+    @return $unit-values;
+  }
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  @return unit-calc($values, $base-value, 1rem);
+}
+
+// - TRANSFORM AN ARRAY OF PX VALUES (with or without px value) in em unit - //
+
+@function em-calc($values, $base-value: $rem-base) {
+  @return unit-calc($values, $base-value, 1em);
+}
+
+// - TRANSFORM AN ARRAY OF EM VALUES (with or without em value) in px unit - //
+@function px-calc($values, $base-value: $rem-base) {
+  @return unit-calc($values, $base-value, 1px);
+}

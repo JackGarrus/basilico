@@ -1,0 +1,138 @@
+// to avoid the slider breaking from setting display: flex to father
+@use 'partials/colors';
+
+$chev : './../icons/misc/chev.svg';
+
+.slick-slider.slick-initialized {
+  overflow: hidden;
+}
+
+.slick-list {
+  margin: 0px 0px 60px;
+  @media(min-width: 1024px) {
+    margin: 0;
+  }
+}
+
+// pagination
+.slick-dots {
+  position: fixed;
+  bottom: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: honeydew;
+  right: 0;
+  left: 0;
+  padding: 10px 0;
+  z-index: 999;
+  @media(min-width: 500px) {
+    height: 60px;
+    z-index: 0;
+  }
+  @media(min-width: 768px) {
+    position: relative;
+    height: 50px;
+  }
+}
+
+.slick-dots li:not(.slick-active) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 20px;
+  transition: transform 0.3s ease-in;
+
+  &:hover {
+    color: colors.$orange;
+    transform: scale(2);
+    transition: transform 0.2s ease-out;
+  }
+}
+
+.slick-dots li.slick-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: colors.$orange;
+  font-weight: 400;
+  transform: scale(2);
+  transition: transform 0.2s ease-out;
+  @media(min-width: 768px) {
+    padding: 20px;
+  }
+}
+
+li > .sliderPaginationIndex {
+  font-size: 1.2rem;
+
+  &:hover {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// arrows
+.slick-prev {
+  left: 0;
+  z-index: 999;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.slick-next {
+  right: 0;
+  z-index: 999;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.slick-prev, .slick-next {
+  display: flex!important;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 67px;
+  background-color: honeydew;
+  transition: background-color 0.3s ease-in, width 0.3s ease-in, height 0.3s ease-in, font-weight 0.3s ease-in;
+  @media(max-width: 500px) {
+    bottom: 0;
+  }
+  @media(min-width:1440px) {
+    width: 105px;
+  }
+  &:hover {
+    background-color: honeydew;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, font-weight 0.1s ease-out;
+    @media(min-width:1440px) {
+      width: 105px;
+    }
+  }
+  &:focus{
+    background-color: honeydew;
+  }
+}
+
+.slick-prev:before,
+.slick-next:before{
+  display: flex;
+  content: ' ';
+  background-image: url($chev);
+  background-size: 28px 28px;
+  height: 28px;
+  width: 28px;
+}
+.slick-prev:before {
+  transform: rotate(90deg);
+}
+.slick-next:before {
+  transform: rotate(-90deg);
+}
+
