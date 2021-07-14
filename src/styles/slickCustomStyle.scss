@@ -1,7 +1,7 @@
 // to avoid the slider breaking from setting display: flex to father
-@use 'partials/colors';
+@use 'colors' as c;
 
-$chev : './../icons/misc/chev.svg';
+$chev : '/assets/icons/misc/chev.svg';
 
 .slick-slider.slick-initialized {
   overflow: hidden;
@@ -22,7 +22,7 @@ $chev : './../icons/misc/chev.svg';
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: honeydew;
+  background-color: c.$honeydew;
   right: 0;
   left: 0;
   padding: 10px 0;
@@ -46,7 +46,7 @@ $chev : './../icons/misc/chev.svg';
   transition: transform 0.3s ease-in;
 
   &:hover {
-    color: colors.$orange;
+    color: c.$orange;
     transform: scale(2);
     transition: transform 0.2s ease-out;
   }
@@ -57,7 +57,7 @@ $chev : './../icons/misc/chev.svg';
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: colors.$orange;
+  color: c.$orange;
   font-weight: 400;
   transform: scale(2);
   transition: transform 0.2s ease-out;
@@ -98,7 +98,7 @@ li > .sliderPaginationIndex {
   position: fixed;
   height: 100%;
   width: 67px;
-  background-color: honeydew;
+  background-color: c.$honeydew;
   transition: background-color 0.3s ease-in, width 0.3s ease-in, height 0.3s ease-in, font-weight 0.3s ease-in;
   @media(max-width: 500px) {
     bottom: 0;
@@ -107,7 +107,7 @@ li > .sliderPaginationIndex {
     width: 105px;
   }
   &:hover {
-    background-color: honeydew;
+    background-color: c.$honeydew;
     height: 100%;
     cursor: pointer;
     transition: background-color 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, font-weight 0.1s ease-out;
@@ -116,7 +116,7 @@ li > .sliderPaginationIndex {
     }
   }
   &:focus{
-    background-color: honeydew;
+    background-color: c.$honeydew;
   }
 }
 
