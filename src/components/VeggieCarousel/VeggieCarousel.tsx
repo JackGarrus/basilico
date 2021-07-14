@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import 'styles/slickCustomStyle.scss';
+import Month from 'components/Month/Month';
 //import Month from 'components/Molecules/Month/Month';
 
 const VeggieCarousel: React.FunctionComponent = () => {
@@ -11,7 +12,14 @@ const VeggieCarousel: React.FunctionComponent = () => {
 
   const renderWidget = () => {
     let veggieMonth = months.map((e, i) => {
-      return ( <div>month</div>
+      return (  
+      <Month
+          id={e.id}
+          key={i}
+          month={e.month}
+          fruits={e.fruits}
+          vegetables={e.vegetables}
+        /> 
        
       );
     });
@@ -47,11 +55,3 @@ const VeggieCarousel: React.FunctionComponent = () => {
 
 export default VeggieCarousel;
 
-/*
- <Month
-          id={e.id}
-          key={i}
-          month={e.month}
-          fruits={e.fruits}
-          vegetables={e.vegetables}
-        /> */
