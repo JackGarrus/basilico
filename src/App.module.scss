@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  font-family: 'Mali', cursive;
+  @media(min-width: 768px) {
+    padding: 0 20px;
+  }
+}
+
