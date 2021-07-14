@@ -1,7 +1,7 @@
 // to avoid the slider breaking from setting display: flex to father
 @use 'colors' as c;
 
-$chev : '/assets/icons/misc/chev.svg';
+$chev : '/icons/misc/chev.svg';
 
 .slick-slider.slick-initialized {
   overflow: hidden;
