@@ -1,0 +1,222 @@
+@use '../../../assets/scss/partials/colors';
+// THIS CODE WILL BE REFACTORED
+
+$border-width: 2px;
+$border-radius: 8px;
+$layout-padding-lg: 20px;
+$misc_path: './../../../assets/icons/misc/';
+$pattern: 'polkadots.svg';
+
+// RECEIPE ******************************************
+.card {
+  height: auto;
+  background-color: colors.$white;
+  border-radius: $border-radius;
+  display: grid;
+  max-width: 90vw;
+  background-image: url($misc_path + $pattern);
+  background-size: 60%;
+  &:hover {
+    box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+  @media(min-width: 768px) {
+    height: 300px;
+    max-width: 100%;
+  }
+  @media(min-width: 1024px) {
+    width: 800px;
+  }
+}
+
+// LAYOUT **********************************************
+
+.generals {
+  display: grid;
+  grid-template-areas: "img" "header" "generals";
+  grid-template-rows: 135px 50px 100px;
+  @media(min-width: 768px) {
+    grid-template-areas: "img header" "img generals";
+    grid-gap: $layout-padding-lg;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 40% 1fr;
+  }
+}
+
+.details {
+  display: grid;
+  grid-template-areas: "img""header" "ingredients" "instructions";
+  grid-row-gap: 15px;
+  @media(min-width: 768px) {
+    grid-template-areas: "img header" "img ingredients" "instructions instructions";
+    grid-gap: $layout-padding-lg;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+}
+
+.img {
+  width: 100%;
+  grid-area: img;
+  object-fit: cover;
+  height: 130px;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  border-bottom: 2px dashed orangered;
+  @media(min-width: 768px) {
+    height: 300px;
+    border: 3px dashed orangered;
+    border-top-left-radius: $border-radius - $border-width;
+    border-bottom-left-radius: $border-radius - $border-width;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+
+}
+
+.instructions_container {
+  grid-area: instructions;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  @media(min-width: 768px) {
+    padding: 0 $layout-padding-lg;;
+  }
+}
+
+.ingredients_container {
+  grid-area: ingredients;
+  line-height: 1.6;
+  height: 100%;
+  padding: 0 10px;
+  @media(min-width: 768px) {
+    padding: 0 ;
+  }
+}
+
+
+
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  span:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+// MODIFICATORS *************************************************
+
+.card_expanded {
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.article {
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+// ICONS *************************************************
+
+$ico-size-sm: 22px;
+$ico-size-lg: 35px;
+
+.icon {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: $ico-size-sm;
+  width: $ico-size-sm;
+  height: $ico-size-sm;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.paper_bg {
+  display: block;
+  background-image: url($misc_path + $pattern);
+}
+
+.icon_component {
+  width: $ico-size-lg;
+  height: $ico-size-lg;
+}
+
+.icons_container {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  @media(min-width: 768px) {
+    align-items: normal;
+    padding-left: 0;
+  }
+
+  .icon_wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 30px;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    @media(min-width: 768px) {
+      padding: 0;
+      min-width: 80px;
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+.animated {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.arrow {
+  width: 15px;
+  height: 20px;
+  margin-left: 5px;
+}
+
+.infobox {
+  font-weight: 600;
+}

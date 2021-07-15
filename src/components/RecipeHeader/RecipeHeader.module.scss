@@ -1,0 +1,35 @@
+@use '../../../assets/scss/partials/colors';
+
+.container {
+  padding: 0 10px;
+  & > div:first-child {
+    display: flex;
+    align-items: center;
+    @media(min-width: 768px) {
+      align-items: normal;
+      padding-top: 20px;
+    }
+  }
+  @media(min-width: 768px) {
+    padding: 10px 15px 0 0;
+  }
+}
+
+.headline{
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-right: 20px;
+  width: 100%;
+  &:first-letter {
+    color: colors.$orange;
+  }
+}
+
+.list {
+  display: flex;
+  height: fit-content;
+}
+
+.list > span:not(:last-child){
+  margin-right: 10px;
+}

@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+  }
+
+  .name {
+    margin-right: 5px;
+    font-size: 14px;
+    @media(min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+}

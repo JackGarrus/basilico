@@ -1,0 +1,40 @@
+@use '../../../assets/scss/partials/functions' as fn;
+@use '../../../assets/scss/partials/colors' ;
+
+$default: 16px;
+
+.title{
+  font-weight: 400;
+  max-width: 90%;
+  &:first-letter {
+    color: colors.$orange;
+  }
+}
+
+.xsmall {
+  font-size: fn.rem-calc($default - 4px);
+}
+
+.small {
+  font-size: fn.rem-calc($default - 2px);
+}
+
+.default {
+  font-size: fn.rem-calc($default);
+}
+
+.medium {
+  font-size: fn.rem-calc($default + 2px);
+}
+
+.large {
+  font-size: fn.rem-calc($default + 4px);
+}
+
+.xlarge {
+  font-size: fn.rem-calc($default + 6px);
+}
+
+.xxlarge {
+  font-size: fn.rem-calc($default + 8px);
+}

@@ -1,0 +1,10 @@
+a.link {
+  color: black;
+  text-decoration: none;
+  padding-bottom: 10px;
+  &:hover,
+  &:visited,
+  &:active {
+    color: black
+  }
+}
