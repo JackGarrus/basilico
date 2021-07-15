@@ -7,7 +7,7 @@ interface RecipesPerIngredient {
   recipes: Recipe[]
 }
 
-interface Recipe {
+export interface Recipe {
   id: number;
   name: string;
   image: string;
@@ -19,7 +19,7 @@ interface Recipe {
   hasFish?: boolean;
   time: string;
   difficulty: string;
-  allergens: Allergens[] | null;
+  allergens: AllergensList;
   ingredients: Ingredient[];
   instructions: string[];
   advices?: string[]
@@ -31,6 +31,7 @@ interface Ingredient {
 }
 
 type Allergens = 'nuts' | 'gluten' | 'seeds' | 'lactose' | 'eggs' | 'soy'
+export type AllergensList = Allergens[] | [];
 
 export const RECIPES: RecipesPerIngredient[] = [
   {
@@ -118,7 +119,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         time: '15min',
         difficulty: 'low',
         ingredients: [{ name: 'apples', quantity: '3' }],
-        allergens: null,
+        allergens: [],
         instructions: [
           '1. Wash the apples and use a mandolin to cut them into very thin slices, without eliminating the central core.',
           '2. Arrange the apple slices on a baking sheet covered with parchment paper, trying not to overlap them. If you prefer, sprinkle the apples with icing sugar and cinnamon.',
@@ -365,7 +366,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasFish: false,
         time: '30min',
         difficulty: 'low',
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'chicken breast', quantity: '350g' },
           { name: 'asparagus', quantity: '250g' },
@@ -400,7 +401,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasFish: false,
         time: '1h',
         difficulty: 'low',
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'asparagus', quantity: '200g' },
           { name: 'ricotta', quantity: '200g' },
@@ -436,7 +437,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasFish: false,
         time: '15 min',
         difficulty: 'low',
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'avocado', quantity: '1' },
           { name: 'cocoa', quantity: '35g' },
@@ -547,7 +548,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasFish: false,
         time: '10min',
         difficulty: 'low',
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'cannellini beans', quantity: '250g' },
           { name: 'lemon', quantity: 'half: zest and juice' },
@@ -743,7 +744,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasFish: false,
         time: '1h',
         difficulty: 'low',
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'vegetable fresh cream', quantity: '300g' },
           { name: 'sugar', quantity: '220g' },
@@ -1075,7 +1076,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: false,
         isVegetarian: false,
-        allergens: null,
+        allergens: [],
         hasMeat: true,
         hasFish: false,
         ingredients: [
@@ -1114,7 +1115,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: false,
         isVegetarian: false,
-        allergens: null,
+        allergens: [],
         hasMeat: true,
         hasFish: false,
         ingredients: [
@@ -1215,7 +1216,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -1300,7 +1301,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -1441,7 +1442,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -1995,7 +1996,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: false,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -2134,7 +2135,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -2448,7 +2449,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: false,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: true,
         ingredients: [
@@ -2483,7 +2484,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: false,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -2512,7 +2513,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: false,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: true,
         ingredients: [
@@ -2764,7 +2765,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: true,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -3364,7 +3365,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: true,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [
@@ -3881,7 +3882,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasMeat: true,
         hasFish: false,
         isVegetarian: false,
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'chicken breast', quantity: 'q.s.' },
           { name: 'potatoes', quantity: '500g' },
@@ -4268,7 +4269,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: null,
+        allergens: [],
         ingredients: [
           { name: 'savoy cabbage', quantity: 'half head' },
           { name: 'olive oil', quantity: 'q.s.' },
@@ -4299,7 +4300,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         isSweet: false,
         isVegan: true,
         isVegetarian: true,
-        allergens: null,
+        allergens: [],
         hasMeat: false,
         hasFish: false,
         ingredients: [

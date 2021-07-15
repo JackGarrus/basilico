@@ -81,10 +81,10 @@ const Recipes: React.FC<RouterProps> = ({ match }: Props) => {
         <br />
         <div className={style.card_wrapper}>{
           recipe.map((e: any, i: number) => <Recipe
+            id={e.id}
             key={i}
             image={e.image}
-            alt={e.name}
-            title={e.name}
+            name={e.name}
             link={e.link}
             allergens={e.allergens}
             ingredients={e.ingredients}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import style from './recipe.module.scss';
 import cn from 'classnames';
-//import { animated, useSpring, config } from 'react-spring';
+import { animated, useSpring, config } from 'react-spring';
 import { LazyImage } from 'react-lazy-images';
 //import List from 'components/Atoms/List/List';
 //import Subtitle from 'components/Atoms/Subtitle/Subtitle';
@@ -13,36 +13,20 @@ import Anchor from 'components/Anchor/Anchor';
 import RecipeIngredientsSection from 'components/RecipeIngredientsSection/RecipeIngredientsSection';
 import Subtitle from 'components/Subtitle/Subtitle';
 import List from 'components/List/List';
-
-interface RecipeProps {
-  image: string;
-  alt: string;
-  title: string;
-  difficulty: string;
-  time: string;
-  isSweet?: boolean;
-  isVegetarian?: boolean;
-  isVegan?: boolean;
-  hasMeat?: boolean;
-  hasFish: boolean;
-  allergens: string[];
-  ingredients: [{ name: string; quantity: 'string' }];
-  instructions: string[];
-  link: string;
-}
+import { Recipe as RecipeProps } from 'data/recipes/recipes';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
-  //const [hover, setHover] = useState<boolean>(false);
+  const [hover, setHover] = useState<boolean>(false);
   const [cardHeight, setCardHeight] = useState<number>(300);
-  /* const hoverState = useSpring({
-     transform: hover ? ' scale(1.03)' : 'scale(1)',
-     config: config.gentle,
-   });
-   const heightState = useSpring({
-     height: expandCard ? `${cardHeight}px` : '300px',
-     config: config.gentle,
-   });*/
+  const hoverState = useSpring({
+    transform: hover ? ' scale(1.03)' : 'scale(1)',
+    config: config.gentle,
+  });
+  const heightState = useSpring({
+    height: expandCard ? `${cardHeight}px` : '300px',
+    config: config.gentle,
+  });
   const el: any = useRef(null);
   let generics = {
     vegetarian: props.isVegetarian && !props.isVegan && !props.isSweet,
@@ -73,7 +57,6 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
       >
         <LazyImage
           src={props.image}
-          alt={props.alt}
           debounceDurationMs={500}
           placeholder={({ imageProps, ref }) => (
             <img
@@ -92,7 +75,7 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
             />
           )}
         />
-        <RecipeHeader list={props.allergens} title={props.title} />
+        <RecipeHeader list={props.allergens} title={props.name} />
         {expandCard ? (
 
           <>
