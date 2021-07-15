@@ -1,4 +1,38 @@
-export const RECIPES = [
+import { Fruits } from 'types/fruits';
+import { Vegetables } from 'types/vegetables';
+
+interface RecipesPerIngredient {
+  id: number;
+  ingredientName: Fruits | Vegetables;
+  recipes: Recipe[]
+}
+
+interface Recipe {
+  id: number;
+  name: string;
+  image: string;
+  link: string;
+  isVegan?: boolean;
+  isVegetarian?: boolean;
+  isSweet?: boolean;
+  hasMeat?: boolean;
+  hasFish?: boolean;
+  time: string;
+  difficulty: string;
+  allergens: Allergens[] | null;
+  ingredients: Ingredient[];
+  instructions: string[];
+  advices?: string[]
+}
+
+interface Ingredient {
+  name: string;
+  quantity: string;
+}
+
+type Allergens = 'nuts' | 'gluten' | 'seeds' | 'lactose' | 'eggs' | 'soy'
+
+export const RECIPES: RecipesPerIngredient[] = [
   {
     id: 0,
     ingredientName: 'apple',
@@ -18,7 +52,7 @@ export const RECIPES = [
         time: '10min',
         difficulty: 'low',
         allergens: ['nuts', 'gluten'],
-        ingredients: [ 
+        ingredients: [
           { name: 'puff pastry', quantity: '2' },
           { name: 'apples', quantity: '2' },
           { name: 'walnuts', quantity: '40g' },
@@ -2795,7 +2829,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['gluten.', 'eggs'],
+        allergens: ['gluten', 'eggs'],
         ingredients: [
           { name: 'caster sugar', quantity: '170g' },
           { name: 'flour', quantity: '140g' },
@@ -2835,7 +2869,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['gluten.', 'eggs', 'lactose'],
+        allergens: ['gluten', 'eggs', 'lactose'],
         ingredients: [
           { name: 'flour', quantity: '250g' },
           { name: 'sugar', quantity: '130g' },
@@ -2868,7 +2902,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['gluten.', 'lactose'],
+        allergens: ['gluten', 'lactose'],
         ingredients: [
           { name: 'sponge cake disk', quantity: '1' },
           { name: 'coconut yogurt', quantity: '250g' },
@@ -2916,7 +2950,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['gluten.', 'lactose', 'nuts'],
+        allergens: ['gluten', 'lactose', 'nuts'],
         ingredients: [
           { name: 'spelled', quantity: '200g' },
           { name: 'parmesan', quantity: '80g' },
@@ -2952,7 +2986,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['gluten.', 'lactose'],
+        allergens: ['gluten', 'lactose'],
         ingredients: [
           { name: 'ripe persimmons', quantity: '4' },
           { name: 'dark chocolate cookies', quantity: '250g' },
@@ -3060,7 +3094,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['gluten.', 'lactose'],
+        allergens: ['gluten', 'lactose'],
         ingredients: [
           { name: 'ripe persimmon', quantity: '4' },
           { name: 'dark chocolate cookies', quantity: '250g' },
@@ -3101,7 +3135,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['eggs.', 'lactose'],
+        allergens: ['eggs', 'lactose'],
         ingredients: [
           { name: 'kiwi', quantity: '5' },
           { name: 'sugar', quantity: '100g' },
@@ -3364,7 +3398,7 @@ export const RECIPES = [
         isVegetarian: true,
         hasMeat: false,
         hasFish: false,
-        allergens: ['eggs,', 'nuts', 'gluten'],
+        allergens: ['eggs', 'nuts', 'gluten'],
         ingredients: [
           { name: 'onion', quantity: '1' },
           { name: 'flour', quantity: '150g' },
