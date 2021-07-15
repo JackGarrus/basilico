@@ -1,16 +1,16 @@
-@use '../../../assets/scss/partials/colors';
+@use 'colors' as c;
 // THIS CODE WILL BE REFACTORED
 
 $border-width: 2px;
 $border-radius: 8px;
 $layout-padding-lg: 20px;
-$misc_path: './../../../assets/icons/misc/';
+$misc_path: '/icons/misc/';
 $pattern: 'polkadots.svg';
 
 // RECEIPE ******************************************
 .card {
   height: auto;
-  background-color: colors.$white;
+  background-color: white;
   border-radius: $border-radius;
   display: grid;
   max-width: 90vw;
@@ -66,10 +66,10 @@ $pattern: 'polkadots.svg';
   height: 130px;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  border-bottom: 2px dashed orangered;
+  border-bottom: 2px dashed c.$orangered;
   @media(min-width: 768px) {
     height: 300px;
-    border: 3px dashed orangered;
+    border: 3px dashed c.$orangered;
     border-top-left-radius: $border-radius - $border-width;
     border-bottom-left-radius: $border-radius - $border-width;
     border-top-right-radius: 50%;

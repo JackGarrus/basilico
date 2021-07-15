@@ -23,7 +23,7 @@ const Footer = () => {
         </span>
       </p>
       <br />
-      <p>All receipes and images are not mine</p>
+      <p>All recipes and images are not mine</p>
       <p>Thanks to freepik for some icons</p>
     </footer>
   );

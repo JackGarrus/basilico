@@ -1,5 +1,5 @@
 import style from './Recipes.module.scss';
-import { RECIPES } from 'data/receipes/recipes';
+import { RECIPES } from 'data/recipes/recipes';
 import Recipe from 'components/Recipe/Recipe';
 //import { useTrail, animated } from 'react-spring';
 
@@ -15,11 +15,11 @@ const Recipes: React.FC<RouterProps> = ({ match }: Props) => {
   let ingredientRecipe = recipesData.find(
     obj => obj.ingredientName === selectedIngredient,
   );
-  let readyToLoad = false;
+  // let readyToLoad = false;
   let recipe: any;
 
   if (ingredientRecipe) {
-    readyToLoad = true;
+    // readyToLoad = true;
     recipe = ingredientRecipe.recipes;
   }
   /*const trail = useTrail(recipe.length, {
@@ -80,23 +80,23 @@ const Recipes: React.FC<RouterProps> = ({ match }: Props) => {
         <br />
         <br />
         <div className={style.card_wrapper}>{
-          recipe.map((e:any, i:number) => <Recipe
-              key={i}
-              image={e.image}
-              alt={e.name}
-              title={e.name}
-              link={e.link}
-              allergens={e.allergens}
-              ingredients={e.ingredients}
-              instructions={e.instructions}
-              difficulty={e.difficulty}
-              time={e.time}
-              isVegan={e.isVegan}
-              isVegetarian={e.isVegetarian}
-              isSweet={e.isSweet}
-              hasFish={e.hasFish}
-              hasMeat={e.hasMeat}
-            />)
+          recipe.map((e: any, i: number) => <Recipe
+            key={i}
+            image={e.image}
+            alt={e.name}
+            title={e.name}
+            link={e.link}
+            allergens={e.allergens}
+            ingredients={e.ingredients}
+            instructions={e.instructions}
+            difficulty={e.difficulty}
+            time={e.time}
+            isVegan={e.isVegan}
+            isVegetarian={e.isVegetarian}
+            isSweet={e.isSweet}
+            hasFish={e.hasFish}
+            hasMeat={e.hasMeat}
+          />)
         }</div>
       </div>
     </div>

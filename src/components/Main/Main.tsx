@@ -1,14 +1,15 @@
+import RecipesList from 'components/RecipesList/RecipesList';
 import VeggieCarousel from 'components/VeggieCarousel/VeggieCarousel';
-//import { Switch, Route } from 'react-router-dom';
-//import RecipesList from 'components/Pages/RecipesList/RecipesList';
-//import RecipeForm from 'components/Templates/RecipeForm/RecipeForm';
+import { Switch, Route } from 'react-router-dom';
 import style from './Main.module.scss';
 
 const Main: React.FC = () => {
   return (
     <div className={style.main}>
-      main
-      <VeggieCarousel />
+      <Switch>
+         <Route exact path="/" component={VeggieCarousel} />
+         <Route path="/recipes/:ingredient?" component={RecipesList} />
+        </Switch>
     </div>
   );
   }

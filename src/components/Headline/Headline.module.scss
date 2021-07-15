@@ -1,13 +1,14 @@
-@use '../../../assets/scss/partials/functions' as fn;
-@use '../../../assets/scss/partials/colors' ;
+@use 'functions'as fn;
+@use 'colors'as c;
 
 $default: 16px;
 
-.title{
+.title {
   font-weight: 400;
   max-width: 90%;
+
   &:first-letter {
-    color: colors.$orange;
+    color: c.$orangered;
   }
 }
 

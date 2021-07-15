@@ -18,7 +18,7 @@ export const RECIPES = [
         time: '10min',
         difficulty: 'low',
         allergens: ['nuts', 'gluten'],
-        ingredients: [
+        ingredients: [ 
           { name: 'puff pastry', quantity: '2' },
           { name: 'apples', quantity: '2' },
           { name: 'walnuts', quantity: '40g' },

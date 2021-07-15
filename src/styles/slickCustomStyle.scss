@@ -46,10 +46,10 @@ $chev : '/icons/misc/chev.svg';
   transition: transform 0.3s ease-in;
 
   &:hover {
-    color: c.$orange;
+    color: c.$orangered;
     transform: scale(2);
     transition: transform 0.2s ease-out;
-  }
+  } 
 }
 
 .slick-dots li.slick-active {
@@ -57,7 +57,7 @@ $chev : '/icons/misc/chev.svg';
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: c.$orange;
+  color: c.$orangered;
   font-weight: 400;
   transform: scale(2);
   transition: transform 0.2s ease-out;

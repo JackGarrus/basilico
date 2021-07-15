@@ -12,7 +12,7 @@ $rem-base: 16px !default;
     } @else {
       @return remove-unit($values) * remove-unit($base-value) * $unit;
     }
-  } @else {
+  } @else { 
     // empty array that we will return
     $unit-values: ();
 

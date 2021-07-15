@@ -1,4 +1,4 @@
-import style from '.Anchor.module.scss';
+import style from './Anchor.module.scss';
 
 interface Props {
   link: string;

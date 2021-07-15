@@ -1,4 +1,4 @@
-@use '../../../assets/scss/partials/colors';
+@use 'colors' as c;
 
 $border-width: 2px;
 $border-radius: 8px;
@@ -38,7 +38,7 @@ $layout-padding-lg: 20px;
   }
 
   &:first-letter{
-    color: colors.$orange;
+    color: c.$orangered;
     font-weight: 600;
   }
 }

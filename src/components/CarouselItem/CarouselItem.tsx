@@ -9,11 +9,10 @@ interface Props {
   item: Fruits | Vegetables;
 }
 
-
 const CarouselItem: React.FC<Props> = ({ item }) => {
 
   return (
-    <NavLink to={'/receipes/' + item} className={style.link}>
+    <NavLink to={'/recipes/' + item} className={style.link}>
       <div className={style.item}>
         {parseVeggiesIcons(item, style.icon)}
         <p>{item}</p>

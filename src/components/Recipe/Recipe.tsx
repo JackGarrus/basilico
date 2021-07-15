@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import style from './recipe.module.scss';
 import cn from 'classnames';
 //import { animated, useSpring, config } from 'react-spring';
@@ -33,7 +33,7 @@ interface RecipeProps {
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
-  const [hover, setHover] = useState<boolean>(false);
+  //const [hover, setHover] = useState<boolean>(false);
   const [cardHeight, setCardHeight] = useState<number>(300);
  /* const hoverState = useSpring({
     transform: hover ? ' scale(1.03)' : 'scale(1)',
