@@ -1,10 +1,10 @@
-import style from './Anchor.module.scss';
+import style from './ExternalLink.module.scss';
 
 interface Props {
   link: string;
   linkName: string;
 }
-const Anchor: React.FC<Props> = ({ children, linkName, link }) => {
+const ExternalLink: React.FC<Props> = ({ children, linkName, link }) => {
   return (
     <a
       href={link}
@@ -24,4 +24,4 @@ const Anchor: React.FC<Props> = ({ children, linkName, link }) => {
   );
 };
 
-export default Anchor;
+export default ExternalLink;

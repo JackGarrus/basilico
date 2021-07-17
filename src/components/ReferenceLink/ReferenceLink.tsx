@@ -1,6 +1,6 @@
 import { ReactComponent as Go } from 'icons/misc/next.svg';
 import BorderedBox from 'components/BorderedBox/BorderedBox';
-import Anchor from 'components/Anchor/Anchor';
+import ExternalLink from 'components/ExternalLink/ExternalLink';
 
 import style from './ReferenceLink.module.scss';
 
@@ -12,9 +12,9 @@ const ReferenceLink: React.FC<Props> = ({ link }) => (
   <BorderedBox>
     {link.length > 0 ? (
       <>
-        <Anchor link={link} linkName="Go to the website of the recipe ">
+        <ExternalLink link={link} linkName="Go to the website of the recipe ">
           <Go className={style.arrow} />
-        </Anchor>
+        </ExternalLink>
         <p className={style.infobox}>
           Most of the recipe links provided are just for reference
         </p>
