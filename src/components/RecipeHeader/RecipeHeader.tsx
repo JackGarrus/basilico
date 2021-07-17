@@ -1,5 +1,5 @@
 import Headline from 'components/Headline/Headline';
-import { AllergensList } from 'data/recipes/recipes';
+import { AllergensList } from 'types/recipe';
 import { getFormattedText } from 'utils/dataDisplayMethods';
 import style from './RecipeHeader.module.scss';
 

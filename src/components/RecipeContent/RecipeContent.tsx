@@ -1,6 +1,6 @@
 import RecipeIngredientsSection from 'components/RecipeIngredientsSection/RecipeIngredientsSection';
 import ReferenceLink from 'components/ReferenceLink/ReferenceLink';
-import { Ingredient } from 'data/recipes/recipes'
+import { Ingredient } from 'types/recipe'
 import Subtitle from 'components/Subtitle/Subtitle';
 
 import style from './RecipeContent.module.scss';

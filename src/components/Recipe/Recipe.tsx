@@ -4,7 +4,7 @@ import { animated, useSpring, config } from 'react-spring';
 import { LazyImage } from 'react-lazy-images';
 import RecipeHeader from 'components/RecipeHeader/RecipeHeader';
 import RecipeGenerics from 'components/RecipeGenerics/RecipeGenerics';
-import { Recipe as RecipeProps } from 'data/recipes/recipes';
+import { Recipe as RecipeProps } from 'types/recipe';
 import style from './Recipe.module.scss';
 import RecipeContent from 'components/RecipeContent/RecipeContent';
 

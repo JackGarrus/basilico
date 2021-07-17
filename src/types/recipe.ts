@@ -1,26 +1,7 @@
-export interface IngredientRecipe {
-  id: number;
-  ingredientName: string;
-  recipes: Recipe[];
-}
-export interface Recipe {
-  id: number;
-  name: string;
-  image: string;
-  time: string;
-  link: string;
-  difficulty: string;
-  isSweet: boolean;
-  isVegan: boolean;
-  isVegetarian: boolean;
-  hasMeat: boolean;
-  hasFish: boolean;
-  allergens: Allergens[] | null;
-  ingredients: RecipeIngredients[];
-  instructions: string[];
-  advices?: string[] | string;
-}
+import { Fruits } from './fruits';
+import { Vegetables } from './vegetables';
 
+export type AllergensList = Allergens[] | [];
 export type Allergens =
   | 'lactose'
   | 'seeds'
@@ -28,8 +9,31 @@ export type Allergens =
   | 'gluten'
   | 'nuts'
   | 'eggs';
+export interface RecipesPerIngredient {
+  id: number;
+  ingredientName: Fruits | Vegetables;
+  recipes: Recipe[]
+}
 
-export interface RecipeIngredients {
+export interface Recipe {
+  id: number;
+  name: string;
+  image: string;
+  link: string;
+  isVegan?: boolean;
+  isVegetarian?: boolean;
+  isSweet?: boolean;
+  hasMeat?: boolean;
+  hasFish?: boolean;
+  time: string;
+  difficulty: string;
+  allergens: AllergensList;
+  ingredients: Ingredient[];
+  instructions: string[];
+  advices?: string[]
+}
+
+export interface Ingredient {
   name: string;
   quantity: string;
 }

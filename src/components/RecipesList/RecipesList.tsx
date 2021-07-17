@@ -1,4 +1,4 @@
-import { RECIPES } from 'data/recipes/recipes';
+import { RECIPES } from 'data/recipes';
 import Recipe from 'components/Recipe/Recipe';
 import { useTrail, animated } from 'react-spring';
 import style from './RecipesList.module.scss';

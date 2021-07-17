@@ -1,10 +1,10 @@
 import style from './RecipeIngredientsSection.module.scss';
 import Subtitle from 'components/Subtitle/Subtitle';
 import RecipeIngredient from 'components/RecipeIngredient/RecipeIngredient';
-import { RecipeIngredients } from 'types/recipe';
+import { Ingredient } from 'types/recipe';
 
 interface Props {
-  ingredients: RecipeIngredients[];
+  ingredients: Ingredient[];
 }
 
 const RecipeIngredientsSection: React.FC<Props> = ({ ...props }) => {
