@@ -38,35 +38,6 @@ const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
     },
   });
 
-  function renderRecipes() {
-    if (readyToLoad) {
-      return trail.map((props: any, i: number) => {
-        const e = recipe[i];
-        return (
-          <animated.div style={props}>
-            <Recipe
-              id={i}
-              key={i}
-              image={e.image}
-              name={e.name}
-              link={e.link}
-              allergens={e.allergens}
-              ingredients={e.ingredients}
-              instructions={e.instructions}
-              difficulty={e.difficulty}
-              time={e.time}
-              isVegan={e.isVegan}
-              isVegetarian={e.isVegetarian}
-              isSweet={e.isSweet}
-              hasFish={e.hasFish}
-              hasMeat={e.hasMeat}
-            />
-          </animated.div>
-        );
-      });
-    }
-  }
-
   return (
     <div className={style.container}>
       <div className={style.innerContainer}>
@@ -76,9 +47,33 @@ const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
           </span>
           recipes
         </p>
-        <br />
-        <br />
-        <div className={style.card}>{renderRecipes()}</div>
+        <div className={style.card}>{
+          readyToLoad && trail.map((props: any, i: number) => {
+            const e = recipe[i];
+            return (
+              <animated.div style={props}>
+                <Recipe
+                  id={i}
+                  key={i}
+                  image={e.image}
+                  name={e.name}
+                  link={e.link}
+                  allergens={e.allergens}
+                  ingredients={e.ingredients}
+                  instructions={e.instructions}
+                  difficulty={e.difficulty}
+                  time={e.time}
+                  isVegan={e.isVegan}
+                  isVegetarian={e.isVegetarian}
+                  isSweet={e.isSweet}
+                  hasFish={e.hasFish}
+                  hasMeat={e.hasMeat}
+                />
+              </animated.div>
+            );
+          })
+        }</div>
+
       </div>
     </div>
   );
