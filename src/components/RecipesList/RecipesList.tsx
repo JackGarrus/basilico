@@ -42,38 +42,36 @@ const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
     <div className={style.container}>
       <div className={style.innerContainer}>
         <p className={style.pageTitle}>
-          <span className={style.selectedIngredient}>
-            {selectedIngredient}
-          </span>
+          <span className={style.selectedIngredient}>{selectedIngredient}</span>
           recipes
         </p>
-        <div className={style.card}>{
-          readyToLoad && trail.map((props: any, i: number) => {
-            const e = recipe[i];
-            return (
-              <animated.div style={props}>
-                <Recipe
-                  id={i}
-                  key={i}
-                  image={e.image}
-                  name={e.name}
-                  link={e.link}
-                  allergens={e.allergens}
-                  ingredients={e.ingredients}
-                  instructions={e.instructions}
-                  difficulty={e.difficulty}
-                  time={e.time}
-                  isVegan={e.isVegan}
-                  isVegetarian={e.isVegetarian}
-                  isSweet={e.isSweet}
-                  hasFish={e.hasFish}
-                  hasMeat={e.hasMeat}
-                />
-              </animated.div>
-            );
-          })
-        }</div>
-
+        <div className={style.card}>
+          {readyToLoad &&
+            trail.map((props: any, i: number) => {
+              const e = recipe[i];
+              return (
+                <animated.div style={props}>
+                  <Recipe
+                    id={i}
+                    key={i}
+                    image={e.image}
+                    name={e.name}
+                    link={e.link}
+                    allergens={e.allergens}
+                    ingredients={e.ingredients}
+                    instructions={e.instructions}
+                    difficulty={e.difficulty}
+                    time={e.time}
+                    isVegan={e.isVegan}
+                    isVegetarian={e.isVegetarian}
+                    isSweet={e.isSweet}
+                    hasFish={e.hasFish}
+                    hasMeat={e.hasMeat}
+                  />
+                </animated.div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

@@ -6,9 +6,14 @@ interface Props {
 }
 const Anchor: React.FC<Props> = ({ children, linkName, link }) => {
   return (
-    <a href={link} className={style.link} target="_blank" rel="noopener noreferrer">
+    <a
+      href={link}
+      className={style.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {children ? (
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <p>{linkName}</p>
           {children}
         </div>

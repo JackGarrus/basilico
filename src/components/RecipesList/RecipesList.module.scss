@@ -18,16 +18,16 @@ $layout-padding-lg: 20px;
   width: 100%;
   padding: 0 20px;
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     margin-top: 70px;
   }
 
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     margin-top: 0;
     padding: 0;
   }
 
-  @media(min-width: 1024px) {
+  @media (min-width: 1024px) {
     width: auto;
   }
 }
@@ -35,6 +35,7 @@ $layout-padding-lg: 20px;
 .pageTitle {
   font-size: 1.5rem;
   font-weight: 400;
+  margin-bottom: 20px;
 
   .selectedIngredient {
     padding-right: 10px;

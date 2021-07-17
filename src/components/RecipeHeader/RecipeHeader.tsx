@@ -1,10 +1,11 @@
 import Headline from 'components/Headline/Headline';
-import { AllergensList } from 'types/recipe';
+import { Allergens, AllergensList } from 'types/recipe';
 import { getFormattedText } from 'utils/dataDisplayMethods';
+import { parseAllergens } from 'utils/parseIcons';
 import style from './RecipeHeader.module.scss';
 
 interface Props {
-  list?: AllergensList;
+  list: AllergensList;
   title: string;
 }
 
@@ -15,13 +16,10 @@ const RecipeHeader: React.FC<Props> = ({ list, title }) => {
         <div className={style.headline}>
           <Headline text={getFormattedText(title)} size="lg" />
         </div>
-        {list && (
-          <div className={style.list}>
-            {/*list.map((e: string, i: number) => (
-              <InlineIcons key={i} name={e} size={25} />
-            ))*/}
-          </div>
-        )}
+        {list.length > 0 &&
+          list.map((allergene: Allergens, i: number) => (
+            <div className={style.list}>{parseAllergens(allergene)}</div>
+          ))}
       </div>
     </div>
   );

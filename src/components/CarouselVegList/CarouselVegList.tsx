@@ -11,9 +11,12 @@ interface ListProps {
 const CarouselList: React.FC<ListProps> = ({ list, type }) => (
   <div className={style.container}>
     <p className={style.type}>{type} - </p>
-    {list.map((veg: Fruits | Vegetables, i: number): JSX.Element => <CarouselVegBox key={i} item={veg} />)}
+    {list.map(
+      (veg: Fruits | Vegetables, i: number): JSX.Element => (
+        <CarouselVegBox key={i} item={veg} />
+      ),
+    )}
   </div>
 );
-
 
 export default CarouselList;

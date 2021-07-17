@@ -10,8 +10,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Apple bundles',
         image:
           'https://i.pinimg.com/564x/1c/3b/98/1c3b988dca71ecfff251399919ff77a9.jpg',
-        link:
-          'https://www.buonissimo.it/lericette/fagottini-alle-mele-light-280987',
+        link: 'https://www.buonissimo.it/lericette/fagottini-alle-mele-light-280987',
         isVegan: true,
         isVegetarian: true,
         isSweet: true,
@@ -103,8 +102,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 0,
         name: 'Soft yogurt and apricot cupcakes',
-        link:
-          'https://blog.giallozafferano.it/idolciditatam/tortine-soffici-allo-yogurt-e-albicocche/',
+        link: 'https://blog.giallozafferano.it/idolciditatam/tortine-soffici-allo-yogurt-e-albicocche/',
         image:
           'https://blog.giallozafferano.it/idolciditatam/wp-content/uploads/2015/06/Tortine-soffici-allo-yogurt3.jpg',
         isVegan: true,
@@ -177,8 +175,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'artichoke omelette',
         image:
           'https://www.melarossa.it/wp-content/uploads/2018/03/frittata-di-carciofi-1.jpg',
-        link:
-          'https://www.melarossa.it/ricette-light/per-categoria/frittata-di-carciofi-al-forno/',
+        link: 'https://www.melarossa.it/ricette-light/per-categoria/frittata-di-carciofi-al-forno/',
         isVegan: false,
         isVegetarian: true,
         isSweet: false,
@@ -209,8 +206,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 1,
         name: 'Chickpea farinata with leeks and artichokes',
-        link:
-          'https://www.ricettedellanonna.net/farinata-di-ceci-con-porri-e-carciofi/',
+        link: 'https://www.ricettedellanonna.net/farinata-di-ceci-con-porri-e-carciofi/',
         image:
           'https://www.ricettedellanonna.net/wp-content/uploads/2014/02/farinata_di_ceci_con_porri_e_carciofi.jpg',
         isVegan: true,
@@ -289,8 +285,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 0,
         name: 'Asparagus and potato cream',
-        link:
-          'https://www.lemiericetteconesenza.it/crema-di-asparagi-e-patate-in-versione-light/',
+        link: 'https://www.lemiericetteconesenza.it/crema-di-asparagi-e-patate-in-versione-light/',
         image:
           'https://i.pinimg.com/originals/11/90/87/119087d9f4bc9ac38b316a54a24f52a4.jpg',
         isVegan: false,
@@ -393,8 +388,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 0,
         name: 'Cocoa mousse, avocado and water',
-        link:
-          'https://chocolatecoveredkatie.com/avocado-chocolate-mousse-vegan-healthy/',
+        link: 'https://chocolatecoveredkatie.com/avocado-chocolate-mousse-vegan-healthy/',
         image:
           'https://chocolatecoveredkatie.com/wp-content/uploads/2015/10/Chocolate-Avocado-Mousse-Recipe.jpg',
         isVegan: true,
@@ -429,8 +423,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 0,
         name: 'Banana bread',
-        link:
-          'https://www.cucinabotanica.com/post/banana-bread-senza-zucchero-glutine',
+        link: 'https://www.cucinabotanica.com/post/banana-bread-senza-zucchero-glutine',
         image:
           'https://static.wixstatic.com/media/4d1a0a_0a773f024d3a461caedc91e4d560b7ef~mv2_d_2000_3000_s_2.jpg/v1/fill/w_1480,h_2220,al_c,q_90,usm_0.66_1.00_0.01/4d1a0a_0a773f024d3a461caedc91e4d560b7ef~mv2_d_2000_3000_s_2.webp',
         isVegan: true,
@@ -535,8 +528,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 2,
         name: 'Cannellini bean burger with sesame seeds',
-        link:
-          'https://liveblissful.wordpress.com/2013/06/23/early-birthday-gift/',
+        link: 'https://liveblissful.wordpress.com/2013/06/23/early-birthday-gift/',
         image:
           'https://liveblissful.files.wordpress.com/2013/06/dsc05690.jpg?w=1118&h=776',
         isVegan: true,
@@ -574,8 +566,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 0,
         name: 'Beetroot and rice burger',
-        link:
-          'https://www.onegreenplanet.org/vegan-recipe/beet-and-basmati-rice-burgers/',
+        link: 'https://www.onegreenplanet.org/vegan-recipe/beet-and-basmati-rice-burgers/',
         image:
           'https://www.vegolosi.it/wp-content/uploads/2015/07/burger-barbabietola_IMG_0306_v.jpg',
         isVegan: true,
@@ -609,8 +600,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 1,
         name: 'red beet cake and chocolate',
-        link:
-          'https://www.writersrecipe.com/recipe-of-appetizing-red-velvet-cake-with-beets/',
+        link: 'https://www.writersrecipe.com/recipe-of-appetizing-red-velvet-cake-with-beets/',
         image:
           'https://prods3.imgix.net/images/articles/2017_11/facebook-red-velvet-cake-dandelion-chocolate.jpg',
         isVegan: true,
@@ -653,8 +643,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 2,
         name: 'Red beet risotto with scamorza',
-        link:
-          'https://caffebook.it/2019/06/24/risotto-alla-barbabietola-rossa-con-scamorza-affumicata/?fbclid=IwAR01Y2A2lQoPr4mOiqG7pl5ZGndIK8e5q0A21c21FyYodHCk7JTbVNvw3_Y',
+        link: 'https://caffebook.it/2019/06/24/risotto-alla-barbabietola-rossa-con-scamorza-affumicata/?fbclid=IwAR01Y2A2lQoPr4mOiqG7pl5ZGndIK8e5q0A21c21FyYodHCk7JTbVNvw3_Y',
         image:
           'https://caffebook.it/wp-content/uploads/2019/06/Risotto-alla-barbabietola-rossa-con-scamorza-affumicata.jpg',
         isVegan: false,
@@ -700,8 +689,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 0,
         name: 'blueberry panna cotta',
-        link:
-          'https://www.lacassataceliaca.it/2019/03/panna-cotta-ai-mirtilli-senza-glutine.html',
+        link: 'https://www.lacassataceliaca.it/2019/03/panna-cotta-ai-mirtilli-senza-glutine.html',
         image:
           'https://www.lacassataceliaca.it/wp-content/uploads/2019/03/panna-cotta-ai-mirtilli4.jpg',
         isSweet: true,
@@ -745,8 +733,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 1,
         name: 'Blueberry Plumcake with Greek Yogurt',
-        link:
-          'https://blog.giallozafferano.it/polentapiccante/plumcake-ai-mirtilli/',
+        link: 'https://blog.giallozafferano.it/polentapiccante/plumcake-ai-mirtilli/',
         image:
           'https://blog.giallozafferano.it/polentapiccante/wp-content/uploads/2019/06/IMG_6746-Edit-1.png',
         difficulty: 'low',
@@ -781,8 +768,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 2,
         name: 'Blueberry and taleggio risotto',
-        link:
-          'https://blog.giallozafferano.it/ombraincucina/risotto-mirtilli-e-taleggio/',
+        link: 'https://blog.giallozafferano.it/ombraincucina/risotto-mirtilli-e-taleggio/',
         image:
           'https://blog.giallozafferano.it/ombraincucina/wp-content/uploads/2015/10/image-1024x1024.jpeg',
         difficulty: 'low',
@@ -852,8 +838,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 1,
         name: 'Baked Broccoli Meatballs',
-        link:
-          'https://www.ilclubdellericette.it/ricetta/polpette-di-broccoli-al-forno/',
+        link: 'https://www.ilclubdellericette.it/ricetta/polpette-di-broccoli-al-forno/',
         image:
           'https://cdn.ilclubdellericette.it/wp-content/uploads/2019/02/Polpette-di-Broccoli-al-Forno-728x486.jpg',
         time: '1h',
@@ -926,8 +911,7 @@ export const RECIPES: RecipesPerIngredient[] = [
       {
         id: 3,
         name: 'Small pizzas with broccoli with hummus',
-        link:
-          'https://www.vegolosi.it/ricette-vegane/pizzette-senza-glutine-broccoli-hummus-pomodori-secchi-semi-zucca/',
+        link: 'https://www.vegolosi.it/ricette-vegane/pizzette-senza-glutine-broccoli-hummus-pomodori-secchi-semi-zucca/',
         image:
           'https://www.vegolosi.it/wp-content/uploads/2017/07/pizzette-broccoli-hummus-pomodori-secchi_1113_650.jpg',
         time: '1h',
@@ -963,8 +947,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Pasta with broccoli and walnut pesto',
         image:
           'https://static.wixstatic.com/media/4d1a0a_5efeb9cc3af84666bb8737d97dc80014~mv2_d_1999_2844_s_2.jpg/v1/fill/w_1480,h_2106,al_c,q_90,usm_0.66_1.00_0.01/4d1a0a_5efeb9cc3af84666bb8737d97dc80014~mv2_d_1999_2844_s_2.webp',
-        link:
-          'https://www.cucinabotanica.com/post/pasta-al-pesto-di-broccoli-e-noci',
+        link: 'https://www.cucinabotanica.com/post/pasta-al-pesto-di-broccoli-e-noci',
         time: '1h',
         difficulty: 'low',
         isSweet: false,
@@ -1003,8 +986,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'brussel sprouts cream',
         image:
           'https://wips.plug.it/cips/buonissimo.org/cms/2012/01/crema-di-cavolini-di-bruxelles.jpg?w=668&a=c&h=382',
-        link:
-          'https://www.vegolosi.it/ricette-vegane/vellutata-di-cavoletti-di-bruxelles-alla-senape-e-melograno/',
+        link: 'https://www.vegolosi.it/ricette-vegane/vellutata-di-cavoletti-di-bruxelles-alla-senape-e-melograno/',
         time: '35min',
         difficulty: 'low',
         isSweet: false,
@@ -1036,8 +1018,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Beef with pumpkin and Brussels sprouts',
         image:
           'https://www.armoniapaleo.it/images/2018/Gennaio/IMG_1932PadellataManzoZuccaAP.jpg',
-        link:
-          'https://armoniapaleo.it/paleo-ricette/colazione/item/1015-padellata-di-manzo-con-zucca-e-cavolini-di-bruxelles',
+        link: 'https://armoniapaleo.it/paleo-ricette/colazione/item/1015-padellata-di-manzo-con-zucca-e-cavolini-di-bruxelles',
         time: '1h',
         difficulty: 'low',
         isSweet: false,
@@ -1075,8 +1056,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Brussels sprouts rolls with raw ham',
         image:
           ' https://www.armoniapaleo.it/images/2019/Febbraio/IMG_7505InvoltiniCavoliniPancettaAP.jpg',
-        link:
-          'https://www.cucchiaio.it/ricetta/ricetta-involtini-cavolini-pancetta/',
+        link: 'https://www.cucchiaio.it/ricetta/ricetta-involtini-cavolini-pancetta/',
         time: '50min',
         difficulty: 'mediun',
         isSweet: false,
@@ -1114,8 +1094,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'cabbage head au gratin',
         image:
           'https://blog.giallozafferano.it/paola67/wp-content/uploads/2016/01/cavolo-cappuccio-gratinato-.jpg',
-        link:
-          'https://blog.giallozafferano.it/paola67/cavolo-cappuccio-gratinato/',
+        link: 'https://blog.giallozafferano.it/paola67/cavolo-cappuccio-gratinato/',
         time: '35min',
         difficulty: 'low',
         isSweet: false,
@@ -1148,8 +1127,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Oriental cabbage',
         image:
           'https://www.dissapore.com/wp-content/uploads/2019/06/cavolo-cappuccio-all-orientale-piatto-1300x737.jpg',
-        link:
-          'https://www.dissapore.com/ricette/cavolo-cappuccio-all-orientale-ricetta/',
+        link: 'https://www.dissapore.com/ricette/cavolo-cappuccio-all-orientale-ricetta/',
         time: '35min',
         difficulty: 'low',
         isSweet: false,
@@ -1220,8 +1198,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Rice with purple cabbage and chickpea cream',
         image:
           'https://static.wixstatic.com/media/4d1a0a_cb250065ce744e19a3042df509452553~mv2_d_4000_6000_s_4_2.jpg/v1/fill/w_740,h_1110,al_c,q_90,usm_0.66_1.00_0.01/4d1a0a_cb250065ce744e19a3042df509452553~mv2_d_4000_6000_s_4_2.webp',
-        link:
-          'https://www.cucinabotanica.com/post/riso-integrale-con-cavolo-cappuccio-viola-e-crema-di-ceci',
+        link: 'https://www.cucinabotanica.com/post/riso-integrale-con-cavolo-cappuccio-viola-e-crema-di-ceci',
         time: '1h',
         difficulty: 'low',
         isSweet: false,
@@ -1324,8 +1301,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Falafel of spicy carrots',
         image:
           'https://www.vegolosi.it/wp-content/uploads/2018/01/falafel-carote_6504_v.jpg',
-        link:
-          'https://www.vegolosi.it/ricette-vegane-semplici-veloci/falafel-con-farina-di-ceci-carote-speziati/',
+        link: 'https://www.vegolosi.it/ricette-vegane-semplici-veloci/falafel-con-farina-di-ceci-carote-speziati/',
         time: '1h 30min',
         difficulty: 'low',
         isSweet: false,
@@ -1536,8 +1512,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Pasta with celery and salmon',
         image:
           'https://images.lacucinaitaliana.it/wp-content/uploads/2016/11/Pasta-sedano-e-salmone.jpg',
-        link:
-          'https://www.lacucinaitaliana.it/ricetta/primi/pasta-con-sedano-e-salmone/',
+        link: 'https://www.lacucinaitaliana.it/ricetta/primi/pasta-con-sedano-e-salmone/',
         time: '15min',
         difficulty: 'low',
         isSweet: false,
@@ -1572,8 +1547,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Chard and scamorza strudel',
         image:
           'https://www.ricettedalmondo.it/images/foto-ricette/s/29270-strudel-di-bietola-e-scamorza-6.jpg',
-        link:
-          'https://www.ricettedalmondo.it/strudel-di-bietola-e-scamorza.html',
+        link: 'https://www.ricettedalmondo.it/strudel-di-bietola-e-scamorza.html',
         time: '45min',
         difficulty: 'low',
         isSweet: false,
@@ -1607,8 +1581,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Chard meatballs with baked potatoes',
         image:
           'https://www.melarossa.it/wp-content/uploads/2019/01/polpette-di-bietola-e-patate.jpg',
-        link:
-          'https://www.melarossa.it/ricette-light/per-categoria/polpette-di-bietole-e-patate-al-forno/',
+        link: 'https://www.melarossa.it/ricette-light/per-categoria/polpette-di-bietole-e-patate-al-forno/',
         time: '45min',
         difficulty: 'low',
         isSweet: false,
@@ -1710,8 +1683,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'sbriciolata with ricotta and cherries',
         image:
           'https://i0.wp.com/www.cakesandco.eu/wp-content/uploads/2019/04/Sbriciolata-ricotta-ciliegie-fetta-alta-scura.jpg?w=600&ssl=1',
-        link:
-          'https://www.cakesandco.eu/sbriciolata-alla-ricotta-e-ciliegie-sotto-spirito/',
+        link: 'https://www.cakesandco.eu/sbriciolata-alla-ricotta-e-ciliegie-sotto-spirito/',
         time: '1h 30min',
         difficulty: 'medium',
         isSweet: true,
@@ -1823,8 +1795,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Chestnut biscuits',
         image:
           'https://www.ricetteinarmonia.it/wp-content/uploads/2017/11/castagnotti-biscotti-alle-castagne-3.jpg',
-        link:
-          'https://www.ricetteinarmonia.it/castagnotti-i-biscotti-alle-castagne/',
+        link: 'https://www.ricetteinarmonia.it/castagnotti-i-biscotti-alle-castagne/',
         time: '30min',
         difficulty: 'low',
         isSweet: true,
@@ -1890,8 +1861,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'chicory sauce',
         image:
           'https://images-3662.kxcdn.com/fidelitynews/wp-content/uploads/sites/6/2016/08/1471264877_b5cad76db22c8f680b237357381d5b2cb3771994-1360517051.jpg?w=580',
-        link:
-          'https://cucina.fidelityhouse.eu/preparazioni-base/salsa-di-cicoria-193628.html',
+        link: 'https://cucina.fidelityhouse.eu/preparazioni-base/salsa-di-cicoria-193628.html',
         time: '1h',
         difficulty: 'low',
         isSweet: false,
@@ -1991,8 +1961,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'clementine cake',
         image:
           'https://www.inthemoodforpies.com/wp-content/uploads/2018/03/torta-clementine-paletta-1.jpg',
-        link:
-          'https://www.inthemoodforpies.com/2018/03/torta-alle-clementine.html',
+        link: 'https://www.inthemoodforpies.com/2018/03/torta-alle-clementine.html',
         time: '1h',
         difficulty: 'low',
         isSweet: true,
@@ -2060,8 +2029,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'clementine biscuits',
         image:
           'https://www.profumodilimoni.com/wp-content/uploads/2017/12/biscotticlementineverticale1200header2.jpg',
-        link:
-          'https://www.profumodilimoni.com/recipe/biscotti-rustici-alle-clementine/',
+        link: 'https://www.profumodilimoni.com/recipe/biscotti-rustici-alle-clementine/',
         time: '2h',
         difficulty: 'low',
         isSweet: true,
@@ -2128,8 +2096,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'cucumber salad with poppy seeds',
         image:
           'https://www.ricettegustose.it/Insalate/insalata-cetrioli-barattieri-semi-papavero/insalata-cetrioli-barattieri-semi-papavero-480.jpg',
-        link:
-          'https://www.ricettegustose.it/insalatone/insalata-cetrioli-barattieri-semi-papavero.php',
+        link: 'https://www.ricettegustose.it/insalatone/insalata-cetrioli-barattieri-semi-papavero.php',
         time: '20min',
         difficulty: 'low',
         isSweet: false,
@@ -2158,8 +2125,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Tzatziki cream',
         image:
           'https://filecdn.nonsprecare.it/wp-content/uploads/2014/08/ricetta-originale-tzatziki-greco-yogurt-cetrioli-2.jpg',
-        link:
-          'https://www.nonsprecare.it/ricetta-originale-tzatziki-greco-yogurt-cetrioli',
+        link: 'https://www.nonsprecare.it/ricetta-originale-tzatziki-greco-yogurt-cetrioli',
         time: '20min',
         difficulty: 'low',
         isSweet: false,
@@ -3714,8 +3680,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         name: 'Penne with pepper cream and yogurt',
         image:
           'https://images.fidhouse.com/fidelitynews/wp-content/uploads/sites/6/2017/07/1499931941_1d1466d9b67fdc364797ab731093173ccc4455e2-1499881053-1024x683.jpg?w=580',
-        link:
-          'https://cucina.fidelityhouse.eu/primi-piatti/penne-con-crema-di-peperoni-e-yogurt-205080.html',
+        link: 'https://cucina.fidelityhouse.eu/primi-piatti/penne-con-crema-di-peperoni-e-yogurt-205080.html',
         time: '30min',
         difficulty: 'low',
         isSweet: false,

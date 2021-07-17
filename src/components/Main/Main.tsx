@@ -12,6 +12,6 @@ const Main: React.FC = () => {
       </Switch>
     </div>
   );
-}
+};
 
 export default Main;

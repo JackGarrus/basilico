@@ -5,8 +5,11 @@ import { LazyImage } from 'react-lazy-images';
 import RecipeHeader from 'components/RecipeHeader/RecipeHeader';
 import RecipeGenerics from 'components/RecipeGenerics/RecipeGenerics';
 import { Recipe as RecipeProps } from 'types/recipe';
+import RecipeIngredientsList from 'components/RecipeIngredientsList/RecipeIngredientsList';
+import ReferenceLink from 'components/ReferenceLink/ReferenceLink';
+import Subtitle from 'components/Subtitle/Subtitle';
+
 import style from './Recipe.module.scss';
-import RecipeContent from 'components/RecipeContent/RecipeContent';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
@@ -35,7 +38,6 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   }, [expandCard, cardHeight]);
 
   return (
-
     <animated.div
       style={{ ...hoverState, ...heightState }}
       onMouseEnter={() => setHover(true)}
@@ -76,14 +78,24 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
           />
           <RecipeHeader list={props.allergens} title={props.name} />
           {expandCard ? (
-            <RecipeContent ingredientsList={props.ingredients} instructionsList={props.instructions} link={props.link} />
+            <>
+              <div className={style.ingredients}>
+                <RecipeIngredientsList ingredients={props.ingredients} />
+              </div>
+              <div className={style.instructions}>
+                <Subtitle words="Instructions" />
+                {props.instructions.map((instruction, i) => (
+                  <span className={style.list}>{instruction}</span>
+                ))}
+                <ReferenceLink link={props.link} />
+              </div>
+            </>
           ) : (
             <RecipeGenerics time={props.time} generics={generics} />
           )}
         </div>
       </div>
     </animated.div>
-
   );
 };
 export default Recipe;

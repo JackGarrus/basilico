@@ -10,7 +10,6 @@ interface Props {
 }
 
 const CarouselVegBox: React.FC<Props> = ({ item }) => {
-
   return (
     <NavLink to={'/recipes/' + item} className={style.link}>
       <div className={style.item}>
@@ -18,7 +17,7 @@ const CarouselVegBox: React.FC<Props> = ({ item }) => {
         <p>{item}</p>
       </div>
     </NavLink>
-  )
+  );
 };
 
 export default React.memo(CarouselVegBox);

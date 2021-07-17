@@ -21,7 +21,7 @@ export interface MonthProp {
   fruits: Fruits[];
   vegetables: Vegetables[];
   firstTimeFruit?: Fruits[];
-  lastTimeFruit?:Fruits[];
+  lastTimeFruit?: Fruits[];
   lastTimeVeg?: Vegetables[];
-  firstTimeVeg?:Vegetables[];
+  firstTimeVeg?: Vegetables[];
 }

@@ -6,11 +6,11 @@
   justify-content: center;
 }
 
-.container, .type {
+.container,
+.type {
   display: flex;
   justify-content: center;
 }
-
 
 .type {
   text-transform: lowercase;

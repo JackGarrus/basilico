@@ -12,20 +12,20 @@ $rem-base: 16px !default;
     } @else {
       @return remove-unit($values) * remove-unit($base-value) * $unit;
     }
-  } @else { 
+  } @else {
     // empty array that we will return
     $unit-values: ();
 
     @each $value in $values {
       @if $unit != 1px {
         $unit-values: append(
-            $unit-values,
-            remove-unit($value) / remove-unit($base-value) * $unit
+          $unit-values,
+          remove-unit($value) / remove-unit($base-value) * $unit
         );
       } @else {
         $unit-values: append(
-            $unit-values,
-            remove-unit($value) * remove-unit($base-value) * $unit
+          $unit-values,
+          remove-unit($value) * remove-unit($base-value) * $unit
         );
       }
     }

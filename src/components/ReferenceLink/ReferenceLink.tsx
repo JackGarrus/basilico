@@ -12,21 +12,15 @@ const ReferenceLink: React.FC<Props> = ({ link }) => (
   <BorderedBox>
     {link.length > 0 ? (
       <>
-        <Anchor
-          link={link}
-          linkName="Go to the website of the recipe "
-        >
+        <Anchor link={link} linkName="Go to the website of the recipe ">
           <Go className={style.arrow} />
         </Anchor>
         <p className={style.infobox}>
-          Most of the recipe links provided are just for
-          reference
+          Most of the recipe links provided are just for reference
         </p>
       </>
     ) : (
-      <p className={style.infobox}>
-        Coming soon: link for reference
-      </p>
+      <p className={style.infobox}>Coming soon: link for reference</p>
     )}
   </BorderedBox>
 );

@@ -1,15 +1,15 @@
 @use 'colors' as c;
 
 .container {
-  @media(max-width: 500px) {
-    padding: 80px 15px ;
+  @media (max-width: 500px) {
+    padding: 80px 15px;
   }
-  padding:10px 20px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     height: 65vh;
   }
 }
@@ -19,7 +19,7 @@
 }
 
 .monthName {
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     margin-bottom: 0;
   }
   color: #000;
@@ -28,5 +28,4 @@
   &:first-letter {
     color: c.$orangered;
   }
-
 }

@@ -1,4 +1,4 @@
-import { MonthProp } from "types/months";
+import { MonthProp } from 'types/months';
 
 export const MONTHS: MonthProp[] = [
   {

@@ -1,7 +1,7 @@
 // to avoid the slider breaking from setting display: flex to father
 @use 'colors' as c;
 
-$chev : '/icons/misc/chev.svg';
+$chev: '/icons/misc/chev.svg';
 
 .slick-slider.slick-initialized {
   overflow: hidden;
@@ -9,7 +9,7 @@ $chev : '/icons/misc/chev.svg';
 
 .slick-list {
   margin: 0px 0px 60px;
-  @media(min-width: 1024px) {
+  @media (min-width: 1024px) {
     margin: 0;
   }
 }
@@ -27,11 +27,11 @@ $chev : '/icons/misc/chev.svg';
   left: 0;
   padding: 10px 0;
   z-index: 999;
-  @media(min-width: 500px) {
+  @media (min-width: 500px) {
     height: 60px;
     z-index: 0;
   }
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     position: relative;
     height: 50px;
   }
@@ -49,7 +49,7 @@ $chev : '/icons/misc/chev.svg';
     color: c.$orangered;
     transform: scale(2);
     transition: transform 0.2s ease-out;
-  } 
+  }
 }
 
 .slick-dots li.slick-active {
@@ -61,7 +61,7 @@ $chev : '/icons/misc/chev.svg';
   font-weight: 400;
   transform: scale(2);
   transition: transform 0.2s ease-out;
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     padding: 20px;
   }
 }
@@ -92,36 +92,39 @@ li > .sliderPaginationIndex {
   padding-right: 20px;
 }
 
-.slick-prev, .slick-next {
-  display: flex!important;
+.slick-prev,
+.slick-next {
+  display: flex !important;
   align-items: center;
   position: fixed;
   height: 100%;
   width: 67px;
   background-color: c.$honeydew;
-  transition: background-color 0.3s ease-in, width 0.3s ease-in, height 0.3s ease-in, font-weight 0.3s ease-in;
-  @media(max-width: 500px) {
+  transition: background-color 0.3s ease-in, width 0.3s ease-in,
+    height 0.3s ease-in, font-weight 0.3s ease-in;
+  @media (max-width: 500px) {
     bottom: 0;
   }
-  @media(min-width:1440px) {
+  @media (min-width: 1440px) {
     width: 105px;
   }
   &:hover {
     background-color: c.$honeydew;
     height: 100%;
     cursor: pointer;
-    transition: background-color 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out, font-weight 0.1s ease-out;
-    @media(min-width:1440px) {
+    transition: background-color 0.1s ease-out, width 0.1s ease-out,
+      height 0.1s ease-out, font-weight 0.1s ease-out;
+    @media (min-width: 1440px) {
       width: 105px;
     }
   }
-  &:focus{
+  &:focus {
     background-color: c.$honeydew;
   }
 }
 
 .slick-prev:before,
-.slick-next:before{
+.slick-next:before {
   display: flex;
   content: ' ';
   background-image: url($chev);
@@ -135,4 +138,3 @@ li > .sliderPaginationIndex {
 .slick-next:before {
   transform: rotate(-90deg);
 }
-

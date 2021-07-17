@@ -12,7 +12,7 @@ export type Allergens =
 export interface RecipesPerIngredient {
   id: number;
   ingredientName: Fruits | Vegetables;
-  recipes: Recipe[]
+  recipes: Recipe[];
 }
 
 export interface Recipe {
@@ -30,7 +30,7 @@ export interface Recipe {
   allergens: AllergensList;
   ingredients: Ingredient[];
   instructions: string[];
-  advices?: string[]
+  advices?: string[];
 }
 
 export interface Ingredient {
