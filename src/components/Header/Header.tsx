@@ -4,8 +4,9 @@ import { NavLink } from 'react-router-dom';
 import SearchBar from 'components/SearchBar/SearchBar';
 
 const Header = () => {
-  const handleSearch = () => {
-    console.log('el')
+
+  const handleSearch = (e: any) => {
+    console.log('search')
   }
   return (
     <header className={style.container}>
