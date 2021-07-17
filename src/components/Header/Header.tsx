@@ -8,18 +8,19 @@ const Header = () => {
     console.log('el')
   }
   return (
-    <NavLink to="/" className={style.logo}>
-      <header className={style.container}>
+    <header className={style.container}>
+      <NavLink to="/" className={style.logo}>
         <div className={style.title}>
           <h1>Basilico </h1>
           <Leaf className={style.leaf} />
           <p className={style.subtitle}>
             - Italian recipes for italian food lovers
-        </p>
+            </p>
         </div>
-        <SearchBar placeholder="Search ingredient" onChange={handleSearch} />
-      </header>
-    </NavLink>
+      </NavLink>
+      <SearchBar placeholder="Search ingredient" onChange={handleSearch} />
+    </header>
+
   );
 };
 
