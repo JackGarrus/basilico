@@ -20,7 +20,7 @@ const Carousel: React.FunctionComponent = () => {
     swipeToSlide: true,
     accessibility: true,
     initialSlide: currentMonth,
-    appendDots: (dots: any) => <ul style={{ margin: '0px' }}> {dots} </ul>,
+    appendDots: (dots: HTMLUListElement) => <ul style={{ margin: '0px' }}> {dots} </ul>,
     customPaging: (i: number) => (
       <div className="sliderPaginationIndex">{i + 1}</div>
     ),
