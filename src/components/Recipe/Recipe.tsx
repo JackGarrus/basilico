@@ -4,10 +4,9 @@ import { animated, useSpring, config } from 'react-spring';
 import { LazyImage } from 'react-lazy-images';
 import RecipeHeader from 'components/RecipeHeader/RecipeHeader';
 import RecipeGenerics from 'components/RecipeGenerics/RecipeGenerics';
-import RecipeIngredientsSection from 'components/RecipeIngredientsSection/RecipeIngredientsSection';
 import { Recipe as RecipeProps } from 'data/recipes/recipes';
 import style from './Recipe.module.scss';
-import RecipeInstructions from 'components/RecipeInstructions/RecipeInstructions';
+import RecipeContent from 'components/RecipeContent/RecipeContent';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
@@ -42,16 +41,15 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-
       <div
-        className={cn(style.card, {
+        className={cn(style.container, {
           [style.Expanded]: expandCard,
         })}
         onClick={() => setExpandCard(!expandCard)}
         ref={el}
       >
-        <article
-          className={cn(style.article, {
+        <div
+          className={cn(style.card, {
             [style.generals]: !expandCard,
             [style.details]: expandCard,
           })}
@@ -78,19 +76,11 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
           />
           <RecipeHeader list={props.allergens} title={props.name} />
           {expandCard ? (
-
-            <>
-              <div className={style.ingredientsContainer}>
-                <RecipeIngredientsSection ingredients={props.ingredients} />
-              </div>
-              <div className={style.instructionsContainer}>
-                <RecipeInstructions instructions={props.instructions} link={props.link} />
-              </div>
-            </>
+            <RecipeContent ingredientsList={props.ingredients} instructionsList={props.instructions} link={props.link} />
           ) : (
             <RecipeGenerics time={props.time} generics={generics} />
           )}
-        </article>
+        </div>
       </div>
     </animated.div>
 

@@ -7,7 +7,7 @@ $layout-padding-lg: 20px;
 $misc_path: '/icons/misc/';
 $pattern: 'polkadots.svg';
 
-.card {
+.container {
   height: auto;
   background-color: white;
   border-radius: $border-radius;
@@ -118,7 +118,7 @@ $pattern: 'polkadots.svg';
   }
 }
 
-.article {
+.card {
   line-height: 1.5;
   text-overflow: ellipsis;
   overflow: hidden;

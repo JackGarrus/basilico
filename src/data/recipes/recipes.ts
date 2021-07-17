@@ -25,7 +25,7 @@ export interface Recipe {
   advices?: string[]
 }
 
-interface Ingredient {
+export interface Ingredient {
   name: string;
   quantity: string;
 }
