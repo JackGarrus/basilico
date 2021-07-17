@@ -1,4 +1,4 @@
-import RecipeIngredientsSection from 'components/RecipeIngredientsSection/RecipeIngredientsSection';
+import RecipeIngredientsSection from 'components/RecipeIngredientsList/RecipeIngredientsList';
 import ReferenceLink from 'components/ReferenceLink/ReferenceLink';
 import { Ingredient } from 'types/recipe'
 import Subtitle from 'components/Subtitle/Subtitle';
