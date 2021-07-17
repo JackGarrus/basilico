@@ -1,12 +1,11 @@
-import React from 'react';
 import style from './Subtitle.module.scss';
 
-interface SubtitleProps {
-  words: string;
+interface Props {
+  text: string;
 }
 
-const Subtitle: React.FC<SubtitleProps> = ({ words }) => {
-  return <p className={style.subtitle}>{words}</p>;
-};
+const Subtitle: React.FC<Props> = ({ text }) => (
+  <p className={style.subtitle}>{text}</p>
+);
 
 export default Subtitle;

@@ -9,19 +9,16 @@ interface Props {
 }
 
 const RecipeHeader: React.FC<Props> = ({ list, title }) => {
+
   return (
     <div className={style.container}>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div className={style.headline}>
-          <p className={style.title}>
-            {getFormattedText(title)}
-          </p>
-        </div>
-        {list.length > 0 &&
-          list.map((allergene: Allergens, i: number) => (
-            <div className={style.list} key={i}>{parseAllergens(allergene)}</div>
-          ))}
-      </div>
+      <p className={style.headline}>{getFormattedText(title)}</p>
+      {list.length > 0 &&
+        list.map((allergene: Allergens, i: number) => (
+          <div className={style.list} key={i}>
+            {parseAllergens(allergene)}
+          </div>
+        ))}
     </div>
   );
 };

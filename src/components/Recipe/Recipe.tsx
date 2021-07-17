@@ -83,7 +83,7 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
                 <RecipeIngredientsList ingredients={props.ingredients} />
               </div>
               <div className={style.instructions}>
-                <Subtitle words="Instructions" />
+                <Subtitle text="Instructions" />
                 {props.instructions.map((instruction, i) => (
                   <span className={style.list}>{instruction}</span>
                 ))}

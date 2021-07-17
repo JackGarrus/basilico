@@ -2,9 +2,10 @@
 
 .container {
   padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
 
   &>div:first-child {
-    display: flex;
     align-items: center;
 
     @media (min-width: 768px) {
@@ -29,15 +30,6 @@
   }
 }
 
-
-.title {
-  font-weight: 400;
-  max-width: 90%;
-
-  &:first-letter {
-    color: c.$orangered;
-  }
-}
 
 .list {
   display: flex;

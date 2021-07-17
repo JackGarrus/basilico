@@ -10,7 +10,7 @@ interface Props {
 const RecipeIngredientsList: React.FC<Props> = ({ ...props }) => {
   return (
     <>
-      <Subtitle words="Ingredients" />
+      <Subtitle text="Ingredients" />
       <div className={style.list}>
         {props.ingredients.map((ingredient: Ingredient, i: number) => (
           <RecipeIngredient
