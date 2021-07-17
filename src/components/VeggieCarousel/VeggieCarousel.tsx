@@ -3,22 +3,22 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import 'styles/slickCustomStyle.scss';
-import Month from 'components/Month/Month';
- 
+import CarouselMonth from 'components/CarouselMonth/CarouselMonth';
+
 const VeggieCarousel: React.FunctionComponent = () => {
   const months = MONTHS;
 
   const renderWidget = () => {
     let veggieMonth = months.map((e, i) => {
-      return (  
-      <Month
+      return (
+        <CarouselMonth
           id={e.id}
           key={i}
           month={e.month}
           fruits={e.fruits}
           vegetables={e.vegetables}
-        /> 
-       
+        />
+
       );
     });
     // cannot split for now veggieMonth in a method and call it in the Slider because the Slider expects a component,

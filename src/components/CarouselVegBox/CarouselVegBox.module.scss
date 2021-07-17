@@ -1,3 +1,5 @@
+@use 'colors'as c;
+
 .item {
   display: flex;
   align-items: center;
@@ -15,19 +17,24 @@
   text-decoration: none;
   color: #333;
   transition: all 0.2s ease-in-out;
+
   p {
     font-size: 14px;
+
     @media(min-width: 768px) {
       font-size: 16px;
     }
   }
+
   &:hover {
     transform: scale(1.1);
+
     p {
       font-weight: 400;
     }
-    & p:first-letter{
-      color: orangered;
+
+    & p:first-letter {
+      color: c.$orangered;
     }
   }
 }
