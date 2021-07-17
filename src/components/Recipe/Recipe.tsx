@@ -5,11 +5,9 @@ import { LazyImage } from 'react-lazy-images';
 import RecipeHeader from 'components/RecipeHeader/RecipeHeader';
 import RecipeGenerics from 'components/RecipeGenerics/RecipeGenerics';
 import RecipeIngredientsSection from 'components/RecipeIngredientsSection/RecipeIngredientsSection';
-import Subtitle from 'components/Subtitle/Subtitle';
-import List from 'components/List/List';
 import { Recipe as RecipeProps } from 'data/recipes/recipes';
 import style from './Recipe.module.scss';
-import ReferenceLink from 'components/ReferenceLink/ReferenceLink';
+import RecipeInstructions from 'components/RecipeInstructions/RecipeInstructions';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
@@ -86,9 +84,7 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
                 <RecipeIngredientsSection ingredients={props.ingredients} />
               </div>
               <div className={style.instructionsContainer}>
-                <Subtitle words="Preparation" />
-                <List collection={props.instructions} />
-                <ReferenceLink link={props.link} />
+                <RecipeInstructions instructions={props.instructions} link={props.link} />
               </div>
             </>
           ) : (
