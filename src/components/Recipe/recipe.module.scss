@@ -25,6 +25,11 @@ $pattern: 'polkadots.svg';
     margin-top: 0;
   }
 
+  &.Expanded {
+    height: auto;
+    margin-bottom: 20px;
+  }
+
   @media(min-width: 768px) {
     height: 300px;
     max-width: 100%;
@@ -113,74 +118,12 @@ $pattern: 'polkadots.svg';
   }
 }
 
-.card_expanded {
-  height: auto;
-  margin-bottom: 20px;
-}
-
 .article {
   line-height: 1.5;
   text-overflow: ellipsis;
   overflow: hidden;
   width: 100%;
 }
-
-$ico-size-sm: 22px;
-$ico-size-lg: 35px;
-
-.icon {
-  display: block;
-  background-repeat: no-repeat;
-  background-size: $ico-size-sm;
-  width: $ico-size-sm;
-  height: $ico-size-sm;
-
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-}
-
-.paperBg {
-  display: block;
-  background-image: url($misc_path + $pattern);
-}
-
-.icon {
-  width: $ico-size-lg;
-  height: $ico-size-lg;
-}
-
-.iconsContainer {
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-
-  @media(min-width: 768px) {
-    align-items: normal;
-    padding-left: 0;
-  }
-
-  .iconWrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    min-width: 30px;
-
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
-
-    @media(min-width: 768px) {
-      padding: 0;
-      min-width: 80px;
-
-      &:not(:last-child) {
-        margin-right: 10px;
-      }
-    }
-  }
-}
-
 
 .animated {
   -webkit-animation-duration: 0.4s;

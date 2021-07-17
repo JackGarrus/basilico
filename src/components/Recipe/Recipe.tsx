@@ -11,7 +11,7 @@ import RecipeIngredientsSection from 'components/RecipeIngredientsSection/Recipe
 import Subtitle from 'components/Subtitle/Subtitle';
 import List from 'components/List/List';
 import { Recipe as RecipeProps } from 'data/recipes/recipes';
-import style from './recipe.module.scss';
+import style from './Recipe.module.scss';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
@@ -49,7 +49,7 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
 
       <div
         className={cn(style.card, {
-          [style.card_expanded]: expandCard,
+          [style.Expanded]: expandCard,
         })}
         onClick={() => setExpandCard(!expandCard)}
         ref={el}
