@@ -1,0 +1,166 @@
+@use 'sass:color';
+
+input {
+  border: none;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.label {
+  background-color: transparent;
+  position: absolute;
+  transition: all 0.15s linear;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  border: 1px solid lawngreen;
+  background: #fff;
+  border-radius: 22px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 44px;
+  transition: all 0.15s linear;
+
+  &:hover {
+    box-shadow: 0 10px 12px -10px rgba(0, 0, 0, 0.2);
+  }
+
+  &_focused {
+    border: 1px solid orangered;
+
+    &_clearable {
+      label {
+        display: none;
+      }
+    }
+  }
+
+  &_hasContent {
+    .label {
+      color: lawngreen;
+      top: 4px;
+      pointer-events: initial;
+    }
+  }
+
+  &_valid {
+    border-color: lawngreen;
+
+    .icon {
+      fill: lawngreen;
+    }
+  }
+
+  &_invalid {
+    border-color: red;
+
+    .label {
+      color: red;
+    }
+
+    .icon {
+      fill: red;
+    }
+  }
+
+  &_disabled {
+    border-color: color.change(rgb(93, 92, 92), $alpha: 0.28);
+    pointer-events: none;
+    cursor: not-allowed;
+
+    .content input {
+      //@include typography.p3-gray;
+      // Safari renders disabled inputs with a different color
+      -webkit-text-fill-color: rgb(93, 92, 92);
+    }
+
+    svg {
+      fill: color.change(rgb(93, 92, 92), $alpha: 0.28);
+    }
+  }
+
+  &_iconValue {
+    .content {
+      padding-left: 0;
+    }
+
+    .iconValue {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px 12px 12px;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  height: 100%;
+  padding: 0 12px;
+
+  .inputContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+
+    &NoLabelAndPlaceholer {
+      input {
+        top: 0;
+        // used to hide cursor
+        color: transparent;
+        text-shadow: 0 0 0 rgb(93, 92, 92);
+      }
+    }
+
+    &NoLabel {
+      input {
+        top: 0;
+
+        @-moz-document url-prefix() {
+          top: 2px;
+        }
+      }
+    }
+  }
+
+  input {
+    line-height: 1;
+    height: 100%;
+    background: none;
+    position: relative;
+
+    &::placeholder {
+      color: gray;
+    }
+
+    padding: 2px;
+    border: 1px solid transparent;
+    top: 8px;
+  }
+}
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+  stroke: honeydew;
+  cursor: pointer;
+}
+
+.iconCheck {
+  width: 18px;
+  min-width: 18px;
+  height: 14px;
+}
+
+.iconCross {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+}
