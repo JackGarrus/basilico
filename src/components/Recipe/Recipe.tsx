@@ -2,16 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { animated, useSpring, config } from 'react-spring';
 import { LazyImage } from 'react-lazy-images';
-import { ReactComponent as Go } from 'icons/misc/next.svg';
 import RecipeHeader from 'components/RecipeHeader/RecipeHeader';
 import RecipeGenerics from 'components/RecipeGenerics/RecipeGenerics';
-import BorderedBox from 'components/BorderedBox/BorderedBox';
-import Anchor from 'components/Anchor/Anchor';
 import RecipeIngredientsSection from 'components/RecipeIngredientsSection/RecipeIngredientsSection';
 import Subtitle from 'components/Subtitle/Subtitle';
 import List from 'components/List/List';
 import { Recipe as RecipeProps } from 'data/recipes/recipes';
 import style from './Recipe.module.scss';
+import ReferenceLink from 'components/ReferenceLink/ReferenceLink';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
@@ -89,29 +87,8 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
               </div>
               <div className={style.instructionsContainer}>
                 <Subtitle words="Preparation" />
-                <>
-                  <List collection={props.instructions} />
-                  <BorderedBox>
-                    {props.link.length > 0 ? (
-                      <>
-                        <Anchor
-                          link={props.link}
-                          linkName="Go to the website of the recipe "
-                        >
-                          <Go className={style.arrow} />
-                        </Anchor>
-                        <p className={style.infobox}>
-                          Most of the recipe links provided are just for
-                          reference
-                        </p>
-                      </>
-                    ) : (
-                      <p className={style.infobox}>
-                        Coming soon: link for reference
-                      </p>
-                    )}
-                  </BorderedBox>
-                </>
+                <List collection={props.instructions} />
+                <ReferenceLink link={props.link} />
               </div>
             </>
           ) : (
