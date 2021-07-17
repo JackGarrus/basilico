@@ -29,6 +29,16 @@
   }
 }
 
+
+.title {
+  font-weight: 400;
+  max-width: 90%;
+
+  &:first-letter {
+    color: c.$orangered;
+  }
+}
+
 .list {
   display: flex;
   height: fit-content;

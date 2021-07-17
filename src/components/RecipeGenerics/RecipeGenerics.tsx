@@ -15,7 +15,6 @@ const RecipeGenerics: React.FC<Props> = ({ generics, time, className }) => {
   for (const [key, value] of Object.entries(generics)) {
     value && genericsArr.push(key);
   }
-  console.log(genericsArr);
 
   return (
     <div className={cn(style.iconsContainer, className)}>

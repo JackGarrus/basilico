@@ -50,7 +50,7 @@ const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
             trail.map((props: any, i: number) => {
               const e = recipe[i];
               return (
-                <animated.div style={props}>
+                <animated.div style={props} key={i}>
                   <Recipe
                     id={i}
                     key={i}
