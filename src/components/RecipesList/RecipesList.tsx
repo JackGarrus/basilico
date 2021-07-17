@@ -1,28 +1,27 @@
-import style from './Recipes.module.scss';
 import { RECIPES } from 'data/recipes/recipes';
 import Recipe from 'components/Recipe/Recipe';
-//import { useTrail, animated } from 'react-spring';
-
+import { useTrail, animated } from 'react-spring';
+import style from './RecipesList.module.scss';
 interface RouterProps {
   match: any;
 }
 
 type Props = RouterProps;
 
-const Recipes: React.FC<RouterProps> = ({ match }: Props) => {
+const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
   const selectedIngredient = match.params.ingredient;
   const recipesData = RECIPES;
   let ingredientRecipe = recipesData.find(
     obj => obj.ingredientName === selectedIngredient,
   );
-  // let readyToLoad = false;
+  let readyToLoad = false;
   let recipe: any;
 
   if (ingredientRecipe) {
-    // readyToLoad = true;
+    readyToLoad = true;
     recipe = ingredientRecipe.recipes;
   }
-  /*const trail = useTrail(recipe.length, {
+  const trail = useTrail(recipe.length, {
     from: {
       width: '100%',
       marginLeft: -50,
@@ -46,10 +45,10 @@ const Recipes: React.FC<RouterProps> = ({ match }: Props) => {
         return (
           <animated.div style={props}>
             <Recipe
+              id={i}
               key={i}
               image={e.image}
-              alt={e.name}
-              title={e.name}
+              name={e.name}
               link={e.link}
               allergens={e.allergens}
               ingredients={e.ingredients}
@@ -66,40 +65,22 @@ const Recipes: React.FC<RouterProps> = ({ match }: Props) => {
         );
       });
     }
-  }*/
+  }
 
   return (
     <div className={style.container}>
-      <div className={style.wrapper}>
-        <p className={style.page_title}>
-          <span className={style.selected_ingredient}>
+      <div className={style.innerContainer}>
+        <p className={style.pageTitle}>
+          <span className={style.selectedIngredient}>
             {selectedIngredient}
           </span>
           recipes
         </p>
         <br />
         <br />
-        <div className={style.card_wrapper}>{
-          recipe.map((e: any, i: number) => <Recipe
-            id={e.id}
-            key={i}
-            image={e.image}
-            name={e.name}
-            link={e.link}
-            allergens={e.allergens}
-            ingredients={e.ingredients}
-            instructions={e.instructions}
-            difficulty={e.difficulty}
-            time={e.time}
-            isVegan={e.isVegan}
-            isVegetarian={e.isVegetarian}
-            isSweet={e.isSweet}
-            hasFish={e.hasFish}
-            hasMeat={e.hasMeat}
-          />)
-        }</div>
+        <div className={style.card}>{renderRecipes()}</div>
       </div>
     </div>
   );
 };
-export default Recipes;
+export default RecipesList;

@@ -1,10 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import style from './recipe.module.scss';
 import cn from 'classnames';
 import { animated, useSpring, config } from 'react-spring';
 import { LazyImage } from 'react-lazy-images';
-//import List from 'components/Atoms/List/List';
-//import Subtitle from 'components/Atoms/Subtitle/Subtitle';
 import { ReactComponent as Go } from 'icons/misc/next.svg';
 import RecipeHeader from 'components/RecipeHeader/RecipeHeader';
 import RecipeGenerics from 'components/RecipeGenerics/RecipeGenerics';
@@ -14,6 +11,7 @@ import RecipeIngredientsSection from 'components/RecipeIngredientsSection/Recipe
 import Subtitle from 'components/Subtitle/Subtitle';
 import List from 'components/List/List';
 import { Recipe as RecipeProps } from 'data/recipes/recipes';
+import style from './recipe.module.scss';
 
 const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   const [expandCard, setExpandCard] = useState<boolean>(false);
@@ -42,78 +40,87 @@ const Recipe: React.FC<RecipeProps> = ({ ...props }) => {
   }, [expandCard, cardHeight]);
 
   return (
-    <div
-      className={cn(style.card, {
-        [style.card_expanded]: expandCard,
-      })}
-      onClick={() => setExpandCard(!expandCard)}
-      ref={el}
-    >
-      <article
-        className={cn(style.article, {
-          [style.generals]: !expandCard,
-          [style.details]: expandCard,
-        })}
-      >
-        <LazyImage
-          src={props.image}
-          debounceDurationMs={500}
-          placeholder={({ imageProps, ref }) => (
-            <img
-              ref={ref}
-              src="/assets/images/empty_dish.jpg"
-              height="300"
-              width="320"
-              alt={imageProps.alt}
-            />
-          )}
-          actual={({ imageProps }) => (
-            <img
-              alt="img"
-              {...imageProps}
-              className={cn(style.img, style.animated, style.fadeIn)}
-            />
-          )}
-        />
-        <RecipeHeader list={props.allergens} title={props.name} />
-        {expandCard ? (
 
-          <>
-            <div className={style.ingredients_container}>
-              <RecipeIngredientsSection ingredients={props.ingredients} />
-            </div>
-            <div className={style.instructions_container}>
-              <Subtitle words="Preparation" />
-              <>
-                <List collection={props.instructions} />
-                <BorderedBox>
-                  {props.link.length > 0 ? (
-                    <>
-                      <Anchor
-                        link={props.link}
-                        linkName="Go to the website of the recipe "
-                      >
-                        <Go className={style.arrow} />
-                      </Anchor>
-                      <p className={style.infobox}>
-                        Most of the recipe links provided are just for
-                        reference
+    <animated.div
+      style={{ ...hoverState, ...heightState }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+
+      <div
+        className={cn(style.card, {
+          [style.card_expanded]: expandCard,
+        })}
+        onClick={() => setExpandCard(!expandCard)}
+        ref={el}
+      >
+        <article
+          className={cn(style.article, {
+            [style.generals]: !expandCard,
+            [style.details]: expandCard,
+          })}
+        >
+          <LazyImage
+            src={props.image}
+            debounceDurationMs={500}
+            placeholder={({ imageProps, ref }) => (
+              <img
+                ref={ref}
+                src="/assets/images/empty_dish.jpg"
+                height="300"
+                width="320"
+                alt={imageProps.alt}
+              />
+            )}
+            actual={({ imageProps }) => (
+              <img
+                alt="img"
+                {...imageProps}
+                className={cn(style.img, style.animated, style.fadeIn)}
+              />
+            )}
+          />
+          <RecipeHeader list={props.allergens} title={props.name} />
+          {expandCard ? (
+
+            <>
+              <div className={style.ingredientsContainer}>
+                <RecipeIngredientsSection ingredients={props.ingredients} />
+              </div>
+              <div className={style.instructionsContainer}>
+                <Subtitle words="Preparation" />
+                <>
+                  <List collection={props.instructions} />
+                  <BorderedBox>
+                    {props.link.length > 0 ? (
+                      <>
+                        <Anchor
+                          link={props.link}
+                          linkName="Go to the website of the recipe "
+                        >
+                          <Go className={style.arrow} />
+                        </Anchor>
+                        <p className={style.infobox}>
+                          Most of the recipe links provided are just for
+                          reference
                         </p>
-                    </>
-                  ) : (
-                    <p className={style.infobox}>
-                      Coming soon: link for reference
-                    </p>
-                  )}
-                </BorderedBox>
-              </>
-            </div>
-          </>
-        ) : (
-          <RecipeGenerics time={props.time} generics={generics} />
-        )}
-      </article>
-    </div>
+                      </>
+                    ) : (
+                      <p className={style.infobox}>
+                        Coming soon: link for reference
+                      </p>
+                    )}
+                  </BorderedBox>
+                </>
+              </div>
+            </>
+          ) : (
+            <RecipeGenerics time={props.time} generics={generics} />
+          )}
+        </article>
+      </div>
+    </animated.div>
+
   );
 };
 export default Recipe;

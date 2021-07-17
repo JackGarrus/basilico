@@ -1,4 +1,4 @@
-@use 'colors' as c;
+@use 'colors'as c;
 // THIS CODE WILL BE REFACTORED
 
 $border-width: 2px;
@@ -7,7 +7,6 @@ $layout-padding-lg: 20px;
 $misc_path: '/icons/misc/';
 $pattern: 'polkadots.svg';
 
-// RECEIPE ******************************************
 .card {
   height: auto;
   background-color: white;
@@ -16,6 +15,7 @@ $pattern: 'polkadots.svg';
   max-width: 90vw;
   background-image: url($misc_path + $pattern);
   background-size: 60%;
+
   &:hover {
     box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
@@ -24,23 +24,24 @@ $pattern: 'polkadots.svg';
   &:first-child {
     margin-top: 0;
   }
+
   @media(min-width: 768px) {
     height: 300px;
     max-width: 100%;
   }
+
   @media(min-width: 1024px) {
     width: 800px;
   }
 }
 
-// LAYOUT **********************************************
-
 .generals {
   display: grid;
-  grid-template-areas: "img" "header" "generals";
+  grid-template-areas: "img""header""generals";
   grid-template-rows: 135px 50px 100px;
+
   @media(min-width: 768px) {
-    grid-template-areas: "img header" "img generals";
+    grid-template-areas: "img header""img generals";
     grid-gap: $layout-padding-lg;
     grid-template-columns: 320px 1fr;
     grid-template-rows: 40% 1fr;
@@ -49,10 +50,11 @@ $pattern: 'polkadots.svg';
 
 .details {
   display: grid;
-  grid-template-areas: "img""header" "ingredients" "instructions";
+  grid-template-areas: "img""header""ingredients""instructions";
   grid-row-gap: 15px;
+
   @media(min-width: 768px) {
-    grid-template-areas: "img header" "img ingredients" "instructions instructions";
+    grid-template-areas: "img header""img ingredients""instructions instructions";
     grid-gap: $layout-padding-lg;
     grid-template-columns: 320px 1fr;
     grid-template-rows: repeat(4, auto);
@@ -67,6 +69,7 @@ $pattern: 'polkadots.svg';
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
   border-bottom: 2px dashed c.$orangered;
+
   @media(min-width: 768px) {
     height: 300px;
     border: 3px dashed c.$orangered;
@@ -78,38 +81,37 @@ $pattern: 'polkadots.svg';
 
 }
 
-.instructions_container {
+.instructionsContainer {
   grid-area: instructions;
   margin-bottom: 20px;
   padding: 0 10px;
+
   @media(min-width: 768px) {
-    padding: 0 $layout-padding-lg;;
+    padding: 0 $layout-padding-lg;
+    ;
   }
 }
 
-.ingredients_container {
+.ingredientsContainer {
   grid-area: ingredients;
   line-height: 1.6;
   height: 100%;
   padding: 0 10px;
+
   @media(min-width: 768px) {
-    padding: 0 ;
+    padding: 0;
   }
 }
-
-
-
 
 .instructions {
   display: flex;
   flex-direction: column;
   line-height: 1.6;
+
   span:not(:last-child) {
     margin-bottom: 10px;
   }
 }
-
-// MODIFICATORS *************************************************
 
 .card_expanded {
   height: auto;
@@ -123,9 +125,6 @@ $pattern: 'polkadots.svg';
   width: 100%;
 }
 
-
-// ICONS *************************************************
-
 $ico-size-sm: 22px;
 $ico-size-lg: 35px;
 
@@ -135,35 +134,38 @@ $ico-size-lg: 35px;
   background-size: $ico-size-sm;
   width: $ico-size-sm;
   height: $ico-size-sm;
+
   &:not(:last-child) {
     margin-right: 10px;
   }
 }
 
-.paper_bg {
+.paperBg {
   display: block;
   background-image: url($misc_path + $pattern);
 }
 
-.icon_component {
+.icon {
   width: $ico-size-lg;
   height: $ico-size-lg;
 }
 
-.icons_container {
+.iconsContainer {
   display: flex;
   align-items: center;
   padding-left: 10px;
+
   @media(min-width: 768px) {
     align-items: normal;
     padding-left: 0;
   }
 
-  .icon_wrapper {
+  .iconWrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
     min-width: 30px;
+
     &:not(:last-child) {
       margin-right: 20px;
     }
@@ -171,6 +173,7 @@ $ico-size-lg: 35px;
     @media(min-width: 768px) {
       padding: 0;
       min-width: 80px;
+
       &:not(:last-child) {
         margin-right: 10px;
       }
