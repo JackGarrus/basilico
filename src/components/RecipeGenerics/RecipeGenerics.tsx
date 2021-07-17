@@ -1,6 +1,7 @@
-//import InlineIcons from 'components/Atoms/Icons/InlineIcons';
-import style from 'components/Recipe/recipe.module.scss';
-
+import { parseGenerics } from 'utils/parseIcons'
+import React from 'react';
+import { ReactComponent as Timer } from 'icons/recipe-type/timer.svg'
+import style from './RecipeGenerics.module.scss';
 interface Props {
   generics: object;
   time: string;
@@ -12,19 +13,21 @@ const RecipeGenerics: React.FC<Props> = ({ generics, time }) => {
   for (const [key, value] of Object.entries(generics)) {
     value && genericsArr.push(key);
   }
+  console.log(genericsArr)
 
   return (
-    <div className={style.icons_container}>
-      <div className={style.icon_wrapper}>
-        {/*<InlineIcons name="time" size={30} />*/}
+    <div className={style.iconsContainer}>
+      <div className={style.iconWrapper}>
+
+        <Timer className={style.icon} />
         <p>{time}</p>
       </div>
       {genericsArr.map((
         e,
-        i, 
+        i,
       ) => (
         <div key={i} className={style.icon_wrapper}>
-          {/*<InlineIcons name={e} size={30} />*/}
+          {parseGenerics(e)}
           <p>{e}</p>
         </div>
       ))}
@@ -32,4 +35,5 @@ const RecipeGenerics: React.FC<Props> = ({ generics, time }) => {
   );
 };
 
-export default RecipeGenerics;
+export default React.memo(RecipeGenerics);
+

@@ -1,0 +1,44 @@
+$ico-size-lg: 35px;
+
+.icon {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: $ico-size-lg;
+  width: $ico-size-lg;
+  height: $ico-size-lg;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.iconsContainer {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+
+  @media(min-width: 768px) {
+    align-items: normal;
+    padding-left: 0;
+  }
+
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 30px;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    @media(min-width: 768px) {
+      padding: 0;
+      min-width: 80px;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
