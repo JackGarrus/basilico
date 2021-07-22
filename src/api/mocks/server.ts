@@ -1,11 +1,11 @@
 import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import {
-     getMonths
+     getMonthlyVegsList
 } from './routes/month';
 
 export const handlers = [
-     getMonths
+     getMonthlyVegsList
 ];
 
 // Setup server with all the handlers needed to test components
