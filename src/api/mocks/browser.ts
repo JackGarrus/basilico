@@ -1,6 +1,6 @@
 import { setupWorker } from 'msw';
 import { getMonthlyVegsList } from './routes/month';
 
-// Setup worker with all the handlers to be used with browser
-const worker = setupWorker(...[getMonthlyVegsList]);
+export const handlers = [getMonthlyVegsList];
+const worker = setupWorker(...handlers);
 export default worker;
