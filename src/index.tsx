@@ -6,15 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 (window as any).__version = process.env.REACT_APP_VERSION;
 
-if (
-  process.env.REACT_APP_ENV === 'local' ||
-  process.env.REACT_APP_ENV === 'dev'
-) {
-  import(/* webpackChunkName: 'mockAPI' */ './api/mocks/browser').then(
-    ({ default: worker }) => worker.start(),
-  );
-}
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

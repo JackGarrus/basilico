@@ -1,16 +1,14 @@
-import { MONTHS } from 'data/monthlyVegs';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import 'styles/slickCustomStyle.scss';
 import CarouselMonth from 'components/CarouselMonth/CarouselMonth';
 import { useGetMonthlyVegsList } from 'queries/veggies';
-import { useEffect } from 'react';
+import { MonthProp } from 'types/months';
 
-const Carousel: React.FunctionComponent = () => {
-  const { isLoading, data } = useGetMonthlyVegsList()
+const Carousel: React.FC = () => {
+  const { isLoading, data: months } = useGetMonthlyVegsList()
 
-  const months = MONTHS;
   let currentMonth = new Date().getMonth();
 
   let settings = {
@@ -32,20 +30,20 @@ const Carousel: React.FunctionComponent = () => {
     ),
   };
 
-  useEffect(() => console.log(data))
-
   return (
-    <Slider {...settings}>
-      {months.map((e, i) => (
-        <CarouselMonth
-          id={e.id}
-          key={i}
-          month={e.month}
-          fruits={e.fruits}
-          vegetables={e.vegetables}
-        />
-      ))}
-    </Slider>
+    <>
+      {months ? <Slider {...settings}>
+        {months.map((e: MonthProp, i: number) => (
+          <CarouselMonth
+            id={e.id}
+            key={i}
+            month={e.month}
+            fruits={e.fruits}
+            vegetables={e.vegetables}
+          />
+        ))}
+      </Slider> : <p>Loading...</p>}
+    </>
   );
 };
 
