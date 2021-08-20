@@ -16,10 +16,9 @@ const Header = () => {
           <Leaf className={style.leaf} />
           <p className={style.subtitle}>
             - Italian recipes for italian food lovers
-            </p>
+          </p>
         </div>
       </NavLink>
-      <SearchBar placeholder="Search ingredient" onChange={handleSearch} />
     </header>
 
   );
