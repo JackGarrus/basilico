@@ -5,6 +5,7 @@ import 'styles/slickCustomStyle.scss';
 import CarouselMonth from 'components/CarouselMonth/CarouselMonth';
 import { useGetMonthlyVegsList } from 'queries/veggies';
 import { MonthProp } from 'types/months';
+import FiltersContainer from 'components/FiltersContainer/FiltersContainer';
 
 const Carousel: React.FC = () => {
   const { isLoading, data: months } = useGetMonthlyVegsList()
