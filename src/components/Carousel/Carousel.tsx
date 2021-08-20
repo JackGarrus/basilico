@@ -33,7 +33,7 @@ const Carousel: React.FC = () => {
   return (
     <>
       {months ? <Slider {...settings}>
-        {months.map((e: MonthProp, i: number) => (
+        {months.data.map((e: MonthProp, i: number) => (
           <CarouselMonth
             id={e.id}
             key={i}
