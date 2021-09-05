@@ -30,12 +30,11 @@ interface FormData {
 }
 
 interface FormProperties {
-  data: FormData; //interfaccia del form
+  data: FormData;
 }
 
-
 const FilterRecipes: React.FC = () => {
-  const { handleSubmit, control } = useForm<FormProperties>({
+  const { handleSubmit, control, watch, register } = useForm<FormProperties>({
     defaultValues: {
       data: {
         selected: [
@@ -64,14 +63,17 @@ const FilterRecipes: React.FC = () => {
         {fields.map((field: any, i: any) => {
           return (
             <div>
-              {field.recipeType.map((rt: any, j: any) => {
+              {field.recipeType.map((f: any, j: any) => {
                 return (
-                  <div key={rt.id}>
-                    <label>
-                      {rt.name}
-                      <input type="checkbox" onChange={(e) => e.target.checked} checked={rt.value} id={`data.selected[${i}].rt[${j}].id`} name={`data.selected[${i}].rt[${j}].selected`} />
-                    </label>
-                  </div>
+                  <label key={f.id}>
+                    <input
+                      id={j}
+                      type="checkbox"
+                      {...register(f.name)}
+                      name={f.name}
+                    />
+                    {f.name}
+                  </label>
                 );
               })}
             </div>
