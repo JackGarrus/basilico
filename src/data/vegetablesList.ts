@@ -7,4 +7,11 @@ export const mergeAllVegs = () => {
   return [...FRUITS, ...VEGETABLES]
 }
 
-export const mergeAllAllergens = () => [...new Set(RECIPES.map((e) => e.recipes).map((j) => console.log(j)))]
+export const filterAllergens = () => {
+  RECIPES.map(recipesPerIngredient =>
+    recipesPerIngredient.recipes.map((recipe: any) => {
+      if (recipe.allergens.length === 0) return recipe
+      if (!recipe.allergens.includes('eggs')) return recipe
+    })
+  ).flat()
+}
