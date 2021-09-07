@@ -75,7 +75,7 @@ export const RECIPES: RecipesPerIngredient[] = [
         hasFish: false,
         time: '1h',
         difficulty: 'low',
-        allergens: ['gluten'],
+        allergens: ['gluten', 'lactose'],
         ingredients: [
           { name: 'flour', quantity: '140g' },
           { name: 'potato starch', quantity: '30g' },
