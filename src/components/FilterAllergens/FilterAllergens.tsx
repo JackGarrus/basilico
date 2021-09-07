@@ -1,18 +1,21 @@
-import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
+import { RECIPES } from 'data/recipes';
+
 import style from './FiltersContainer.module.scss';
 
 
-interface RecipeType {
+interface Allergens {
   id: string;
   name: string;
 }
 
-const recipeType: RecipeType[] = [
-  { id: "vegan", name: "Vegan" },
-  { id: "vegetarian", name: "Vegetarian" },
-  { id: "meat", name: "Meat" },
-  { id: "fish", name: "Fish" },
-  { id: "sweet", name: "Sweet" }
+const allergens: Allergens[] = [
+  { id: "eggs_free", name: "Eggs free" },
+  { id: "seeds_free", name: "Sesame seeds free" },
+  { id: "soy_free", name: "Soy free" },
+  { id: "peanuts_free", name: "Peanuts free" },
+  { id: "gluten_free", name: "Gluten free" },
+  { id: "lactose_free", name: "Lactose free" }
 ];
 
 interface CheckedItem {
@@ -22,7 +25,7 @@ interface CheckedItem {
 }
 
 interface CheckedItems {
-  recipeType: CheckedItem[];
+  allergens: CheckedItem[];
 }
 
 interface FormData {
@@ -33,13 +36,17 @@ interface FormProperties {
   data: FormData;
 }
 
-const FilterRecipes: React.FC = () => {
-  const { handleSubmit, control, watch, register } = useForm<FormProperties>({
+const FilterAllergens: React.FC = () => {
+
+  const [recipes = RECIPES.map(e => e.recipes)] = RECIPES
+  //array.find recipes che non hanno gli allergeni selezionati
+
+  const { handleSubmit, control, register, watch } = useForm<FormProperties>({
     defaultValues: {
       data: {
         selected: [
           {
-            recipeType: recipeType.map((rt) => {
+            allergens: allergens.map((rt) => {
               return { id: rt.id, name: rt.name, selected: false };
             })
           }
@@ -50,6 +57,7 @@ const FilterRecipes: React.FC = () => {
 
   const onSave = handleSubmit((form) => {
     console.log(form);
+
   });
 
   const { fields } = useFieldArray({
@@ -57,22 +65,23 @@ const FilterRecipes: React.FC = () => {
     name: "data.selected"
   });
 
+
   return (
     <div>
       <form noValidate>
         {fields.map((field: any, i: any) => {
           return (
             <div>
-              {field.recipeType.map((f: any, j: any) => {
+              {field.allergens.map((allergene: any, j: any) => {
                 return (
-                  <label key={f.id}>
+                  <label key={allergene.id}>
                     <input
                       id={j}
                       type="checkbox"
-                      {...register(f.name)}
-                      name={f.name}
+                      {...register(allergene.id)}
+                      name={allergene.id}
                     />
-                    {f.name}
+                    {allergene.name}
                   </label>
                 );
               })}
@@ -80,11 +89,11 @@ const FilterRecipes: React.FC = () => {
           );
         })}
 
-        <div onClick={onSave}>Submit</div>
+        <button onClick={onSave}>Submit</button>
       </form>
     </div>
 
   );
 };
 
-export default FilterRecipes;
+export default FilterAllergens;
