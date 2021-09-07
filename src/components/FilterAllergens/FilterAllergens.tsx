@@ -12,7 +12,7 @@ interface Allergens {
 
 const allergens: Allergens[] = [
   { id: "eggs", name: "eggs" },
-  { id: "seeds", name: "sesame" },
+  { id: "seeds", name: "seeds" },
   { id: "soy", name: "soy" },
   { id: "nuts", name: "nuts" },
   { id: "gluten", name: "gluten" },
@@ -63,7 +63,8 @@ const FilterAllergens: React.FC = () => {
   const mergeSelectedAllergens = (selectedAllergens: any): string[] => {
     let formValues: any = selectedAllergens;
     let formValuesKeys: string[] = Object.keys(formValues)
-    return formValuesKeys.filter((key: any) => {
+    let formValuesKeysNoData = formValuesKeys.filter(e => e !== 'data') // FIIIIIIXXXXXX
+    return formValuesKeysNoData.filter((key: any) => {
       return formValues[key] === true && formValues[key]
     }); //fix, maronn
   }
@@ -78,7 +79,7 @@ const FilterAllergens: React.FC = () => {
       <form noValidate>
         {fields.map((field: any, i: any) => {
           return (
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
               {field.allergens.map((allergene: any, j: any) => {
                 return (
                   <label key={allergene.id}>
