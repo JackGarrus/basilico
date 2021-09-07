@@ -2,6 +2,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { RECIPES } from 'data/recipes';
 
 import style from './FiltersContainer.module.scss';
+import { filterAllergens } from 'data/vegetablesList';
 
 
 interface Allergens {
@@ -10,12 +11,12 @@ interface Allergens {
 }
 
 const allergens: Allergens[] = [
-  { id: "eggs_free", name: "Eggs free" },
-  { id: "seeds_free", name: "Sesame seeds free" },
-  { id: "soy_free", name: "Soy free" },
-  { id: "peanuts_free", name: "Peanuts free" },
-  { id: "gluten_free", name: "Gluten free" },
-  { id: "lactose_free", name: "Lactose free" }
+  { id: "eggs", name: "eggs" },
+  { id: "seeds", name: "sesame" },
+  { id: "soy", name: "soy" },
+  { id: "nuts", name: "nuts" },
+  { id: "gluten", name: "gluten" },
+  { id: "lactose", name: "lactose" }
 ];
 
 interface CheckedItem {
@@ -41,7 +42,7 @@ const FilterAllergens: React.FC = () => {
   const [recipes = RECIPES.map(e => e.recipes)] = RECIPES
   //array.find recipes che non hanno gli allergeni selezionati
 
-  const { handleSubmit, control, register, watch } = useForm<FormProperties>({
+  const { handleSubmit, control, register } = useForm<FormProperties>({
     defaultValues: {
       data: {
         selected: [
@@ -55,16 +56,22 @@ const FilterAllergens: React.FC = () => {
     }
   });
 
-  const onSave = handleSubmit((form) => {
-    console.log(form);
-
+  const onSave = handleSubmit((values) => {
+    console.log(filterAllergens(mergeSelectedAllergens(values)))
   });
+
+  const mergeSelectedAllergens = (selectedAllergens: any): string[] => {
+    let formValues: any = selectedAllergens;
+    let formValuesKeys: string[] = Object.keys(formValues)
+    return formValuesKeys.filter((key: any) => {
+      return formValues[key] === true && formValues[key]
+    }); //fix, maronn
+  }
 
   const { fields } = useFieldArray({
     control,
     name: "data.selected"
   });
-
 
   return (
     <div>
@@ -79,9 +86,9 @@ const FilterAllergens: React.FC = () => {
                       id={j}
                       type="checkbox"
                       {...register(allergene.id)}
-                      name={allergene.id}
+                      name={allergene.name}
                     />
-                    {allergene.name}
+                    {allergene.name} free
                   </label>
                 );
               })}
