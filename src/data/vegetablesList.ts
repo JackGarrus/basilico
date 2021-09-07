@@ -1,4 +1,3 @@
-import { Allergens } from 'types/recipe';
 import { MONTHS } from './monthlyVegs'
 import { RECIPES } from './recipes';
 
@@ -11,13 +10,7 @@ export const mergeAllVegs = () => {
 export const filterAllergens = (selectedAllergens: string[]) => {
   return RECIPES.map(recipesPerIngredient =>
     recipesPerIngredient.recipes.map((recipe: any) => {
-      if (recipe.allergens.length === 0) return recipe // ritorna tutte le ricette che non hanno allergeni
-      //if (!recipe.allergens.includes('eggs')) return recipe
-      if (selectedAllergens.filter(selectedAllergene => {
-        return recipe.allergens.includes(selectedAllergene)
-      })) return recipe
-
+      if (selectedAllergens.some(selectedAllergene => recipe.allergens.includes(selectedAllergene))) { return null } else return recipe
     })
   ).flat()
 }
-//const test3 = selectedAllergens.some(selectedAllergen => !recipeAllergens.includes(selectedAllergen))
