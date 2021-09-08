@@ -1,8 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form";
-import { RECIPES } from 'data/recipes';
-
-import style from './FiltersContainer.module.scss';
 import { filterAllergens } from 'data/vegetablesList';
+
+//import style from './FiltersContainer.module.scss';
 
 
 interface Allergens {

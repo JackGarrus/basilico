@@ -3,13 +3,8 @@ import Recipe from 'components/Recipe/Recipe';
 import { useTrail, animated } from 'react-spring';
 import style from './RecipesList.module.scss';
 import { useParams } from 'react-router-dom';
-interface RouterProps {
-  match: any;
-}
 
-type Props = RouterProps;
-
-const RecipesList: React.FC<RouterProps> = () => {
+const RecipesList: React.FC = () => {
   const { ingredient } = useParams<{ ingredient?: string }>();
 
   const recipesData = RECIPES;
