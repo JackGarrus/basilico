@@ -2,17 +2,19 @@ import { RECIPES } from 'data/recipes';
 import Recipe from 'components/Recipe/Recipe';
 import { useTrail, animated } from 'react-spring';
 import style from './RecipesList.module.scss';
+import { useParams } from 'react-router-dom';
 interface RouterProps {
   match: any;
 }
 
 type Props = RouterProps;
 
-const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
-  const selectedIngredient = match.params.ingredient;
+const RecipesList: React.FC<RouterProps> = () => {
+  const { ingredient } = useParams<{ ingredient?: string }>();
+
   const recipesData = RECIPES;
   let ingredientRecipe = recipesData.find(
-    obj => obj.ingredientName === selectedIngredient,
+    obj => obj.ingredientName === ingredient,
   );
   let readyToLoad = false;
   let recipe: any;
@@ -42,7 +44,7 @@ const RecipesList: React.FC<RouterProps> = ({ match }: Props) => {
     <div className={style.container}>
       <div className={style.innerContainer}>
         <p className={style.pageTitle}>
-          <span className={style.selectedIngredient}>{selectedIngredient}</span>
+          <span className={style.selectedIngredient}>{ingredient}</span>
           recipes
         </p>
         <div className={style.card}>
