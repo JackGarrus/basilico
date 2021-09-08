@@ -8,5 +8,11 @@ export function useGetMonthlyVegsList() {
       staleTime: 300_000,
     },
   );
+
+  useQuery('recipes', () =>
+    fetch('/recipes').then(res =>
+      res.json()
+    )
+  )
   return query
 }
