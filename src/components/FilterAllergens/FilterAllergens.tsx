@@ -38,10 +38,6 @@ interface FormProperties {
 }
 
 const FilterAllergens: React.FC = () => {
-
-  const [recipes = RECIPES.map(e => e.recipes)] = RECIPES
-  //array.find recipes che non hanno gli allergeni selezionati
-
   const { handleSubmit, control, register } = useForm<FormProperties>({
     defaultValues: {
       data: {
@@ -57,7 +53,7 @@ const FilterAllergens: React.FC = () => {
   });
 
   const onSave = handleSubmit((values) => {
-    console.log(filterAllergens(mergeSelectedAllergens(values)))
+    filterAllergens(mergeSelectedAllergens(values));
   });
 
   const mergeSelectedAllergens = (selectedAllergens: any): string[] => {
@@ -79,7 +75,7 @@ const FilterAllergens: React.FC = () => {
       <form noValidate>
         {fields.map((field: any, i: any) => {
           return (
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }} key={i}>
               {field.allergens.map((allergene: any, j: any) => {
                 return (
                   <label key={allergene.id}>

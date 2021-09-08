@@ -10,7 +10,7 @@ export const mergeAllVegs = () => {
 export const filterAllergens = (selectedAllergens: string[]) => {
   return RECIPES.map(recipesPerIngredient =>
     recipesPerIngredient.recipes.map((recipe: any) => {
-      if (selectedAllergens.some(selectedAllergene => recipe.allergens.includes(selectedAllergene))) { return null } else return recipe
+      if (selectedAllergens.some((selectedAllergene: string) => recipe.allergens.includes(selectedAllergene))) { return null } else return recipe
     })
   ).flat()
 }

@@ -9,6 +9,7 @@ export type Allergens =
   | 'gluten'
   | 'nuts'
   | 'eggs';
+
 export interface RecipesPerIngredient {
   id: number;
   ingredientName: Fruits | Vegetables;
