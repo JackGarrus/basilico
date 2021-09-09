@@ -1,10 +1,16 @@
 .container {
-  width: 100%;
-  padding: 20px 80px;
-  border-bottom: 1px solid #000;
+  height: 50px;
+  cursor: pointer;
 }
 
 .innerContainer {
   display: flex;
   justify-content: space-between;
+}
+
+.showContent {
+  height: auto;
+  width: 100%;
+  padding: 20px 80px;
+  border-bottom: 1px solid #000;
 }
