@@ -50,8 +50,8 @@ const FiltersContainer: React.FC = () => {
           <Select
             {...commonProps}
             styles={customStyles}
-            options={OPTIONS}
             placeholder="Type or choose a veg..."
+            options={OPTIONS}
             components={{
               IndicatorSeparator: () => null,
               Option: CustomSelectOption
