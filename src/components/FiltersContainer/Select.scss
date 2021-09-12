@@ -57,4 +57,39 @@
       }
     }
   }
+
+  &__value-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+
+    >div {
+      padding: 10px 20px 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    p {
+      color: #333;
+      font-weight: 700;
+      text-transform: capitalize;
+      padding-left: 10px;
+
+      &:hover {
+        background-color: c.$secondaryColor;
+        cursor: pointer;
+      }
+
+      &:first-letter {
+        color: c.$accentColor;
+      }
+    }
+  }
+
+  &__placeholder {
+    font-weight: 700;
+    color: c.$primaryColor;
+  }
 }
