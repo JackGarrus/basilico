@@ -1,1 +1,60 @@
+@use 'colors'as c;
 
+.select {
+  &__control {
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px dashed c.$orangered;
+    border-radius: 0;
+
+    &:hover {
+      border-color: c.$primaryColor
+    }
+
+    &--menu-is-open {
+      border: none;
+    }
+
+    &--is-disabled {
+      cursor: not-allowed;
+      border-color: grey;
+    }
+  }
+
+  &__option {
+    >div {
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    &--is-focused {
+      background-color: c.$secondaryColor;
+    }
+
+    &--is-selected {
+      background-color: c.$secondaryColor;
+      color: white;
+    }
+
+    p {
+      color: #333;
+      font-weight: 700;
+      text-transform: capitalize;
+      padding-left: 10px;
+
+      &:hover {
+        background-color: c.$secondaryColor;
+        cursor: pointer;
+      }
+
+      &:first-letter {
+        color: c.$orangered;
+      }
+    }
+  }
+}

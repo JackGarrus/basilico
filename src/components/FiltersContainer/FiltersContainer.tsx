@@ -6,7 +6,7 @@ import style from './FiltersContainer.module.scss';
 import { useState } from 'react';
 import cn from 'classnames';
 import './Select.scss';
-import { customOption, customStyles } from './customStyles';
+import { customStyles } from './customStyles';
 import { parseVeggiesIcons } from 'utils/parseIcons';
 
 const FiltersContainer: React.FC = () => {
@@ -22,13 +22,24 @@ const FiltersContainer: React.FC = () => {
   }*/
 
   const CustomSelectOption = (props: any) => (
-    <components.Option {...props} styles={customOption.option}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+    <components.Option {...props} >
+      <div>
         {parseVeggiesIcons(props.label, style.icon)}
-        <p style={{ paddingLeft: '10px' }}>{props.label}</p>
+        <p>{props.label}</p>
       </div>
     </components.Option>
   )
+
+  const commonProps = {
+    classNamePrefix: 'select',
+    components,
+    noOptionsMessage: (obj: { inputValue: string }) => {
+      if (obj.inputValue?.length === 0) {
+        return 'Type or choose a veg...';
+      }
+      return 'Veg not found';
+    },
+  };
 
   return (
     <div className={cn(style.container, {
@@ -37,6 +48,7 @@ const FiltersContainer: React.FC = () => {
       {//isOpen &&
         <div>
           <Select
+            {...commonProps}
             styles={customStyles}
             options={OPTIONS}
             placeholder="Type or choose a veg..."
