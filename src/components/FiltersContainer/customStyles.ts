@@ -8,20 +8,10 @@ const STYLE_VAR = {
 export const customStyles = {
   control: () => ({}),
   option: () => ({}),
-  valueContainer: (provided: any, state: any) => ({
-    ...provided,
-    textTransform: 'capitalize',
-  }),
+  valueContainer: () => ({}),
+  dropdownIndicator: () => ({}),
 
-  dropdownIndicator: (provided: any, state: any) => ({
-    ...provided,
-    color: `${STYLE_VAR.primaryColor}`
-  }),
-
-  placeholder: (provided: any, state: any) => ({
-    ...provided,
-    color: `${STYLE_VAR.primaryColor}`,
-    fontWeight: 700,
+  placeholder: () => ({
   }),
 
   container: (provided: any, state: any) => ({

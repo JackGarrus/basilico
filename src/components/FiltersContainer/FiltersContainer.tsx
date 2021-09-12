@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import Select, { components } from 'react-select';
+import Select, { ActionMeta, components } from 'react-select';
 import { mergeAllVegs } from 'data/vegetablesList';
 import FilterAllergens from 'components/FilterAllergens/FilterAllergens';
 import style from './FiltersContainer.module.scss';
@@ -30,6 +30,15 @@ const FiltersContainer: React.FC = () => {
     </components.Option>
   )
 
+  const CustomValueContainer = (props: any) => (
+    <components.ValueContainer {...props} >
+      {props.hasValue && <div>
+        {parseVeggiesIcons(props.selectProps.value.label, style.icon)}
+        <p>{props.selectProps.value.label} </p>
+      </div>}
+    </components.ValueContainer>
+  )
+
   const commonProps = {
     classNamePrefix: 'select',
     components,
@@ -54,7 +63,8 @@ const FiltersContainer: React.FC = () => {
             options={OPTIONS}
             components={{
               IndicatorSeparator: () => null,
-              Option: CustomSelectOption
+              Option: CustomSelectOption,
+              ValueContainer: CustomValueContainer
             }}
             onChange={option => handleOnChange(option)}
           />
