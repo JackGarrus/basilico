@@ -49,11 +49,11 @@ $pattern: 'polkadots.svg';
 
 .generals {
   display: grid;
-  grid-template-areas: 'img' 'header' 'generals';
+  grid-template-areas: 'img''header''generals';
   grid-template-rows: 135px 50px 100px;
 
   @media (min-width: 768px) {
-    grid-template-areas: 'img header' 'img generals';
+    grid-template-areas: 'img header''img generals';
     grid-gap: $layout-padding-lg;
     grid-template-columns: 320px 1fr;
     grid-template-rows: 40% 1fr;
@@ -62,11 +62,11 @@ $pattern: 'polkadots.svg';
 
 .details {
   display: grid;
-  grid-template-areas: 'img' 'header' 'ingredients' 'instructions';
+  grid-template-areas: 'img''header''ingredients''instructions';
   grid-row-gap: 15px;
 
   @media (min-width: 768px) {
-    grid-template-areas: 'img header' 'img ingredients' 'instructions instructions';
+    grid-template-areas: 'img header''img ingredients''instructions instructions';
     grid-gap: $layout-padding-lg;
     grid-template-columns: 320px 1fr;
     grid-template-rows: repeat(4, auto);
@@ -80,11 +80,11 @@ $pattern: 'polkadots.svg';
   height: 130px;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-  border-bottom: 2px dashed c.$orangered;
+  border-bottom: 2px dashed c.$accentColor;
 
   @media (min-width: 768px) {
     height: 300px;
-    border: 3px dashed c.$orangered;
+    border: 3px dashed c.$accentColor;
     border-top-left-radius: $border-radius - $border-width;
     border-bottom-left-radius: $border-radius - $border-width;
     border-top-right-radius: 50%;

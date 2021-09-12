@@ -1,4 +1,4 @@
-@use 'colors' as c;
+@use 'colors'as c;
 
 .container {
   display: flex;
@@ -17,5 +17,5 @@
   align-items: center;
   flex-direction: column;
   font-weight: 400;
-  color: c.$orangered;
+  color: c.$accentColor;
 }
