@@ -23,7 +23,8 @@ export const customStyles = {
   menu: (provided: any, state: any) => ({
     ...provided,
     margin: 0,
-    padding: 0
+    padding: 0,
+    border: '2px dashed orangered'
   }),
 
   menuList: (provided: any, state: any) => ({
