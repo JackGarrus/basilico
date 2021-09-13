@@ -70,31 +70,30 @@ const FilterAllergens: React.FC = () => {
   });
 
   return (
-    <div>
-      <form noValidate>
-        {fields.map((field: any, i: any) => {
-          return (
-            <div style={{ display: 'flex', flexDirection: 'column' }} key={i}>
-              {field.allergens.map((allergene: any, j: any) => {
-                return (
-                  <label key={allergene.id}>
-                    <input
-                      id={j}
-                      type="checkbox"
-                      {...register(allergene.id)}
-                      name={allergene.name}
-                    />
-                    {allergene.name} free
-                  </label>
-                );
-              })}
-            </div>
-          );
-        })}
+    <form noValidate className={style.form}>
+      {fields.map((field: any, i: any) => {
+        return (
+          <div className={style.container} key={i}>
+            {field.allergens.map((allergene: any, j: any) => {
+              return (
+                <label key={allergene.id} className={style.checkboxLabel}>
+                  <input
+                    id={j}
+                    type="checkbox"
+                    {...register(allergene.id)}
+                    name={allergene.name}
+                  />
+                  <p className={style.text}>{allergene.name}</p>
+                  <div className={style.checkboxCustom}></div>
+                </label>
+              );
+            })}
+          </div>
+        );
+      })}
 
-        <button onClick={onSave} className={style.btn}>Search</button>
-      </form>
-    </div>
+      <button onClick={onSave} className={style.btn}>Search</button>
+    </form>
 
   );
 };

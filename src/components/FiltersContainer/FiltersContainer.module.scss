@@ -2,13 +2,13 @@
   // height: 50px;
   cursor: pointer;
   z-index: 2;
-  padding: 20px 50px;
+  padding: 20px 50px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: fit-content;
 
   &>:first-child {
-    margin-right: 20px;
+    margin-right: 50px;
     max-width: 400px;
     height: fit-content;
   }
