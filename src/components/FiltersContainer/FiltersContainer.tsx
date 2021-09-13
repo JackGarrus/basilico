@@ -62,29 +62,39 @@ const FiltersContainer: React.FC = () => {
     },
   };
 
-  useEffect(() => setIsOpen(false))
+  useEffect(() => setIsOpen(isOpen), [isOpen])
 
   return (
     <div className={cn(style.container, {
       [style.showContent]: isOpen
     })} >
-      {//isOpen &&
+      <div className={style.headerFilters}>
+        <p>Filters</p>
+        <div onClick={() => setIsOpen(!isOpen)}>x</div>
+      </div>
+      {isOpen &&
         <>
-          <Select
-            {...commonProps}
-            isClearable
-            isSearchable
-            styles={customStyles}
-            placeholder="Type or choose a veg..."
-            options={OPTIONS}
-            components={{
-              IndicatorSeparator: () => null,
-              Option: CustomSelectOption,
-              //ValueContainer: CustomValueContainer
-            }}
-            onChange={handleOnChange}
-          />
-          <FilterAllergens />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h3 className={style.title}>Filter by veg</h3>
+            <Select
+              {...commonProps}
+              isClearable
+              isSearchable
+              styles={customStyles}
+              placeholder="Type or choose a veg..."
+              options={OPTIONS}
+              components={{
+                IndicatorSeparator: () => null,
+                Option: CustomSelectOption,
+                //ValueContainer: CustomValueContainer
+              }}
+              onChange={handleOnChange}
+            />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h3 className={style.title}>Filter by allergens</h3>
+            <FilterAllergens />
+          </div>
         </>
       }
     </div>

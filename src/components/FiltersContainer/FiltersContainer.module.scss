@@ -7,6 +7,8 @@
   width: 800px;
   height: fit-content;
   margin: 0 auto;
+  padding-bottom: 30px;
+  flex-direction: column;
 
   &>:first-child {
     margin-right: 50px;
@@ -16,6 +18,15 @@
 
 }
 
+.title {
+  margin-bottom: 20px;
+}
+
+.headerFilters {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
 
 .showContent {
   height: auto;
