@@ -3,12 +3,18 @@
   cursor: pointer;
   z-index: 2;
   padding: 20px 50px;
-}
-
-.innerContainer {
   display: flex;
   justify-content: space-between;
+  height: fit-content;
+
+  &>:first-child {
+    margin-right: 20px;
+    max-width: 400px;
+    height: fit-content;
+  }
+
 }
+
 
 .showContent {
   height: auto;

@@ -1,7 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { filterAllergens } from 'data/vegetablesList';
 
-//import style from './FiltersContainer.module.scss';
+import style from './FilterAllergens.module.scss';
 
 
 interface Allergens {
@@ -92,7 +92,7 @@ const FilterAllergens: React.FC = () => {
           );
         })}
 
-        <button onClick={onSave}>Submit</button>
+        <button onClick={onSave} className={style.btn}>Search</button>
       </form>
     </div>
 

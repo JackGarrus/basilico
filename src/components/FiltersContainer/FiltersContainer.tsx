@@ -55,7 +55,7 @@ const FiltersContainer: React.FC = () => {
       [style.showContent]: isOpen
     })} >
       {//isOpen &&
-        <div>
+        <>
           <Select
             {...commonProps}
             styles={customStyles}
@@ -68,10 +68,8 @@ const FiltersContainer: React.FC = () => {
             }}
             onChange={option => handleOnChange(option)}
           />
-          <div>
-            <FilterAllergens />
-          </div>
-        </div>}
+          <FilterAllergens />
+        </>}
     </div>
   );
 };
