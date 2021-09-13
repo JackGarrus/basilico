@@ -24,7 +24,9 @@ export const customStyles = {
     ...provided,
     margin: 0,
     padding: 0,
-    border: '2px dashed orangered'
+    border: '2px dashed orangered',
+    borderTop: 'none',
+    paddingTop: 0
   }),
 
   menuList: (provided: any, state: any) => ({
