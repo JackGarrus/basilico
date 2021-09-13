@@ -9,7 +9,12 @@ export const customStyles = {
   control: () => ({}),
   option: () => ({}),
   valueContainer: () => ({}),
-  dropdownIndicator: () => ({}),
+  dropdownIndicator: (provided: any, state: any) => ({
+    ...provided,
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'none',
+    transition: 'transform 0.3s ease-in-out',
+    color: '#80b380'
+  }),
 
   placeholder: () => ({
   }),
