@@ -42,14 +42,14 @@ const FiltersContainer: React.FC = () => {
     </components.Option>
   )
 
-  const CustomValueContainer = (props: any) => (
-    <components.ValueContainer {...props} >
-      {props.hasValue ? <div>
-        {parseVeggiesIcons(props.selectProps.value.label, style.icon)}
-        <p>{props.selectProps.value.label} </p>
-      </div> : 'Type or choose a veg...'}
-    </components.ValueContainer>
-  )
+  /* const CustomValueContainer = (props: any) => (
+     <components.ValueContainer {...props} >
+       {props.hasValue ? <div>
+         {parseVeggiesIcons(props.selectProps.value.label, style.icon)}
+         <p>{props.selectProps.value.label} </p>
+       </div> : 'Type or choose a veg...'}
+     </components.ValueContainer>
+   )*/
 
   const commonProps = {
     classNamePrefix: 'select',
@@ -73,13 +73,14 @@ const FiltersContainer: React.FC = () => {
           <Select
             {...commonProps}
             isClearable
+            isSearchable
             styles={customStyles}
             placeholder="Type or choose a veg..."
             options={OPTIONS}
             components={{
               IndicatorSeparator: () => null,
               Option: CustomSelectOption,
-              ValueContainer: CustomValueContainer
+              //ValueContainer: CustomValueContainer
             }}
             onChange={handleOnChange}
           />
