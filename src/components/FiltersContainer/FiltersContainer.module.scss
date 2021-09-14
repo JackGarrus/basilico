@@ -1,21 +1,18 @@
+ @use 'colors' as c;
+$filter-width: 600px;
+
 .container {
-  // height: 50px;
   cursor: pointer;
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  width: 800px;
+  width: $filter-width;
   height: fit-content;
   margin: 0 auto;
   padding-bottom: 30px;
   flex-direction: column;
-
-  &>:first-child {
-    margin-right: 50px;
-    max-width: 400px;
-    height: fit-content;
-  }
-
+  display: flex;
+  align-items: center;
 }
 
 .title {
@@ -26,11 +23,31 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  color: c.$primaryColor;
 }
 
 .showContent {
   height: auto;
+  border-bottom: 1px solid c.$black;
+}
+
+.filterHeaderTitle {
+  display: flex;
+  flex-direction: column;
+  & p:first-letter {
+    color: c.$accentColor;
+  }
+}
+
+.filterContent {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  padding: 20px 80px;
-  border-bottom: 1px solid #000;
 }

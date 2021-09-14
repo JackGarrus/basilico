@@ -5,9 +5,12 @@ import FilterAllergens from 'components/FilterAllergens/FilterAllergens';
 import style from './FiltersContainer.module.scss';
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
-import './Select.scss';
 import { customStyles } from './customStyles';
 import { parseVeggiesIcons } from 'utils/parseIcons';
+import { ReactComponent as Cross } from 'icons/cross.svg'
+import { ReactComponent as Chev } from 'icons/chev.svg'
+
+import './Select.scss';
 
 interface Option {
   label: string | unknown;
@@ -68,13 +71,13 @@ const FiltersContainer: React.FC = () => {
     <div className={cn(style.container, {
       [style.showContent]: isOpen
     })} >
-      <div className={style.headerFilters}>
+      <div className={style.headerFilters} onClick={() => setIsOpen(!isOpen)}>
         <p>Filters</p>
-        <div onClick={() => setIsOpen(!isOpen)}>x</div>
+        {isOpen ? <Cross className={style.icon} /> : <Chev className={style.icon} />}
       </div>
       {isOpen &&
-        <>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className={style.filterContent}>
+          <div className={style.filterHeaderTitle}>
             <h3 className={style.title}>Filter by veg</h3>
             <Select
               {...commonProps}
@@ -91,11 +94,11 @@ const FiltersContainer: React.FC = () => {
               onChange={handleOnChange}
             />
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className={style.filterHeaderTitle}>
             <h3 className={style.title}>Filter by allergens</h3>
             <FilterAllergens />
           </div>
-        </>
+        </div>
       }
     </div>
   );
