@@ -1,6 +1,6 @@
 import { MonthProp } from 'types/months';
 
-export const MONTHS: any = {
+export const MONTHLY_VEGS: any = {
   data: [
     {
       id: 0,

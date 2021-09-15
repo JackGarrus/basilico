@@ -1,6 +1,6 @@
 import { MonthProp } from 'types/months';
 
-export const MONTHS: MonthProp[] = [
+export const MONTHLY_VEGS: MonthProp[] = [
   {
     id: 0,
     month: 'january',

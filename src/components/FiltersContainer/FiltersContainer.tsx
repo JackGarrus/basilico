@@ -11,21 +11,18 @@ import { ReactComponent as Cross } from 'icons/cross.svg'
 import { ReactComponent as Chev } from 'icons/chev.svg'
 
 import './Select.scss';
+import { useGetRecipes } from 'queries/veggies';
 
 interface Option {
   label: string | unknown;
   value: string | unknown;
 }
 const FiltersContainer: React.FC = () => {
+  const { data, isLoading } = useGetRecipes();
   const [isOpen, setIsOpen] = useState(false);
   const OPTIONS: Option[] = mergeAllVegs().map((e) => { return { label: e, value: e } })
-
   let history = useHistory();
 
-  /*const handleToggleAnchor = (el: any) => {
-    el.preventDefault();
-    return setIsOpen(!isOpen)
-  }*/
 
   const handleOnChange = (val: any, actionMeta: ActionMeta<any>) => {
     switch (actionMeta.action) {

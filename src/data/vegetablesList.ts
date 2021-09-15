@@ -1,9 +1,9 @@
-import { MONTHS } from './monthlyVegs'
+import { MONTHLY_VEGS } from './monthlyVegs'
 import { RECIPES } from './recipes';
 
 export const mergeAllVegs = () => {
-  const FRUITS = [...new Set(MONTHS.data.map((e: any, i: number) => e.fruits).flat())]
-  const VEGETABLES = [...new Set(MONTHS.data.map((e: any, i: number) => e.vegetables).flat())]
+  const FRUITS = [...new Set(MONTHLY_VEGS.data.map((e: any, i: number) => e.fruits).flat())]
+  const VEGETABLES = [...new Set(MONTHLY_VEGS.data.map((e: any, i: number) => e.vegetables).flat())]
   return [...FRUITS, ...VEGETABLES]
 }
 

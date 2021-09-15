@@ -1,18 +1,21 @@
 import { useQuery } from 'react-query';
-import { MONTHS } from 'data/monthlyVegs';
 
-export function useGetMonthlyVegsList() {
-  const query = useQuery(
-    'monthlyVegsList', () => MONTHS,
-    {
-      staleTime: 300_000,
-    },
-  );
-
-  useQuery('recipes', () =>
+export function useGetRecipes() {
+  const query = useQuery('recipes', () =>
     fetch('/recipes').then(res =>
       res.json()
     )
   )
   return query
 }
+
+export function useGetMonthlyVegs() {
+  const query = useQuery('monthlyVegs', () => fetch('/monthlyVegs').then(res => res.json()))
+  return query;
+}
+
+/*
+get banana
+find banana
+return when is banana
+ */

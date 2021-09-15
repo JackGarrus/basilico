@@ -3,12 +3,11 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import 'styles/slickCustomStyle.scss';
 import CarouselMonth from 'components/CarouselMonth/CarouselMonth';
-import { useGetMonthlyVegsList } from 'queries/veggies';
+import { useGetMonthlyVegs } from 'queries/veggies';
 import { MonthProp } from 'types/months';
-import FiltersContainer from 'components/FiltersContainer/FiltersContainer';
 
 const Carousel: React.FC = () => {
-  const { isLoading, data: months } = useGetMonthlyVegsList()
+  const { data: months } = useGetMonthlyVegs()
 
   let currentMonth = new Date().getMonth();
 
@@ -30,11 +29,10 @@ const Carousel: React.FC = () => {
       <div className="sliderPaginationIndex">{i + 1}</div>
     ),
   };
-
   return (
     <>
       {months ? <Slider {...settings}>
-        {months.data.map((e: MonthProp, i: number) => (
+        {months.map((e: MonthProp, i: number) => (
           <CarouselMonth
             id={e.id}
             key={i}
