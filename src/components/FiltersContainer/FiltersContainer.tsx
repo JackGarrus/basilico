@@ -25,7 +25,7 @@ const FiltersContainer: React.FC = () => {
 
   const findVegMonths = (veg: string) => {
     const isFruit = getAllFruits().includes(veg) ?? false;
-    return data.filter((el: any) => {
+    return data?.filter((el: any) => {
       if (isFruit && el.fruits.includes(veg)) {
         return el.month
       } else if (!isFruit && el.vegetables.includes(veg)
