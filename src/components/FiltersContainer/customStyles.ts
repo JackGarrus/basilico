@@ -9,6 +9,9 @@ export const customStyles = {
   control: () => ({}),
   option: () => ({}),
   valueContainer: () => ({}),
+  menu: () => ({}),
+  placeholder: () => ({}),
+
   dropdownIndicator: (provided: any, state: any) => ({
     ...provided,
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'none',
@@ -16,8 +19,6 @@ export const customStyles = {
     color: '#80b380'
   }),
 
-  placeholder: () => ({
-  }),
 
   container: (provided: any, state: any) => ({
     ...provided,
@@ -25,14 +26,6 @@ export const customStyles = {
     width: '100%',
   }),
 
-  menu: (provided: any, state: any) => ({
-    ...provided,
-    margin: 0,
-    padding: 0,
-    border: '2px dashed orangered',
-    borderTop: 'none',
-    paddingTop: 0
-  }),
 
   menuList: (provided: any, state: any) => ({
     ...provided,

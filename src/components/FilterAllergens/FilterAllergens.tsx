@@ -1,5 +1,5 @@
 import { useForm, useFieldArray } from "react-hook-form";
-import { filterAllergens } from 'data/vegetablesList';
+import { filterAllergens } from 'utils/vegUtils';
 
 import style from './FilterAllergens.module.scss';
 
