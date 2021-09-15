@@ -5,10 +5,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 0,
       month: 'january',
-      firstTimeFruit: [],
-      lastTimeFruit: [],
-      firstTimeVeg: [],
-      lastTimeVeg: [],
       fruits: [
         'banana',
         'orange',
@@ -45,10 +41,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 1,
       month: 'february',
-      firstTimeFruit: [],
-      lastTimeFruit: ['chestnut'],
-      firstTimeVeg: [],
-      lastTimeVeg: ['pea', 'beet', 'pumpkin'],
       fruits: [
         'banana',
         'orange',
@@ -85,10 +77,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 2,
       month: 'march',
-      firstTimeFruit: ['clementine', 'tangerine'],
-      lastTimeFruit: ['chestnut'],
-      firstTimeVeg: ['asparagus', 'onion'],
-      lastTimeVeg: ['cabbage-head', 'brussels-sprouts'],
       fruits: [
         'banana',
         'orange',
@@ -124,19 +112,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 3,
       month: 'april',
-      firstTimeFruit: ['strawberry', 'medlar'],
-      lastTimeFruit: ['lemon'],
-      firstTimeVeg: [
-        'garlic',
-        'cucumber',
-        'green-beans',
-        'fava-beans',
-        'eggplant',
-        'pepper',
-        'pea',
-        'leek',
-      ],
-      lastTimeVeg: ['broccoli', 'savoy-cabbage', 'fennel'],
       fruits: [
         'banana',
         'orange',
@@ -177,10 +152,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 4,
       month: 'may',
-      firstTimeFruit: ['cherry', 'raspberry', 'peach'],
-      lastTimeFruit: ['orange', 'kiwi', 'apple', 'medlar', 'pear', 'grapefruit'],
-      firstTimeVeg: ['beet', 'beans', 'tomato', 'zucchini'],
-      lastTimeVeg: ['artichoke', 'cauliflower', 'spinach'],
       fruits: [
         'banana',
         'orange',
@@ -222,17 +193,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 5,
       month: 'june',
-      firstTimeFruit: [
-        'apricot',
-        'watermelon',
-        'fig',
-        'melon',
-        'blueberry',
-        'plum',
-      ],
-      lastTimeFruit: [],
-      firstTimeVeg: [],
-      lastTimeVeg: ['pea'],
       fruits: [
         'banana',
         'apricot',
@@ -272,10 +232,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 6,
       month: 'july',
-      firstTimeFruit: ['grape'],
-      lastTimeFruit: ['cherry', 'strawberry'],
-      firstTimeVeg: [],
-      lastTimeVeg: [],
       fruits: [
         'banana',
         'apricot',
@@ -314,10 +270,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 7,
       month: 'august',
-      firstTimeFruit: ['pear', 'apple'],
-      lastTimeFruit: ['apricot', 'watermelon'],
-      firstTimeVeg: ['fennel', 'pumpkin'],
-      lastTimeVeg: [],
       fruits: [
         'banana',
         'apricot',
@@ -358,10 +310,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 8,
       month: 'september',
-      firstTimeFruit: [],
-      lastTimeFruit: ['fig', 'melon', 'blueberry', 'peach', 'plum'],
-      firstTimeVeg: ['cauliflower', 'broccoli', 'savoy-cabbage', 'spinach'],
-      lastTimeVeg: ['cucumber'],
       fruits: [
         'banana',
         'fig',
@@ -404,25 +352,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 9,
       month: 'october',
-      firstTimeFruit: [
-        'pomegranate',
-        'persimmon',
-        'chestnut',
-        'clementine',
-        'walnut',
-        'kiwi',
-        'lemon',
-      ],
-      lastTimeFruit: ['raspberry'],
-      firstTimeVeg: ['artichoke', 'cabbage-head', 'brussels-sprouts', 'leek'],
-      lastTimeVeg: [
-        'green-beans',
-        'fava-beans',
-        'eggplant',
-        'tomato',
-        'pepper',
-        'zucchini',
-      ],
       fruits: [
         'banana',
         'pomegranate',
@@ -471,10 +400,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 10,
       month: 'november',
-      firstTimeFruit: ['avocado', 'orange', 'tangerine', 'grapefruit'],
-      lastTimeFruit: ['grape'],
-      firstTimeVeg: [],
-      lastTimeVeg: ['garlic', 'beans', 'celery'],
       fruits: [
         'banana',
         'pomegranate',
@@ -520,10 +445,6 @@ export const MONTHLY_VEGS: any = {
     {
       id: 11,
       month: 'december',
-      firstTimeFruit: [],
-      lastTimeFruit: ['avocado', 'persimmon', 'walnut', 'pomegranate'],
-      firstTimeVeg: [],
-      lastTimeVeg: ['onion'],
       fruits: [
         'banana',
         'pomegranate',
