@@ -12,7 +12,6 @@ import { ReactComponent as Chev } from 'icons/chev.svg'
 
 import './Select.scss';
 import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
-import { MONTHLY_VEGS } from 'data/monthlyVegs';
 
 interface Option {
   label: string | unknown;
@@ -24,20 +23,20 @@ const FiltersContainer: React.FC = () => {
   const OPTIONS: Option[] = mergeAllVegs().map((e) => { return { label: e, value: e } })
   let history = useHistory();
 
-  /*const findVegMonths = (veg: string) => {
-    console.log(data)
+  const findVegMonths = (veg: string) => {
     const isFruit = getAllFruits().includes(veg) ?? false;
-    return data.map((el: any) => {
-      if (isFruit) {
-        el.fruits.includes(veg)
+    return data.filter((el: any) => {
+      if (isFruit && el.fruits.includes(veg)) {
         return el.month
-      } else {
-        el.vegetables.includes(veg)
+      } else if (!isFruit && el.vegetables.includes(veg)
+      ) {
         return el.month
       }
     })
   }
-  findVegMonths('strawberry')*/
+  let veg = 'cherry'
+  console.log(veg, findVegMonths(veg))
+
   const handleOnChange = (val: any, actionMeta: ActionMeta<any>) => {
     switch (actionMeta.action) {
       case 'select-option':
