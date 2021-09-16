@@ -3,22 +3,25 @@ import Recipe from 'components/Recipe/Recipe';
 import { useTrail, animated } from 'react-spring';
 import style from './RecipesList.module.scss';
 import { useParams } from 'react-router-dom';
+import { useGetRecipes } from 'queries/veggies';
+import { useEffect, useState } from 'react';
 
 const RecipesList: React.FC = () => {
   const { ingredient } = useParams<{ ingredient?: string }>();
+  const { data, isLoading } = useGetRecipes()
+  const [recipeList, setRecipeList] = useState([]);
 
-  const recipesData = RECIPES;
-  let ingredientRecipe = recipesData.find(
-    obj => obj.ingredientName === ingredient,
+  let ingredientRecipe = data?.find(
+    (obj: any) => obj.ingredientName === ingredient,
   );
-  let readyToLoad = false;
-  let recipe: any;
 
-  if (ingredientRecipe) {
-    readyToLoad = true;
-    recipe = ingredientRecipe.recipes;
-  }
-  const trail = useTrail(recipe.length, {
+  useEffect(() => {
+    if (ingredientRecipe) {
+      setRecipeList(ingredientRecipe.recipes);
+    }
+  }, [data])
+
+  const trail = useTrail(recipeList?.length, {
     from: {
       width: '100%',
       marginLeft: -50,
@@ -43,11 +46,11 @@ const RecipesList: React.FC = () => {
           recipes
         </p>
         <div className={style.card}>
-          {readyToLoad &&
+          {!isLoading &&
             trail.map((props: any, i: number) => {
-              const e = recipe[i];
+              const e: any = recipeList[i];
               return (
-                <animated.div style={props} key={i}>
+                < animated.div style={props} key={i} >
                   <Recipe
                     id={i}
                     key={i}
@@ -70,7 +73,7 @@ const RecipesList: React.FC = () => {
             })}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 export default RecipesList;

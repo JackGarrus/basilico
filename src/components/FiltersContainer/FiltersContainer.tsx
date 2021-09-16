@@ -34,8 +34,6 @@ const FiltersContainer: React.FC = () => {
       }
     })
   }
-  let veg = 'cherry'
-  console.log(veg, findVegMonths(veg))
 
   const handleOnChange = (val: any, actionMeta: ActionMeta<any>) => {
     switch (actionMeta.action) {
