@@ -1,18 +1,20 @@
-import { RECIPES } from 'data/recipes';
 import Recipe from 'components/Recipe/Recipe';
 import { useTrail, animated } from 'react-spring';
-import style from './RecipesList.module.scss';
 import { useParams } from 'react-router-dom';
 import { useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
+import { RecipesPerIngredient, Recipe as SingleRecipe } from 'types/recipe';
+
+import style from './RecipesList.module.scss';
 
 const RecipesList: React.FC = () => {
   const { ingredient } = useParams<{ ingredient?: string }>();
   const { data, isLoading } = useGetRecipes()
-  const [recipeList, setRecipeList] = useState([]);
+  const [recipeList, setRecipeList] = useState<SingleRecipe[] | []>([]);
 
   let ingredientRecipe = data?.find(
-    (obj: any) => obj.ingredientName === ingredient,
+    (obj: RecipesPerIngredient) =>
+      obj.ingredientName === ingredient
   );
 
   useEffect(() => {
@@ -48,25 +50,25 @@ const RecipesList: React.FC = () => {
         <div className={style.card}>
           {!isLoading &&
             trail.map((props: any, i: number) => {
-              const e: any = recipeList[i];
+              const singleRecipe: SingleRecipe = recipeList[i];
               return (
                 < animated.div style={props} key={i} >
                   <Recipe
                     id={i}
                     key={i}
-                    image={e.image}
-                    name={e.name}
-                    link={e.link}
-                    allergens={e.allergens}
-                    ingredients={e.ingredients}
-                    instructions={e.instructions}
-                    difficulty={e.difficulty}
-                    time={e.time}
-                    isVegan={e.isVegan}
-                    isVegetarian={e.isVegetarian}
-                    isSweet={e.isSweet}
-                    hasFish={e.hasFish}
-                    hasMeat={e.hasMeat}
+                    image={singleRecipe.image}
+                    name={singleRecipe.name}
+                    link={singleRecipe.link}
+                    allergens={singleRecipe.allergens}
+                    ingredients={singleRecipe.ingredients}
+                    instructions={singleRecipe.instructions}
+                    difficulty={singleRecipe.difficulty}
+                    time={singleRecipe.time}
+                    isVegan={singleRecipe.isVegan}
+                    isVegetarian={singleRecipe.isVegetarian}
+                    isSweet={singleRecipe.isSweet}
+                    hasFish={singleRecipe.hasFish}
+                    hasMeat={singleRecipe.hasMeat}
                   />
                 </animated.div>
               );
