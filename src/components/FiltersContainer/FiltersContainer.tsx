@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import Select, { ActionMeta, components } from 'react-select';
-import { getAllFruits, getAllVegs, mergeAllVegs } from 'utils/vegUtils';
+import { mergeAllVegs } from 'utils/vegUtils';
 import FilterAllergens from 'components/FilterAllergens/FilterAllergens';
 import style from './FiltersContainer.module.scss';
 import { useEffect, useState } from 'react';
@@ -11,29 +11,15 @@ import { ReactComponent as Cross } from 'icons/cross.svg'
 import { ReactComponent as Chev } from 'icons/chev.svg'
 
 import './Select.scss';
-import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 
 interface Option {
   label: string | unknown;
   value: string | unknown;
 }
 const FiltersContainer: React.FC = () => {
-  const { data, isLoading } = useGetMonthlyVegs();
   const [isOpen, setIsOpen] = useState(false);
   const OPTIONS: Option[] = mergeAllVegs().map((e) => { return { label: e, value: e } })
   let history = useHistory();
-
-  const findVegMonths = (veg: string) => {
-    const isFruit = getAllFruits().includes(veg) ?? false;
-    return data?.filter((el: any) => {
-      if (isFruit && el.fruits.includes(veg)) {
-        return el.month
-      } else if (!isFruit && el.vegetables.includes(veg)
-      ) {
-        return el.month
-      }
-    })
-  }
 
   const handleOnChange = (val: any, actionMeta: ActionMeta<any>) => {
     switch (actionMeta.action) {

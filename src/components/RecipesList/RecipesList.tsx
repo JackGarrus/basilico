@@ -1,27 +1,44 @@
 import Recipe from 'components/Recipe/Recipe';
 import { useTrail, animated } from 'react-spring';
 import { useParams } from 'react-router-dom';
-import { useGetRecipes } from 'queries/veggies';
+import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
 import { RecipesPerIngredient, Recipe as SingleRecipe } from 'types/recipe';
+import { getAllFruits } from 'utils/vegUtils';
 
 import style from './RecipesList.module.scss';
 
 const RecipesList: React.FC = () => {
   const { ingredient } = useParams<{ ingredient?: string }>();
   const { data, isLoading } = useGetRecipes()
+  const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } = useGetMonthlyVegs();
   const [recipeList, setRecipeList] = useState<SingleRecipe[] | []>([]);
 
-  let ingredientRecipe = data?.find(
+  // possiamo migliorare il code di sta roba?
+  const ingredientRecipe = data?.find(
     (obj: RecipesPerIngredient) =>
       obj.ingredientName === ingredient
   );
+
+  const findVegMonths = (veg: string): string[] => {
+    const isFruit = getAllFruits().includes(veg) ?? false;
+
+    return monthlyVegs?.reduce((acc: string[], monthlyVegs: any): string[] => {
+      if (isFruit && monthlyVegs.fruits.includes(veg)) {
+        acc.push(monthlyVegs.month)
+      } else if (!isFruit && monthlyVegs.vegetables.includes(veg)
+      ) {
+        acc.push(monthlyVegs.month)
+      }
+      return acc;
+    }, [])
+  }
 
   useEffect(() => {
     if (ingredientRecipe) {
       setRecipeList(ingredientRecipe.recipes);
     }
-  }, [data])
+  }, [data, monthlyVegs])
 
   const trail = useTrail(recipeList?.length, {
     from: {
@@ -47,6 +64,9 @@ const RecipesList: React.FC = () => {
           <span className={style.selectedIngredient}>{ingredient}</span>
           recipes
         </p>
+        {!isMonthlyVegsLoading && <p>
+          Available in {findVegMonths(ingredientRecipe.ingredientName).map((month: string) => month)}
+        </p>}
         <div className={style.card}>
           {!isLoading &&
             trail.map((props: any, i: number) => {
