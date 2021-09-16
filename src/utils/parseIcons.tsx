@@ -1,5 +1,4 @@
-import { Fruits } from 'types/fruits';
-import { Vegetables } from 'types/vegetables';
+import { Fruits, Vegetables, Allergens } from 'types/types';
 import { ReactComponent as Apple } from 'icons/fruits/apple.svg';
 import { ReactComponent as Apricot } from 'icons/fruits/apricot.svg';
 import { ReactComponent as Avocado } from 'icons/fruits/avocado.svg';
@@ -72,7 +71,6 @@ import { ReactComponent as Soy } from 'icons/allergens/soy.svg';
 import { ReactComponent as Wheat } from 'icons/allergens/wheat.svg';
 
 import style from './icons.module.scss';
-import { Allergens } from 'types/recipe';
 
 const icons: Record<Fruits | Vegetables, JSX.Element | HTMLImageElement> = {
   apple: <Apple className={style.icon} />,

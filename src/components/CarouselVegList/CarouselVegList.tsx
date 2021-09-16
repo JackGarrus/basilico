@@ -1,6 +1,5 @@
 import CarouselVegBox from 'components/CarouselVegBox/CarouselVegBox';
-import { Fruits } from 'types/fruits';
-import { Vegetables } from 'types/vegetables';
+import { Fruits, Vegetables } from 'types/types';
 import style from './CarouselVegList.module.scss';
 
 interface ListProps {

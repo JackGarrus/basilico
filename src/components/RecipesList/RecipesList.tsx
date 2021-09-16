@@ -3,7 +3,7 @@ import { useTrail, animated } from 'react-spring';
 import { useParams } from 'react-router-dom';
 import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
-import { RecipesPerIngredient, Recipe as SingleRecipe } from 'types/recipe';
+import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, MonthProp } from 'types/types';
 import { getAllFruits } from 'utils/vegUtils';
 
 import style from './RecipesList.module.scss';
@@ -19,6 +19,20 @@ const RecipesList: React.FC = () => {
     (obj: RecipesPerIngredient) =>
       obj.ingredientName === ingredient
   );
+
+  /*const findVegMonths = (veg: Fruits[] | Vegetables[]): string[] => {
+    const isFruit = getAllFruits().includes(veg) ?? false;
+
+    return monthlyVegs?.reduce((acc: string[], monthlyVegs: MonthProp): string[] => {
+      if (isFruit && monthlyVegs.fruits.includes(veg)) {
+        acc.push(monthlyVegs.month)
+      } else if (!isFruit && monthlyVegs.vegetables.includes(veg)
+      ) {
+        acc.push(monthlyVegs.month)
+      }
+      return acc;
+    }, [])
+  }*/
 
   const findVegMonths = (veg: string): string[] => {
     const isFruit = getAllFruits().includes(veg) ?? false;

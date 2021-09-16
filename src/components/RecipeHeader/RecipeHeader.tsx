@@ -1,4 +1,4 @@
-import { Allergens, AllergensList } from 'types/recipe';
+import { Allergens, AllergensList } from 'types/types';
 import { getFormattedText } from 'utils/dataDisplayMethods';
 import { parseAllergens } from 'utils/parseIcons';
 import style from './RecipeHeader.module.scss';

@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'styles/slickCustomStyle.scss';
 import CarouselMonth from 'components/CarouselMonth/CarouselMonth';
 import { useGetMonthlyVegs } from 'queries/veggies';
-import { MonthProp } from 'types/months';
+import { MonthProp } from 'types/types';
 
 const Carousel: React.FC = () => {
   const { data: months } = useGetMonthlyVegs()

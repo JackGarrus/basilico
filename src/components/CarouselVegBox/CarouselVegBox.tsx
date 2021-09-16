@@ -1,7 +1,6 @@
 import { parseVeggiesIcons } from 'utils/parseIcons';
 import React from 'react';
-import { Fruits } from 'types/fruits';
-import { Vegetables } from 'types/vegetables';
+import { Fruits, Vegetables } from 'types/types';
 import { NavLink } from 'react-router-dom';
 import style from './CarouselVegBox.module.scss';
 

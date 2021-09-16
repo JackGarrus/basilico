@@ -1,5 +1,3 @@
-import { MonthProp } from 'types/months';
-
 export const MONTHLY_VEGS: any = {
   data: [
     {

@@ -1,7 +1,7 @@
 import style from './RecipeIngredientsList.module.scss';
 import Subtitle from 'components/Subtitle/Subtitle';
 import RecipeIngredient from 'components/RecipeIngredient/RecipeIngredient';
-import { Ingredient } from 'types/recipe';
+import { Ingredient } from 'types/types';
 
 interface Props {
   ingredients: Ingredient[];
