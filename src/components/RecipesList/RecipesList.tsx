@@ -3,8 +3,8 @@ import { useTrail, animated } from 'react-spring';
 import { useParams } from 'react-router-dom';
 import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
-import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, MonthProp } from 'types/types';
-import { getAllFruits } from 'utils/vegUtils';
+import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, MonthProp, VegType, Months } from 'types/types';
+import { getAllFruits, isFruit } from 'utils/vegUtils';
 
 import style from './RecipesList.module.scss';
 
@@ -14,33 +14,16 @@ const RecipesList: React.FC = () => {
   const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } = useGetMonthlyVegs();
   const [recipeList, setRecipeList] = useState<SingleRecipe[] | []>([]);
 
-  // possiamo migliorare il code di sta roba?
   const ingredientRecipe = data?.find(
     (obj: RecipesPerIngredient) =>
       obj.ingredientName === ingredient
   );
 
-  /*const findVegMonths = (veg: Fruits[] | Vegetables[]): string[] => {
-    const isFruit = getAllFruits().includes(veg) ?? false;
-
+  const findVegMonths = (veg: VegType): Months[] => {
     return monthlyVegs?.reduce((acc: string[], monthlyVegs: MonthProp): string[] => {
-      if (isFruit && monthlyVegs.fruits.includes(veg)) {
+      if (isFruit(veg) && monthlyVegs.fruits.includes(veg as Fruits)) {
         acc.push(monthlyVegs.month)
-      } else if (!isFruit && monthlyVegs.vegetables.includes(veg)
-      ) {
-        acc.push(monthlyVegs.month)
-      }
-      return acc;
-    }, [])
-  }*/
-
-  const findVegMonths = (veg: string): string[] => {
-    const isFruit = getAllFruits().includes(veg) ?? false;
-
-    return monthlyVegs?.reduce((acc: string[], monthlyVegs: any): string[] => {
-      if (isFruit && monthlyVegs.fruits.includes(veg)) {
-        acc.push(monthlyVegs.month)
-      } else if (!isFruit && monthlyVegs.vegetables.includes(veg)
+      } else if (!isFruit(veg) && monthlyVegs.vegetables.includes(veg as Vegetables)
       ) {
         acc.push(monthlyVegs.month)
       }
@@ -48,9 +31,11 @@ const RecipesList: React.FC = () => {
     }, [])
   }
 
+
   useEffect(() => {
     if (ingredientRecipe) {
       setRecipeList(ingredientRecipe.recipes);
+      console.log(findVegMonths(ingredient as VegType))
     }
   }, [data, monthlyVegs])
 
@@ -79,7 +64,7 @@ const RecipesList: React.FC = () => {
           recipes
         </p>
         {!isMonthlyVegsLoading && <p>
-          Available in {findVegMonths(ingredientRecipe.ingredientName).map((month: string) => month)}
+          Available in {findVegMonths(ingredient as VegType).map((month: string) => month)}
         </p>}
         <div className={style.card}>
           {!isLoading &&
