@@ -1,3 +1,4 @@
+import { Fruits, VegType } from 'types/types';
 import { MONTHLY_VEGS } from '../data/monthlyVegs'
 import { RECIPES } from '../data/recipes';
 
@@ -13,3 +14,5 @@ export const filterAllergens = (selectedAllergens: string[]) => {
 
 export const getAllFruits = () => [...new Set(MONTHLY_VEGS.data.map((e: any, i: number) => e.fruits).flat())];
 export const getAllVegs = () => [...new Set(MONTHLY_VEGS.data.map((e: any, i: number) => e.vegetables).flat())];
+
+export const isFruit = (veg: VegType): veg is Fruits => getAllFruits().includes(veg) ?? false;
