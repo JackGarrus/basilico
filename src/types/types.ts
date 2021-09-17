@@ -59,7 +59,6 @@ export type Fruits =
   | 'apricot'
   | 'watermelon';
 
-
 export type Months =
   | 'january'
   | 'february'
@@ -74,6 +73,7 @@ export type Months =
   | 'november'
   | 'december';
 
+export type VegType = Fruits | Vegetables;
 
 export interface Year {
   months: MonthProp[];
