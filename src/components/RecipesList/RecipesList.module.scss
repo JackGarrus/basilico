@@ -18,6 +18,10 @@ $layout-padding-lg: 20px;
   width: 100%;
   padding: 0 20px;
 
+  > p {
+    margin-bottom: 20px;
+  }
+
   @media (max-width: 500px) {
     margin-top: 70px;
   }
@@ -60,5 +64,15 @@ $layout-padding-lg: 20px;
   text-transform: capitalize;
   font-weight: 700;
   margin-left: 5px;
-  color: inherit
+  color: inherit;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  &:first-letter {
+    color: c.$accentColor;
+    font-weight: 600;
+  }
+  margin-bottom: 10px;
 }

@@ -62,11 +62,13 @@ const RecipesList: React.FC = () => {
       <div className={style.innerContainer}>
         <p className={style.pageTitle}>
           <span className={style.selectedIngredient}>{ingredient}</span>
-          recipes
         </p>
         {!isMonthlyVegsLoading && <Panel>
           Available in: <span className={style.months}>{findVegMonths(ingredient as VegType).join(', ')}</span>
         </Panel>}
+        <p className={style.sectionTitle}>
+          Recipes
+        </p>
         <div className={style.card}>
           {!isLoading &&
             trail.map((props: any, i: number) => {
