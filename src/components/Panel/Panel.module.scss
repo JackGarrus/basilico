@@ -1,0 +1,14 @@
+@use 'colors' as c;
+
+.container {
+  font-size: 18px;
+  color: darken(c.$primaryColor, 10%);
+  margin-bottom: 20px;
+  background-color: lighten( c.$secondaryColor, 10%);
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px dashed;
+}
