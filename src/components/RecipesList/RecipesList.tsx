@@ -7,6 +7,7 @@ import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, Month
 import { getAllFruits, isFruit } from 'utils/vegUtils';
 
 import style from './RecipesList.module.scss';
+import Panel from 'components/Panel/Panel';
 
 const RecipesList: React.FC = () => {
   const { ingredient } = useParams<{ ingredient?: string }>();
@@ -63,9 +64,9 @@ const RecipesList: React.FC = () => {
           <span className={style.selectedIngredient}>{ingredient}</span>
           recipes
         </p>
-        {!isMonthlyVegsLoading && <p>
-          Available in {findVegMonths(ingredient as VegType).map((month: string) => month)}
-        </p>}
+        {!isMonthlyVegsLoading && <Panel>
+          Available in: <span className={style.months}>{findVegMonths(ingredient as VegType).join(', ')}</span>
+        </Panel>}
         <div className={style.card}>
           {!isLoading &&
             trail.map((props: any, i: number) => {

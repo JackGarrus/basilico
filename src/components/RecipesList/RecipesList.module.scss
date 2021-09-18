@@ -55,3 +55,10 @@ $layout-padding-lg: 20px;
   flex-direction: column;
   align-items: center;
 }
+
+.months {
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-left: 5px;
+  color: inherit
+}
