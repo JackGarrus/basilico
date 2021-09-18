@@ -6,13 +6,15 @@ $filter-width: 600px;
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  width: $filter-width;
   height: fit-content;
-  margin: 0 auto;
-  padding-bottom: 30px;
   flex-direction: column;
   display: flex;
   align-items: center;
+
+  @media(min-width: 1024px) {
+    width: 800px;
+    margin: 0 auto;
+  }
 }
 
 .title {
@@ -24,7 +26,15 @@ $filter-width: 600px;
   justify-content: space-between;
   width: 100%;
   font-size: 18px;
-  padding-bottom: 20px;
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    > .icon {
+      margin-right: 5px;
+    }
+  }
 }
 
 .icon {
@@ -45,7 +55,9 @@ $filter-width: 600px;
   }
 }
 
+
 .filterContent {
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   width: 100%;

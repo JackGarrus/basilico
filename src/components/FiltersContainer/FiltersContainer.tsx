@@ -9,6 +9,7 @@ import { customStyles } from './customStyles';
 import { parseVeggiesIcons } from 'utils/parseIcons';
 import { ReactComponent as Cross } from 'icons/cross.svg'
 import { ReactComponent as Chev } from 'icons/chev.svg'
+import { ReactComponent as Filter } from 'icons/filter.svg'
 
 import './Select.scss';
 
@@ -66,7 +67,10 @@ const FiltersContainer: React.FC = () => {
       [style.showContent]: isOpen
     })} >
       <div className={style.headerFilters} onClick={() => setIsOpen(!isOpen)}>
-        <p>Filters</p>
+        <div className={style.flex}>
+          <Filter className={style.icon} />
+          <p>Filters</p>
+        </div>
         {isOpen ? <Cross className={style.icon} /> : <Chev className={style.icon} />}
       </div>
       {isOpen &&
