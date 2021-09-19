@@ -9,7 +9,7 @@ export const filterAllergens = (selectedAllergens: string[]) => {
     recipesPerIngredient.recipes.map((recipe: any) => {
       if (selectedAllergens.some((selectedAllergene: string) => recipe.allergens.includes(selectedAllergene))) { return null } else return recipe
     })
-  ).flat()
+  ).flat().filter(e => e !== null)
 }
 
 export const getAllFruits = () => [...new Set(MONTHLY_VEGS.data.map((e: any, i: number) => e.fruits).flat())];
