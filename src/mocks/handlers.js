@@ -1,9 +1,17 @@
-import { MONTHLY_VEGS } from 'api/mocks/data/monthlyVegs'
+import { MONTHLY_VEGS } from 'data/monthlyVegs'
 import { RECIPES } from 'data/recipes'
 import { rest } from 'msw'
+import { filterAllergens } from 'utils/vegUtils';
 
 export const handlers = [
  rest.get('/recipes', (req, res, ctx) => {
+   const filterArray = req.url.searchParams.getAll('allergens');
+    if(filterArray.length > 0) { 
+      return res(
+        ctx.status(200),
+        ctx.json(filterAllergens(filterArray)),
+      )
+    }
     return res(
       ctx.status(200),
       ctx.json(RECIPES),
@@ -15,5 +23,14 @@ export const handlers = [
       ctx.status(200),
       ctx.json(MONTHLY_VEGS),
     )
-  })
+  }),
+
+  rest.get('/recipes', (req, res, ctx) => {
+    const filters = req.url.searchParams.get('filters');
+    console.log(req)
+    return res(
+      ctx.status(200),
+      ctx.json(filterAllergens(req.body)),
+    )
+  }),
 ]

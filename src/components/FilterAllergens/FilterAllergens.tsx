@@ -1,3 +1,5 @@
+import { useFilteredRecipesByAllergene } from 'queries/veggies';
+import { useState } from 'react';
 import { useForm, useFieldArray } from "react-hook-form";
 import { filterAllergens } from 'utils/vegUtils';
 
@@ -50,8 +52,11 @@ const FilterAllergens: React.FC = () => {
       }
     }
   });
+  const [payload, setPayload] = useState<string[] | []>([]);
+  const { data: postRecipesWithoutAllergene } = useFilteredRecipesByAllergene(payload)
 
   const onSave = handleSubmit((values) => {
+    setPayload(mergeSelectedAllergens(values));
     filterAllergens(mergeSelectedAllergens(values));
   });
 

@@ -83,10 +83,6 @@ export interface MonthProp {
   month: string;
   fruits: Fruits[];
   vegetables: Vegetables[];
-  firstTimeFruit?: Fruits[];
-  lastTimeFruit?: Fruits[];
-  lastTimeVeg?: Vegetables[];
-  firstTimeVeg?: Vegetables[];
 }
 
 export type AllergensList = Allergens[] | [];
