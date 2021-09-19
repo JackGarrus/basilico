@@ -4,10 +4,11 @@ import { useParams } from 'react-router-dom';
 import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
 import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, MonthProp, VegType, Months } from 'types/types';
-import { getAllFruits, isFruit } from 'utils/vegUtils';
+import { isFruit } from 'utils/vegUtils';
 
 import style from './RecipesList.module.scss';
 import Panel from 'components/Panel/Panel';
+import { RECIPES } from 'data/recipes';
 
 const RecipesList: React.FC = () => {
   const { ingredient } = useParams<{ ingredient?: string }>();
@@ -21,7 +22,7 @@ const RecipesList: React.FC = () => {
   );
 
   const findVegMonths = (veg: VegType): Months[] => {
-    return monthlyVegs?.reduce((acc: string[], monthlyVegs: MonthProp): string[] => {
+    return monthlyVegs.data?.reduce((acc: string[], monthlyVegs: MonthProp): string[] => {
       if (isFruit(veg) && monthlyVegs.fruits.includes(veg as Fruits)) {
         acc.push(monthlyVegs.month)
       } else if (!isFruit(veg) && monthlyVegs.vegetables.includes(veg as Vegetables)
@@ -32,11 +33,9 @@ const RecipesList: React.FC = () => {
     }, [])
   }
 
-
   useEffect(() => {
     if (ingredientRecipe) {
       setRecipeList(ingredientRecipe.recipes);
-      console.log(findVegMonths(ingredient as VegType))
     }
   }, [data, monthlyVegs])
 
