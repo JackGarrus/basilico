@@ -11,7 +11,7 @@ import style from './RecipesList.module.scss';
 import Panel from 'components/Panel/Panel';
 
 const RecipesList: React.FC = () => {
-  const { ingredient, allergenes } = useParams<{ ingredient?: any, allergenes?: any }>();
+  const { ingredient, allergenes } = useParams<{ ingredient?: string, allergenes?: string }>();
   const { data: recipesList, isLoading } = useGetRecipes()
   const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } = useGetMonthlyVegs();
   const [recipeList, setRecipeList] = useState<SingleRecipe[] | []>([]);
@@ -40,9 +40,8 @@ const RecipesList: React.FC = () => {
     }
 
     if (allergenes) {
-
-      const s = parse(allergenes, { comma: true, parseArrays: false }).allergenes
-      setParsedAllergens(s as string[])
+      const arr = parse(allergenes, { comma: true, parseArrays: false }).allergenes
+      setParsedAllergens(arr as string[])
     }
   }, [recipesList, monthlyVegs])
 
