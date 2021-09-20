@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
-import * as qs from '@billjs/query-string';
+import { stringify } from 'qs'
+import { queryClient } from 'state/cache';
 
 // usa la cache per questa chiamata, che ogni volta che tocchi il carousel parte la chiamata _-_
 export function useGetMonthlyVegs() {
@@ -10,9 +11,10 @@ export function useGetRecipes() {
   return useQuery('recipes', () => fetch('/recipes').then(res => res.json()))
 }
 
-export function useFilteredRecipesByAllergene(allergens: any) {
-  const query = qs.stringify({ allergens });
-  return useQuery<any>(['recipes', allergens],
+export function useFilteredRecipesByAllergene(allergenes: any) {
+  const query = stringify({ allergenes }, { arrayFormat: 'comma', encode: true, indices: false })
+
+  return useQuery<any>(['recipes', allergenes],
     () => fetch(`/recipes?${query}`).then(res => res.json())
   )
 }
