@@ -1,7 +1,8 @@
 import { useFilteredRecipesByAllergene } from 'queries/veggies';
 import { useState } from 'react';
 import { useForm, useFieldArray } from "react-hook-form";
-import { filterAllergens } from 'utils/vegUtils';
+import { useHistory } from 'react-router-dom';
+import { stringify } from 'qs'
 
 import style from './FilterAllergens.module.scss';
 
@@ -53,11 +54,14 @@ const FilterAllergens: React.FC = () => {
     }
   });
   const [payload, setPayload] = useState<string[] | []>([]);
-  const { data: postRecipesWithoutAllergene } = useFilteredRecipesByAllergene(payload)
+  const { data } = useFilteredRecipesByAllergene(payload)
+  let history = useHistory();
 
   const onSave = handleSubmit((values) => {
-    setPayload(mergeSelectedAllergens(values));
-    filterAllergens(mergeSelectedAllergens(values));
+    const allergenes = mergeSelectedAllergens(values)
+    const query = stringify({ allergenes }, { arrayFormat: 'comma', encode: false, indices: false, delimiter: ',' })
+    setPayload(allergenes);
+    history.push(`/recipes/filters/${query}`);
   });
 
   const mergeSelectedAllergens = (selectedAllergens: any): string[] => {
