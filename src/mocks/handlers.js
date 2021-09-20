@@ -24,13 +24,4 @@ export const handlers = [
       ctx.json(MONTHLY_VEGS),
     )
   }),
-
-  rest.get('/recipes', (req, res, ctx) => {
-    const filters = req.url.searchParams.get('filters');
-    console.log(req)
-    return res(
-      ctx.status(200),
-      ctx.json(filterAllergens(req.body)),
-    )
-  }),
 ]
