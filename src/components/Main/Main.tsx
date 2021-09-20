@@ -10,6 +10,7 @@ const Main: React.FC = () => {
       <FiltersContainer />
       <Switch>
         <Route exact path="/" component={Homepage} />
+        <Route path="/recipes/filters/:allergenes?" component={RecipesList} />
         <Route path="/recipes/:ingredient?" component={RecipesList} />
       </Switch>
     </div>
@@ -17,4 +18,3 @@ const Main: React.FC = () => {
 };
 
 export default Main;
- //      <Route path="/recipes/eggs_free,lactose_free...ecc" component={RecipesList} />
