@@ -43,7 +43,7 @@ const RecipesList: React.FC = () => {
       const arr = parse(allergenes, { comma: true, parseArrays: false }).allergenes
       setParsedAllergens(arr as string[])
     }
-  }, [recipesList, monthlyVegs])
+  }, [recipesList, monthlyVegs, allergenes, ingredientRecipe])
 
   const trail = useTrail(recipeList?.length, {
     from: {
