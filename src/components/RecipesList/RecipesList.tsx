@@ -5,18 +5,19 @@ import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
 import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, MonthProp, VegType, Months } from 'types/types';
 import { isFruit } from 'utils/vegUtils';
+import { parse } from 'qs'
 
 import style from './RecipesList.module.scss';
 import Panel from 'components/Panel/Panel';
-import { RECIPES } from 'data/recipes';
 
 const RecipesList: React.FC = () => {
-  const { ingredient } = useParams<{ ingredient?: string }>();
-  const { data, isLoading } = useGetRecipes()
+  const { ingredient, allergenes } = useParams<{ ingredient?: any, allergenes?: any }>();
+  const { data: recipesList, isLoading } = useGetRecipes()
   const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } = useGetMonthlyVegs();
   const [recipeList, setRecipeList] = useState<SingleRecipe[] | []>([]);
+  const [parsedAllergens, setParsedAllergens] = useState<string[]>()
 
-  const ingredientRecipe = data?.find(
+  const ingredientRecipe = recipesList?.find(
     (obj: RecipesPerIngredient) =>
       obj.ingredientName === ingredient
   );
@@ -37,7 +38,13 @@ const RecipesList: React.FC = () => {
     if (ingredientRecipe) {
       setRecipeList(ingredientRecipe.recipes);
     }
-  }, [data, monthlyVegs])
+
+    if (allergenes) {
+
+      const s = parse(allergenes, { comma: true, parseArrays: false }).allergenes
+      setParsedAllergens(s as string[])
+    }
+  }, [recipesList, monthlyVegs])
 
   const trail = useTrail(recipeList?.length, {
     from: {
@@ -59,14 +66,19 @@ const RecipesList: React.FC = () => {
   return (
     <div className={style.container}>
       <div className={style.innerContainer}>
-        <p className={style.pageTitle}>
-          <span className={style.selectedIngredient}>{ingredient}</span>
-        </p>
-        {!isMonthlyVegsLoading && <Panel>
-          Available in: <span className={style.months}>{findVegMonths(ingredient as VegType).join(', ')}</span>
-        </Panel>}
+        {ingredient && !isMonthlyVegsLoading &&
+          <>
+            <p className={style.pageTitle}>
+              <span className={style.selectedIngredient}>{ingredient}</span>
+            </p>
+            <Panel>
+              Available in: <span className={style.months}>{findVegMonths(ingredient as VegType).join(', ')}</span>
+            </Panel>
+          </>
+        }
+
         <p className={style.sectionTitle}>
-          Recipes
+          Recipes {allergenes && `${parsedAllergens?.join(', ')}`}
         </p>
         <div className={style.card}>
           {!isLoading &&
