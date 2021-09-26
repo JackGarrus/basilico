@@ -3,7 +3,6 @@ import style from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-
   return (
     <header className={style.container}>
       <NavLink to="/" className={style.logo}>
@@ -16,7 +15,6 @@ const Header = () => {
         </div>
       </NavLink>
     </header>
-
   );
 };
 

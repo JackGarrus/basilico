@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import { customStyles } from './customStyles';
 import { parseVeggiesIcons } from 'utils/parseIcons';
-import { ReactComponent as Cross } from 'icons/cross.svg'
-import { ReactComponent as Chev } from 'icons/chev.svg'
-import { ReactComponent as Filter } from 'icons/filter.svg'
+import { ReactComponent as Cross } from 'icons/cross.svg';
+import { ReactComponent as Chev } from 'icons/chev.svg';
+import { ReactComponent as Filter } from 'icons/filter.svg';
 
 import './Select.scss';
 
@@ -19,7 +19,9 @@ interface Option {
 }
 const FiltersContainer: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const OPTIONS: Option[] = mergeAllVegs().map((e) => { return { label: e, value: e } })
+  const OPTIONS: Option[] = mergeAllVegs().map(e => {
+    return { label: e, value: e };
+  });
   let history = useHistory();
 
   const handleOnChange = (val: any, actionMeta: ActionMeta<any>) => {
@@ -27,18 +29,18 @@ const FiltersContainer: React.FC = () => {
       case 'select-option':
         return history.push(`/recipes/${val.value}`);
       case 'clear':
-        return 'clear'
+        return 'clear';
     }
   };
 
   const CustomSelectOption = (props: any) => (
-    <components.Option {...props} >
+    <components.Option {...props}>
       <div>
         {parseVeggiesIcons(props.label, style.icon)}
         <p>{props.label}</p>
       </div>
     </components.Option>
-  )
+  );
 
   /* const CustomValueContainer = (props: any) => (
      <components.ValueContainer {...props} >
@@ -60,20 +62,26 @@ const FiltersContainer: React.FC = () => {
     },
   };
 
-  useEffect(() => setIsOpen(isOpen), [isOpen])
+  useEffect(() => setIsOpen(isOpen), [isOpen]);
 
   return (
-    <div className={cn(style.container, {
-      [style.showContent]: isOpen
-    })} >
+    <div
+      className={cn(style.container, {
+        [style.showContent]: isOpen,
+      })}
+    >
       <div className={style.headerFilters} onClick={() => setIsOpen(!isOpen)}>
         <div className={style.flex}>
           <Filter className={style.icon} />
           <p>Filters</p>
         </div>
-        {isOpen ? <Cross className={style.icon} /> : <Chev className={style.icon} />}
+        {isOpen ? (
+          <Cross className={style.icon} />
+        ) : (
+          <Chev className={style.icon} />
+        )}
       </div>
-      {isOpen &&
+      {isOpen && (
         <div className={style.filterContent}>
           <div className={style.filterHeaderTitle}>
             <h3 className={style.title}>Filter by veg</h3>
@@ -97,7 +105,7 @@ const FiltersContainer: React.FC = () => {
             <FilterAllergens />
           </div>
         </div>
-      }
+      )}
     </div>
   );
 };

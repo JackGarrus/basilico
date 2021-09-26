@@ -1,11 +1,10 @@
 import { useFilteredRecipesByAllergene } from 'queries/veggies';
 import { useState } from 'react';
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { stringify } from 'qs'
+import { stringify } from 'qs';
 
 import style from './FilterAllergens.module.scss';
-
 
 interface Allergens {
   id: string;
@@ -13,12 +12,12 @@ interface Allergens {
 }
 
 const allergens: Allergens[] = [
-  { id: "eggs", name: "eggs" },
-  { id: "seeds", name: "seeds" },
-  { id: "soy", name: "soy" },
-  { id: "nuts", name: "nuts" },
-  { id: "gluten", name: "gluten" },
-  { id: "lactose", name: "lactose" }
+  { id: 'eggs', name: 'eggs' },
+  { id: 'seeds', name: 'seeds' },
+  { id: 'soy', name: 'soy' },
+  { id: 'nuts', name: 'nuts' },
+  { id: 'gluten', name: 'gluten' },
+  { id: 'lactose', name: 'lactose' },
 ];
 
 interface CheckedItem {
@@ -45,37 +44,40 @@ const FilterAllergens: React.FC = () => {
       data: {
         selected: [
           {
-            allergens: allergens.map((rt) => {
+            allergens: allergens.map(rt => {
               return { id: rt.id, name: rt.name, selected: false };
-            })
-          }
-        ]
-      }
-    }
+            }),
+          },
+        ],
+      },
+    },
   });
   const [payload, setPayload] = useState<string[] | []>([]);
-  const { data } = useFilteredRecipesByAllergene(payload)
+  const { data } = useFilteredRecipesByAllergene(payload);
   let history = useHistory();
 
-  const onSave = handleSubmit((values) => {
-    const allergenes = mergeSelectedAllergens(values)
-    const query = stringify({ allergenes }, { arrayFormat: 'comma', encode: false, indices: false, delimiter: ',' })
+  const onSave = handleSubmit(values => {
+    const allergenes = mergeSelectedAllergens(values);
+    const query = stringify(
+      { allergenes },
+      { arrayFormat: 'comma', encode: false, indices: false, delimiter: ',' },
+    );
     setPayload(allergenes);
     history.push(`/recipes/filters/${query}`);
   });
 
   const mergeSelectedAllergens = (selectedAllergens: any): string[] => {
     let formValues: any = selectedAllergens;
-    let formValuesKeys: string[] = Object.keys(formValues)
-    let formValuesKeysNoData = formValuesKeys.filter(e => e !== 'data') // FIIIIIIXXXXXX
+    let formValuesKeys: string[] = Object.keys(formValues);
+    let formValuesKeysNoData = formValuesKeys.filter(e => e !== 'data'); // FIIIIIIXXXXXX
     return formValuesKeysNoData.filter((key: any) => {
-      return formValues[key] === true && formValues[key]
+      return formValues[key] === true && formValues[key];
     }); //fix, maronn
-  }
+  };
 
   const { fields } = useFieldArray({
     control,
-    name: "data.selected"
+    name: 'data.selected',
   });
 
   return (
@@ -101,9 +103,10 @@ const FilterAllergens: React.FC = () => {
         );
       })}
 
-      <button onClick={onSave} className={style.btn}>Search</button>
+      <button onClick={onSave} className={style.btn}>
+        Search
+      </button>
     </form>
-
   );
 };
 

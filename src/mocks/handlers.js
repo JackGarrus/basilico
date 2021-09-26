@@ -1,27 +1,24 @@
-import { MONTHLY_VEGS } from 'data/monthlyVegs'
-import { RECIPES } from 'data/recipes'
-import { rest } from 'msw'
+import { MONTHLY_VEGS } from 'data/monthlyVegs';
+import { RECIPES } from 'data/recipes';
+import { rest } from 'msw';
 import { filterAllergens } from 'utils/vegUtils';
+import { parse } from 'qs';
 
 export const handlers = [
- rest.get('/recipes', (req, res, ctx) => {
-   const filterArray = req.url.searchParams.getAll('allergens');
-    if(filterArray.length > 0) { 
-      return res(
-        ctx.status(200),
-        ctx.json(filterAllergens(filterArray)),
-      )
+  rest.get('/recipes', (req, res, ctx) => {
+    const params = req.url.searchParams.getAll('allergenes');
+    const allergenes = Object.values(
+      parse(params, { comma: true, parseArrays: true, delimiter: ',' }),
+    );
+
+    if (allergenes.length > 0) {
+      return res(ctx.status(200), ctx.json(filterAllergens(allergenes)));
+    } else {
+      return res(ctx.status(200), ctx.json(RECIPES));
     }
-    return res(
-      ctx.status(200),
-      ctx.json(RECIPES),
-    )
   }),
 
-  rest.get('/monthlyVegs',(req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json(MONTHLY_VEGS),
-    )
+  rest.get('/monthlyVegs', (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(MONTHLY_VEGS));
   }),
-]
+];

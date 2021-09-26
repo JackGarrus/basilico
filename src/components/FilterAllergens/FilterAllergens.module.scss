@@ -1,4 +1,4 @@
-@use 'colors'as c;
+@use 'colors' as c;
 $time: 0.1s;
 
 .form {
@@ -16,8 +16,8 @@ $time: 0.1s;
   width: 70%;
   font-weight: 700;
 
-  &:first-letter { 
-    color:c.$accentColor;
+  &:first-letter {
+    color: c.$accentColor;
   }
 }
 
@@ -37,7 +37,8 @@ $time: 0.1s;
   cursor: pointer;
 }
 
-.checkboxLabel .checkboxCustom { // unchecked
+.checkboxLabel .checkboxCustom {
+  // unchecked
   position: relative;
   top: 0;
   left: 0;
@@ -48,36 +49,36 @@ $time: 0.1s;
   border: 2px solid c.$primaryColor;
   background-color: transparent;
   transition: all $time ease-out;
-  -webkit-transition: all $time  ease-out;
+  -webkit-transition: all $time ease-out;
   cursor: pointer;
   margin-right: 5px;
 
   &:hover {
-    border-color: darken( c.$primaryColor, 10%);
+    border-color: darken(c.$primaryColor, 10%);
     background: c.$secondaryColor;
   }
 }
 
 .checkboxLabel .checkboxCustom:after {
   position: absolute;
-  content: "";
+  content: '';
   left: 0;
   top: 0;
   height: 0;
   width: 0;
   opacity: 1;
   transform: rotate(0deg) scale(0);
-   transition: all $time  ease-out;
-  -webkit-transition: all $time  ease-out;
+  transition: all $time ease-out;
+  -webkit-transition: all $time ease-out;
 }
 
-
-.checkboxLabel input:checked ~ .checkboxCustom { //checked
+.checkboxLabel input:checked ~ .checkboxCustom {
+  //checked
   background-color: transparent;
   border-radius: 5px;
   transform: rotate(0deg) scale(1);
   opacity: 1;
-  border: 2px solid darken( c.$primaryColor, 10%);
+  border: 2px solid darken(c.$primaryColor, 10%);
   &:hover {
     background: c.$secondaryColor;
   }
@@ -90,12 +91,11 @@ $time: 0.1s;
   top: 1px;
   width: 6px;
   height: 12px;
-  border: solid  darken( c.$primaryColor, 10%);
+  border: solid darken(c.$primaryColor, 10%);
   border-width: 0 2px 2px 0;
   background-color: transparent;
   border-radius: 0;
 }
-
 
 .btn {
   padding: 10px;
@@ -108,14 +108,12 @@ $time: 0.1s;
   font-family: 'Mali', cursive;
   font-weight: 700;
 
- 
-
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 5px 0 c.$secondaryColor;
     background: c.$secondaryColor;
-     &:first-letter { 
-      color:c.$accentColor;
+    &:first-letter {
+      color: c.$accentColor;
     }
   }
 }

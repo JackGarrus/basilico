@@ -1,4 +1,4 @@
-@use 'colors'as c;
+@use 'colors' as c;
 
 .select {
   &__control {
@@ -12,7 +12,7 @@
     border-radius: 0;
 
     &:hover {
-      border-color: c.$primaryColor
+      border-color: c.$primaryColor;
     }
 
     &--menu-is-open {
@@ -39,7 +39,7 @@
   }
 
   &__option {
-    >div {
+    > div {
       padding: 10px 20px;
       display: flex;
       align-items: center;
@@ -80,7 +80,7 @@
     padding: 0 20px 10px 0;
     color: c.$primaryColor;
 
-    >div {
+    > div {
       display: flex;
       align-items: center;
     }

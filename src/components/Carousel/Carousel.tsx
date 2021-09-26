@@ -7,7 +7,7 @@ import { useGetMonthlyVegs } from 'queries/veggies';
 import { MonthProp } from 'types/types';
 
 const Carousel: React.FC = () => {
-  const { data: months } = useGetMonthlyVegs()
+  const { data: months } = useGetMonthlyVegs();
 
   let currentMonth = new Date().getMonth();
 
@@ -31,17 +31,21 @@ const Carousel: React.FC = () => {
   };
   return (
     <>
-      {months ? <Slider {...settings}>
-        {months.data.map((e: MonthProp, i: number) => (
-          <CarouselMonth
-            id={e.id}
-            key={i}
-            month={e.month}
-            fruits={e.fruits}
-            vegetables={e.vegetables}
-          />
-        ))}
-      </Slider> : <p>Loading...</p>}
+      {months ? (
+        <Slider {...settings}>
+          {months.data.map((e: MonthProp, i: number) => (
+            <CarouselMonth
+              id={e.id}
+              key={i}
+              month={e.month}
+              fruits={e.fruits}
+              vegetables={e.vegetables}
+            />
+          ))}
+        </Slider>
+      ) : (
+        <p>Loading...</p>
+      )}
     </>
   );
 };

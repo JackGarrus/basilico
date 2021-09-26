@@ -483,5 +483,5 @@ export const MONTHLY_VEGS = {
         'pumpkin',
       ],
     },
-  ]
-}
+  ],
+};

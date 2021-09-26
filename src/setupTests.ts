@@ -1,4 +1,3 @@
-
 // jest-dom adds custom jest matchers for asserting on DOM nodes.
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
@@ -9,15 +8,15 @@ import { testQueryClient } from 'utils/testQueryWrapper';
 
 // Mocks the Fullscreen API. This is needed for ToggleFullScreenButton.test.tsx.
 Object.defineProperty(document, 'fullscreenEnabled', {
-     value: true,
-     writable: true,
+  value: true,
+  writable: true,
 });
 
 beforeAll(() => server.listen());
 afterEach(() => {
-     server.resetHandlers();
+  server.resetHandlers();
 
-     // avoid data cached between tests (React-query)
-     testQueryClient.clear();
+  // avoid data cached between tests (React-query)
+  testQueryClient.clear();
 });
 afterAll(() => server.close());

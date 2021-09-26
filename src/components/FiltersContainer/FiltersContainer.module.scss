@@ -1,4 +1,4 @@
- @use 'colors' as c;
+@use 'colors' as c;
 $filter-width: 600px;
 
 .container {
@@ -11,7 +11,7 @@ $filter-width: 600px;
   display: flex;
   align-items: center;
 
-  @media(min-width: 1024px) {
+  @media (min-width: 1024px) {
     width: 800px;
     margin: 0 auto;
   }
@@ -54,7 +54,6 @@ $filter-width: 600px;
     color: c.$accentColor;
   }
 }
-
 
 .filterContent {
   padding-top: 20px;

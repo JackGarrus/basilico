@@ -3,36 +3,52 @@ import { useTrail, animated } from 'react-spring';
 import { useParams } from 'react-router-dom';
 import { useGetMonthlyVegs, useGetRecipes } from 'queries/veggies';
 import { useEffect, useState } from 'react';
-import { RecipesPerIngredient, Recipe as SingleRecipe, Fruits, Vegetables, MonthProp, VegType, Months } from 'types/types';
+import {
+  RecipesPerIngredient,
+  Recipe as SingleRecipe,
+  Fruits,
+  Vegetables,
+  MonthProp,
+  VegType,
+  Months,
+} from 'types/types';
 import { isFruit } from 'utils/vegUtils';
-import { parse } from 'qs'
+import { parse } from 'qs';
 
 import style from './RecipesList.module.scss';
 import Panel from 'components/Panel/Panel';
 
 const RecipesList: React.FC = () => {
-  const { ingredient, allergenes } = useParams<{ ingredient?: string, allergenes?: string }>();
-  const { data: recipesList, isLoading } = useGetRecipes()
-  const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } = useGetMonthlyVegs();
+  const { ingredient, allergenes } =
+    useParams<{ ingredient?: string; allergenes?: string }>();
+  const { data: recipesList, isLoading: isRecipesListLoading } =
+    useGetRecipes();
+  const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } =
+    useGetMonthlyVegs();
   const [recipeList, setRecipeList] = useState<SingleRecipe[] | []>([]);
-  const [parsedAllergens, setParsedAllergens] = useState<string[]>()
+  const [parsedAllergens, setParsedAllergens] = useState<string[]>();
 
   const ingredientRecipe = recipesList?.find(
-    (obj: RecipesPerIngredient) =>
-      obj.ingredientName === ingredient
+    //spostare in msw
+    (obj: RecipesPerIngredient) => obj.ingredientName === ingredient,
   );
 
   const findVegMonths = (veg: VegType): Months[] => {
-    return monthlyVegs.data?.reduce((acc: string[], monthlyVegs: MonthProp): string[] => {
-      if (isFruit(veg) && monthlyVegs.fruits.includes(veg as Fruits)) {
-        acc.push(monthlyVegs.month)
-      } else if (!isFruit(veg) && monthlyVegs.vegetables.includes(veg as Vegetables)
-      ) {
-        acc.push(monthlyVegs.month)
-      }
-      return acc;
-    }, [])
-  }
+    return monthlyVegs.data?.reduce(
+      (acc: string[], monthlyVegs: MonthProp): string[] => {
+        if (isFruit(veg) && monthlyVegs.fruits.includes(veg as Fruits)) {
+          acc.push(monthlyVegs.month);
+        } else if (
+          !isFruit(veg) &&
+          monthlyVegs.vegetables.includes(veg as Vegetables)
+        ) {
+          acc.push(monthlyVegs.month);
+        }
+        return acc;
+      },
+      [],
+    );
+  };
 
   useEffect(() => {
     if (ingredientRecipe) {
@@ -40,10 +56,14 @@ const RecipesList: React.FC = () => {
     }
 
     if (allergenes) {
-      const arr = parse(allergenes, { comma: true, parseArrays: false }).allergenes
-      setParsedAllergens(arr as string[])
+      //console.log(allergenes)
+      const arr = parse(allergenes, {
+        comma: true,
+        parseArrays: false,
+      }).allergenes;
+      setParsedAllergens(arr as string[]);
     }
-  }, [recipesList, monthlyVegs, allergenes, ingredientRecipe])
+  }, [recipesList, monthlyVegs, allergenes, ingredientRecipe]);
 
   const trail = useTrail(recipeList?.length, {
     from: {
@@ -65,26 +85,32 @@ const RecipesList: React.FC = () => {
   return (
     <div className={style.container}>
       <div className={style.innerContainer}>
-        {ingredient && !isMonthlyVegsLoading &&
+        {ingredient && !isMonthlyVegsLoading && (
           <>
             <p className={style.pageTitle}>
               <span className={style.selectedIngredient}>{ingredient}</span>
             </p>
             <Panel>
-              Available in: <span className={style.months}>{findVegMonths(ingredient as VegType).join(', ')}</span>
+              Available in:{' '}
+              <span className={style.months}>
+                {findVegMonths(ingredient as VegType).join(', ')}
+              </span>
             </Panel>
           </>
-        }
+        )}
 
         <p className={style.sectionTitle}>
-          Recipes {allergenes && `${parsedAllergens?.join(', ')}`}
+          Recipes{' '}
+          {allergenes!.length > 0
+            ? `${parsedAllergens?.join(', ')}`
+            : allergenes![0]}
         </p>
         <div className={style.card}>
-          {!isLoading &&
+          {!isRecipesListLoading &&
             trail.map((props: any, i: number) => {
               const singleRecipe: SingleRecipe = recipeList[i];
               return (
-                < animated.div style={props} key={i} >
+                <animated.div style={props} key={i}>
                   <Recipe
                     id={i}
                     key={i}
@@ -107,7 +133,7 @@ const RecipesList: React.FC = () => {
             })}
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 export default RecipesList;

@@ -1,11 +1,11 @@
-@use 'colors'as c;
+@use 'colors' as c;
 
 .container {
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
 
-  &>div:first-child {
+  & > div:first-child {
     align-items: center;
 
     @media (min-width: 768px) {
@@ -30,12 +30,11 @@
   }
 }
 
-
 .list {
   display: flex;
   height: fit-content;
 }
 
-.list>span:not(:last-child) {
+.list > span:not(:last-child) {
   margin-right: 10px;
 }

@@ -9,7 +9,6 @@ interface Props {
 }
 
 const RecipeHeader: React.FC<Props> = ({ list, title }) => {
-
   return (
     <div className={style.container}>
       <p className={style.headline}>{getFormattedText(title)}</p>
