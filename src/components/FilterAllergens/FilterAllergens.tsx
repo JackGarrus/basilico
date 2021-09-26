@@ -1,5 +1,5 @@
 import { useFilteredRecipesByAllergene } from 'queries/veggies';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { stringify } from 'qs';
@@ -53,16 +53,17 @@ const FilterAllergens: React.FC = () => {
     },
   });
   const [payload, setPayload] = useState<string[] | []>([]);
-  const { data } = useFilteredRecipesByAllergene(payload);
+  const { mutate } = useFilteredRecipesByAllergene(payload);
   let history = useHistory();
 
   const onSave = handleSubmit(values => {
-    const allergenes = mergeSelectedAllergens(values);
+    const allergens = mergeSelectedAllergens(values);
     const query = stringify(
-      { allergenes },
+      { allergens },
       { arrayFormat: 'comma', encode: false, indices: false, delimiter: ',' },
     );
-    setPayload(allergenes);
+    setPayload(allergens);
+    mutate()
     history.push(`/recipes/filters/${query}`);
   });
 
@@ -79,6 +80,7 @@ const FilterAllergens: React.FC = () => {
     control,
     name: 'data.selected',
   });
+
 
   return (
     <form noValidate className={style.form}>

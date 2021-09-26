@@ -1,11 +1,10 @@
-import { Fruits, VegType } from 'types/types';
+import { Fruits, Recipe, VegType } from 'types/types';
 import { MONTHLY_VEGS } from '../data/monthlyVegs';
 import { RECIPES } from '../data/recipes';
 
 export const mergeAllVegs = () => [...getAllFruits(), ...getAllVegs()];
 
-export const filterAllergens = (selectedAllergens: string[]) => {
-  console.log(selectedAllergens); // gli stiamo mandando un'array con UNA SOLA stringa contenente tutti i filtri >_>
+export const filterAllergens = (selectedAllergens: string[]): Recipe[] => {
   return RECIPES.map(recipesPerIngredient =>
     recipesPerIngredient.recipes.map((recipe: any) => {
       if (

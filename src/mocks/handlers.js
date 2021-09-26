@@ -6,13 +6,13 @@ import { parse } from 'qs';
 
 export const handlers = [
   rest.get('/recipes', (req, res, ctx) => {
-    const params = req.url.searchParams.getAll('allergenes');
-    const allergenes = Object.values(
+    const params = req.url.searchParams.getAll('allergens');
+    const allergens = Object.values(
       parse(params, { comma: true, parseArrays: true, delimiter: ',' }),
     );
 
-    if (allergenes.length > 0) {
-      return res(ctx.status(200), ctx.json(filterAllergens(allergenes)));
+    if (allergens.length > 0) {
+      return res(ctx.status(200), ctx.json(filterAllergens(allergens)));
     } else {
       return res(ctx.status(200), ctx.json(RECIPES));
     }

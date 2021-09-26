@@ -19,8 +19,8 @@ import style from './RecipesList.module.scss';
 import Panel from 'components/Panel/Panel';
 
 const RecipesList: React.FC = () => {
-  const { ingredient, allergenes } =
-    useParams<{ ingredient?: string; allergenes?: string }>();
+  const { ingredient, allergens } =
+    useParams<{ ingredient?: string; allergens?: string }>();
   const { data: recipesList, isLoading: isRecipesListLoading } =
     useGetRecipes();
   const { data: monthlyVegs, isLoading: isMonthlyVegsLoading } =
@@ -55,15 +55,14 @@ const RecipesList: React.FC = () => {
       setRecipeList(ingredientRecipe.recipes);
     }
 
-    if (allergenes) {
-      //console.log(allergenes)
-      const arr = parse(allergenes, {
+    if (allergens) {
+      const arr = parse(allergens, {
         comma: true,
         parseArrays: false,
-      }).allergenes;
+      }).allergens;
       setParsedAllergens(arr as string[]);
     }
-  }, [recipesList, monthlyVegs, allergenes, ingredientRecipe]);
+  }, [recipesList, monthlyVegs, allergens, ingredientRecipe]);
 
   const trail = useTrail(recipeList?.length, {
     from: {
@@ -101,12 +100,12 @@ const RecipesList: React.FC = () => {
 
         <p className={style.sectionTitle}>
           Recipes{' '}
-          {allergenes!.length > 0
+          {allergens!.length > 0
             ? `${parsedAllergens?.join(', ')}`
-            : allergenes![0]}
+            : allergens![0]}
         </p>
         <div className={style.card}>
-          {!isRecipesListLoading &&
+          {!isRecipesListLoading && recipesList &&
             trail.map((props: any, i: number) => {
               const singleRecipe: SingleRecipe = recipeList[i];
               return (

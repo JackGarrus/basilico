@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { stringify } from 'qs';
 import { queryClient } from 'state/cache';
 
@@ -16,14 +16,13 @@ export function useGetRecipes() {
   return useQuery('recipes', () => fetch('/recipes').then(res => res.json()));
 }
 
-export function useFilteredRecipesByAllergene(allergenes: any) {
+export function useFilteredRecipesByAllergene(allergens: string[]) {
   const query = stringify(
-    { allergenes: allergenes },
+    { allergens: allergens },
     { arrayFormat: 'repeat', indices: true },
   );
-  return useQuery<any>(['recipes', allergenes], () =>
+  return useMutation<any>(['recipes', allergens], () =>
     fetch(`/recipes?${query}`).then(res => {
-      //queryClient.invalidateQueries('recipes')
       return res.json();
     }),
   );
